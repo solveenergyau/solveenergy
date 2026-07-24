@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solve Energy — Solar, solved.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#152621;
+    --navy-2:#1E362F;
+    --paper:#F1F4EC;
+    --paper-2:#E3E9DA;
+    --gold:#F0A93E;
+    --gold-deep:#D9852A;
+    --charge:#60A98D;
+    --charge-deep:#468B71;
+    --slate:#333D37;
+    --ink:#152621;
+    --line: rgba(21,38,33,0.14);
+    --line-light: rgba(241,244,236,0.16);
+    --max: 1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
+
+  h1,h2,h3,h4{font-family:'Sora', sans-serif; font-weight:600; letter-spacing:-0.01em; line-height:1.08;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--gold-deep); display:inline-block;}
+  :focus-visible{ outline:2px solid var(--gold-deep); outline-offset:3px; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(21,38,33,0.92);
+    backdrop-filter:blur(14px) saturate(1.3);
+    -webkit-backdrop-filter:blur(14px) saturate(1.3);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 4px 20px rgba(16,27,45,0.2);
+    border-radius:0 0 24px 24px;
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:82px;
+  }
+  .se-logo-wrap{ display:inline-flex; align-items:center; gap:10px; }
+  .se-logo-icon{ display:block; flex-shrink:0; }
+  .se-logo-text{ display:flex; flex-direction:column; gap:3px; }
+  .se-logo-word{
+    font-family:'Sora', sans-serif;
+    font-weight:700; font-size:19px; letter-spacing:-0.01em;
+    white-space:nowrap;
+  }
+  .se-logo-word .se-solve{ color:var(--navy); }
+  .se-logo-word .se-energy{ color:var(--gold-deep); }
+  .se-tagline{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px; letter-spacing:0.14em; font-weight:500;
+    color:var(--slate); white-space:nowrap;
+  }
+  header .se-logo-word .se-solve{ color:var(--paper); }
+  header .se-logo-word .se-energy{ color:var(--gold); }
+  header .se-tagline{ color:rgba(241,244,236,0.55); }
+
+  @keyframes se-pulse-scale{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(0.8); } }
+  @keyframes se-ray-pulse{ 0%,100%{ opacity:0.6; transform:scale(0.85); } 50%{ opacity:1; transform:scale(1.25); } }
+  .se-sun-circle{ transform-origin:84px 16px; animation:se-pulse-scale 2s ease-in-out infinite; }
+  .se-sun-rays{ transform-origin:84px 16px; animation:se-ray-pulse 2s ease-in-out infinite; }
+  .se-bite{ transform-origin:68px 38px; animation:se-pulse-scale 2s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){
+    .se-sun-circle, .se-sun-rays, .se-bite{ animation:none; }
+  }
+  .navlinks{display:flex; gap:6px; font-size:14.5px; align-items:center;}
+  .navlinks a{
+    text-decoration:none; color:rgba(241,244,236,0.82);
+    padding:9px 16px; border-radius:20px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.18);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  .navlinks a:hover{ background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.32); color:var(--paper); }
+  .nav-dropdown{ position:relative; }
+  .nav-dropdown-trigger{
+    display:flex; align-items:center; gap:6px; cursor:pointer;
+    font-family:'Manrope', sans-serif; font-size:14.5px; color:rgba(241,244,236,0.82);
+    padding:9px 16px; border-radius:20px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.18);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  .nav-dropdown-trigger:hover{ background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.32); color:var(--paper); }
+  .nav-dropdown-chevron{ width:12px; height:12px; transition:transform .2s cubic-bezier(.4,0,.2,1); }
+  .nav-dropdown.open .nav-dropdown-trigger{ background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.32); color:var(--paper); }
+  .nav-dropdown.open .nav-dropdown-chevron{ transform:rotate(180deg); }
+  .nav-dropdown-menu{
+    position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%) translateY(-8px) scale(0.97);
+    min-width:220px; background:var(--paper); border:1px solid var(--line); border-radius:12px;
+    padding:6px; box-shadow:0 16px 36px rgba(16,27,45,0.3); z-index:60;
+    opacity:0; visibility:hidden; transform-origin:top center;
+    transition:opacity .18s cubic-bezier(.4,0,.2,1), transform .18s cubic-bezier(.4,0,.2,1), visibility 0s linear .18s;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{
+    opacity:1; visibility:visible; transform:translateX(-50%) translateY(0) scale(1);
+    transition:opacity .18s cubic-bezier(.4,0,.2,1), transform .18s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-dropdown-menu a{
+    display:block; padding:10px 12px; border-radius:7px; font-size:14px;
+    color:var(--ink); opacity:1; background:none; border:none; backdrop-filter:none; text-decoration:none; transition:background .12s;
+  }
+  .nav-dropdown-menu a:hover{ background:rgba(63,190,142,0.14); color:var(--navy); border:none; }
+  .navcta{
+    font-family:'JetBrains Mono', monospace; font-size:13px;
+    border:1px solid var(--gold); padding:9px 16px; border-radius:20px;
+    text-decoration:none; color:var(--gold);
+    transition:background .15s, color .15s;
+  }
+  .navcta:hover{background:var(--gold); color:var(--navy);}
+  @media(max-width:840px){ .navlinks{display:none;} }
+
+  /* ---------- HERO / CALCULATOR ---------- */
+  .hero{ padding:64px 0 40px; border-bottom:1px solid var(--line); }
+  .hero-top{ max-width:1000px; margin-bottom:36px; }
+  .hero-top h1{
+    font-size:clamp(32px, 4.2vw, 50px);
+    margin:18px 0 20px;
+  }
+  .hero-top h1 em{ font-style:normal; color:var(--gold-deep); }
+  .hero-top p{ font-size:16.5px; color:var(--slate); max-width:620px; }
+
+  .solver{
+    border:2px solid rgba(255,255,255,0.9);
+    background:rgba(240,233,220,0.55);
+    backdrop-filter:blur(20px) saturate(1.4);
+    -webkit-backdrop-filter:blur(20px) saturate(1.4);
+    color:var(--ink);
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:
+      0 24px 50px -20px rgba(16,27,45,0.22),
+      0 0 0 1.5px rgba(255,255,255,0.5),
+      0 0 0 3px rgba(16,27,45,0.05),
+      inset 0 1.5px 0 rgba(255,255,255,0.95),
+      inset 0 -1.5px 0 rgba(16,27,45,0.09),
+      inset 1.5px 0 0 rgba(255,255,255,0.45),
+      inset -1.5px 0 0 rgba(16,27,45,0.06);
+  }
+  @media(max-width:900px){ .solver{grid-template-columns:1fr; max-width:none;} }
+
+  .solver-left{ padding:44px 40px 40px; }
+  @media(max-width:900px){ .solver-left{ padding-bottom:32px; } }
+
+  .equation-line{
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px; color:var(--gold-deep);
+    letter-spacing:0.06em; text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .bill-display{
+    font-family:'Sora', sans-serif;
+    font-weight:700;
+    font-size:clamp(48px,7vw,72px);
+    line-height:1;
+    display:flex; align-items:baseline; gap:6px;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .bill-display .cur{font-size:0.4em; color:var(--gold-deep); font-weight:600;}
+  .bill-caption{ color:var(--slate); font-size:14px; margin-bottom:28px;}
+
+  input[type=range]{
+    -webkit-appearance:none; appearance:none;
+    width:100%; height:3px; border-radius:2px; background:rgba(21,38,33,0.16);
+    outline:none; margin-bottom:10px;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none;
+    width:19px; height:19px; border-radius:50%;
+    background:var(--charge); cursor:pointer;
+    border:3px solid var(--paper);
+    box-shadow:0 2px 8px rgba(16,27,45,0.25), 0 0 0 1px var(--charge);
+  }
+  input[type=range]::-moz-range-thumb{
+    width:19px; height:19px; border-radius:50%;
+    background:var(--charge); cursor:pointer; border:3px solid var(--paper);
+  }
+  .range-labels{ display:flex; justify-content:space-between; font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--slate); margin-bottom:30px;}
+
+  .solved-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    color:var(--charge-deep); background:rgba(255,255,255,0.5);
+    border:1px solid rgba(96,169,141,0.5);
+    padding:7px 14px; border-radius:20px;
+  }
+
+  .solver-right{ padding:44px 40px 40px; display:flex; flex-direction:column; justify-content:center; gap:0; position:relative; }
+  @media(min-width:901px){ .solver-right::before{ content:""; position:absolute; left:0; top:44px; bottom:44px; width:1px; background:linear-gradient(180deg, transparent, rgba(21,38,33,0.14) 20%, rgba(21,38,33,0.14) 80%, transparent); } }
+  .metric-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:16px 0;
+  }
+  .metric-row:first-child{padding-top:0;}
+  .metric-row:last-child{padding-bottom:0;}
+  .metric-label{ font-size:14px; color:var(--ink); opacity:0.9; font-weight:600; max-width:180px;}
+  .metric-value{ font-family:'JetBrains Mono', monospace; font-size:24px; color:var(--ink); font-weight:700; text-align:right;}
+  .metric-value span{ font-size:13px; color:var(--charge-deep); font-weight:600; margin-left:4px;}
+  .solver-disclaimer{
+    font-size:11.5px; color:var(--ink); opacity:0.78; margin-top:22px; line-height:1.5;
+  }
+
+  /* ---------- SECTION generic ---------- */
+  section{ padding:88px 0; border-bottom:1px solid var(--line); scroll-margin-top:82px; background:var(--paper); position:relative; }
+  #how::before, #services::before, #process::before, #proof::before, #faq::before, #quote::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:5px;
+    background:linear-gradient(90deg, var(--gold) 0%, var(--charge) 100%);
+  }
+
+  /* ---------- SCROLL REVEAL: one continuous scroll; each page bubbles into view as it arrives ---------- */
+  @media (min-width:900px){
+    #how, #services, #process, #proof, #faq, #quote{
+      margin:0 22px 26px; border-radius:32px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      box-shadow:0 calc(10px * var(--reveal,1)) calc(34px * var(--reveal,1)) -14px rgba(16,27,45,0.22);
+      transform-origin:50% 30%;
+      will-change:transform, opacity, filter;
+      transform:
+        perspective(1800px)
+        translateZ(calc((var(--reveal,1) - 1) * 260px))
+        translateY(calc((1 - var(--reveal,1)) * 50px))
+        rotateX(calc((1 - var(--reveal,1)) * 5deg));
+      opacity:calc(0.3 + var(--reveal,1) * 0.7);
+      filter:blur(calc((1 - var(--reveal,1)) * 4px));
+    }
+    #quote{ border-color:var(--navy-2); }
+    footer{
+      margin:0 22px 22px; border-radius:32px;
+      border:1px solid var(--line);
+      overflow:hidden;
+    }
+  }
+  .section-head{ display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-bottom:56px; align-items:end;}
+  #how .section-head{ margin-bottom:20px; }
+  @media(max-width:760px){ .section-head{grid-template-columns:1fr; gap:16px;} }
+  .section-head h2{ font-size:clamp(28px,3.6vw,40px); margin-top:14px;}
+  .section-head .sub{ color:var(--slate); font-size:15.5px; }
+
+  /* ---------- HOW IT WORKS DIAGRAM ---------- */
+  .flow-wrap{ display:grid; grid-template-columns:1.3fr 1fr; gap:56px; align-items:start;}
+  @media(max-width:900px){ .flow-wrap{grid-template-columns:1fr;} }
+  .flow-detail{ border:1px solid var(--line); padding:28px; background:var(--paper-2); min-height:220px; }
+  .flow-detail .fd-index{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--gold-deep); margin-bottom:10px; display:block;}
+  .flow-detail h4{ font-size:19px; margin-bottom:10px;}
+  .flow-detail p{ color:var(--slate); font-size:14.5px;}
+  .flow-node{ cursor:pointer; }
+  .flow-node .node-shape{ transition:fill .18s, stroke .18s; }
+  .flow-node text{ font-family:'JetBrains Mono', monospace; font-size:12.5px; fill:var(--navy); text-transform:uppercase; letter-spacing:0.05em; opacity:0.72;}
+  .flow-node:hover text, .flow-node.active text{ opacity:1; }
+  .flow-node.active .node-shape{ fill:var(--gold); }
+  .flow-node[data-node="sun"] .node-shape{ fill:var(--gold); }
+  .flow-node[data-node="battery"].active .node-shape{ fill:var(--charge); }
+  .flow-line{ stroke:var(--line); stroke-width:1.5; fill:none; }
+  .pulse{ opacity:0.9; }
+  .pulse-gold{ fill:var(--gold); }
+  .pulse-charge{ fill:var(--charge); }
+
+  /* ---------- DAY / NIGHT ---------- */
+  .sky-guide{ display:none; }
+  .sky-traveler{ pointer-events:none; }
+  .sky-rays{ transform-origin:0px 0px; animation:sky-ray-spin 24s linear infinite; }
+  @keyframes sky-ray-spin{ 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+  @media (prefers-reduced-motion: reduce){
+    .sky-rays{ animation:none; }
+  }
+  .flow-sun-glow, .flow-sun-rays, .flow-sun-core, .flow-node[data-node="sun"] .node-shape{ transition:opacity .3s, fill .3s, stroke .3s; }
+  .flow-wrap.is-night .flow-sun-glow{ opacity:0; }
+  .flow-wrap.is-night .flow-sun-rays{ opacity:0.65; stroke:var(--gold-deep); }
+  .flow-wrap.is-night .flow-sun-core{ opacity:0.9; fill:var(--gold); }
+  .flow-wrap.is-night .flow-node[data-node="sun"] .node-shape{ fill:var(--paper-2); stroke:var(--line); }
+  .flow-wrap.is-night .flow-node[data-node="sun"] text{ opacity:0.45; }
+  .pulse-night-only{ display:none; }
+  .flow-wrap.is-night .pulse-night-only{ display:block; }
+  .flow-wrap.is-night .pulse-day-only{ display:none; }
+  .night-flow-label{
+    display:none; font-family:'JetBrains Mono', monospace; font-size:11px;
+    fill:var(--charge-deep); font-weight:500;
+  }
+  .flow-wrap.is-night .night-flow-label{ display:block; }
+  .batt-label{ display:block; } /* state of charge is relevant day and night */
+  .night-flow-label.tick{ animation:label-flash 0.6s ease-out; }
+  @keyframes label-flash{
+    0%{ fill:var(--gold); }
+    100%{ fill:var(--charge-deep); }
+  }
+
+  .flow-diagram-mobile{ display:none; }
+  @media(max-width:700px){
+    .flow-diagram-desktop{ display:none; }
+    .flow-diagram-mobile{ display:block; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .pulse animateMotion{ display:none; }
+    .pulse{ display:none; }
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media(max-width:760px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{ background:var(--paper); padding:34px 30px;}
+  .service-icon{ margin-bottom:18px; }
+  .service-card .num{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--gold-deep); margin-bottom:16px; display:block;}
+  .service-card h3{ font-size:21px; margin-bottom:10px;}
+  .service-card p{ color:var(--slate); font-size:14.5px; margin-bottom:16px;}
+  .service-card ul{ list-style:none; font-size:13.5px; color:var(--navy); }
+  .service-card li{ padding:5px 0; border-top:1px solid var(--line); }
+  .service-card li:first-child{border-top:none;}
+
+  /* ---------- PROCESS ---------- */
+  .process-list{ display:grid; grid-template-columns:repeat(5,1fr); gap:26px; }
+  @media(max-width:900px){ .process-list{ grid-template-columns:repeat(3,1fr); } }
+  @media(max-width:560px){ .process-list{ grid-template-columns:repeat(2,1fr); } }
+  .process-item{
+    display:flex; flex-direction:column; align-items:flex-start; gap:8px;
+    padding-top:22px; border-top:1px solid var(--line);
+  }
+  .process-icon{ margin-bottom:2px; }
+  .process-item .p-num{ font-family:'JetBrains Mono', monospace; font-size:14px; color:var(--gold-deep); }
+  .process-item h4{ font-size:16.5px; }
+  .process-item p{ color:var(--slate); font-size:13.5px; }
+
+  /* ---------- PROOF / STATS ---------- */
+  .stats-row{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); }
+  @media(max-width:760px){ .stats-row{grid-template-columns:1fr 1fr;} }
+  .stat{ padding:30px; border-right:1px solid var(--line); }
+  .stat:last-child{border-right:none;}
+  @media(max-width:760px){ .stat:nth-child(2n){border-right:none;} .stat{border-bottom:1px solid var(--line);} }
+  .stat .stat-val{ font-family:'Sora',sans-serif; font-size:36px; font-weight:700; color:var(--navy);}
+  .stat .stat-val span{ color:var(--gold-deep); }
+  .stat .stat-label{ font-size:13px; color:var(--slate); margin-top:6px;}
+
+  .quote-block{ margin-top:56px; border-left:2px solid var(--gold-deep); padding-left:28px; max-width:640px;}
+  .quote-block p{ font-size:19px; font-family:'Sora', sans-serif; font-weight:500; margin-bottom:12px;}
+  .quote-block .who{ font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--slate); }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{ border-top:1px solid var(--line); }
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    cursor:pointer; padding:22px 0; font-family:'Sora',sans-serif;
+    font-size:17px; font-weight:600; list-style:none;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{
+    content:"+"; font-family:'JetBrains Mono',monospace; font-size:20px; color:var(--gold-deep); font-weight:400;
+    transition:transform .15s;
+  }
+  .faq-item[open] summary::after{ transform:rotate(45deg); }
+  .faq-item .faq-a{ padding-bottom:24px; color:var(--slate); font-size:14.5px; max-width:640px;}
+
+  /* ---------- CTA / FOOTER ---------- */
+  .cta{ background:var(--navy); color:var(--paper); padding:80px 0; border-bottom:1px solid var(--line);}
+  .cta-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  @media(max-width:800px){ .cta-grid{grid-template-columns:1fr;} }
+  .cta h2{ font-size:clamp(28px,4vw,42px); color:var(--paper); margin-bottom:14px;}
+  .cta p{ color:rgba(241,244,236,0.65); max-width:420px;}
+  form.quote-form{ display:flex; flex-direction:column; gap:14px; }
+  form.quote-form input{
+    background:transparent; border:none; border-bottom:1px solid var(--line-light);
+    color:var(--paper); font-family:'Manrope',sans-serif; font-size:15px;
+    padding:12px 2px; outline:none;
+  }
+  form.quote-form input::placeholder{ color:rgba(241,244,236,0.45);}
+  form.quote-form input:focus{ border-bottom-color:var(--charge); }
+
+  /* ---------- CUSTOM DROPDOWN ---------- */
+  .select-wrap{ position:relative; }
+  .select-trigger{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:transparent; border:none; border-bottom:1px solid var(--line-light);
+    color:var(--paper); font-family:'Manrope',sans-serif; font-size:15px;
+    padding:12px 2px; cursor:pointer; text-align:left;
+    transition:border-color .2s;
+  }
+  .select-trigger .select-value.placeholder{ color:rgba(241,244,236,0.45); }
+  .select-chevron{ width:15px; height:15px; flex-shrink:0; color:rgba(241,244,236,0.55); transition:transform .25s cubic-bezier(.4,0,.2,1); }
+  .select-wrap.open .select-trigger{ border-bottom-color:var(--charge); }
+  .select-wrap.open .select-chevron{ transform:rotate(180deg); color:var(--charge); }
+  .select-wrap.error .select-trigger{ border-bottom-color:#e08a7d; }
+
+  .select-options{
+    position:absolute; left:0; right:0; top:calc(100% + 8px); z-index:30;
+    background:var(--navy-2); border:1px solid var(--line-light); border-radius:10px;
+    list-style:none; margin:0; padding:6px; max-height:220px; overflow-y:auto;
+    box-shadow:0 16px 36px rgba(7,14,12,0.4);
+    opacity:0; visibility:hidden; transform:translateY(-8px) scale(0.97); transform-origin:top center;
+    transition:opacity .2s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1), visibility 0s linear .2s;
+  }
+  .select-wrap.open .select-options{
+    opacity:1; visibility:visible; transform:translateY(0) scale(1);
+    transition:opacity .2s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1);
+  }
+  .select-options li{
+    padding:10px 12px; border-radius:7px; font-size:14.5px; color:rgba(241,244,236,0.85);
+    cursor:pointer; transition:background .12s, color .12s; display:flex; justify-content:space-between; align-items:center;
+  }
+  .select-options li:hover, .select-options li.is-active{ background:rgba(63,190,142,0.16); color:var(--paper); }
+  .select-options li[aria-selected="true"]{ color:var(--charge); }
+  .select-options li[aria-selected="true"]::after{ content:"✓"; font-size:12px; }
+
+  .submit-btn{
+    margin-top:10px; align-self:flex-start;
+    background:var(--charge); color:var(--navy); border:none;
+    font-family:'JetBrains Mono',monospace; font-size:13.5px; font-weight:500;
+    padding:14px 26px; cursor:pointer; transition:background .15s;
+  }
+  .submit-btn:hover{ background:var(--charge-deep); color:var(--paper); }
+  .form-note{ font-size:12px; color:rgba(241,244,236,0.4); }
+
+  footer{ padding:56px 0 0; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; font-size:13.5px; color:var(--slate); padding-bottom:40px; }
+  @media(max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
+  .foot-col h4{ font-family:'Sora', sans-serif; font-size:13px; color:var(--navy); margin-bottom:14px; letter-spacing:0.02em; }
+  .foot-links{ display:flex; flex-direction:column; gap:10px; }
+  .foot-links a{ text-decoration:none; color:var(--slate); transition:color .15s; }
+  .foot-links a:hover{ color:var(--navy); }
+  .foot-brand-blurb{ font-size:13px; color:var(--slate); margin-top:14px; max-width:220px; line-height:1.55; }
+  .foot-bottom{
+    border-top:1px solid var(--line); padding:22px 0;
+    display:flex; align-items:flex-start; gap:14px; font-size:12.5px; color:var(--slate); line-height:1.6;
+  }
+  .foot-bottom-icon{ flex-shrink:0; width:22px; height:22px; opacity:0.7; margin-top:1px; }
+  .foot-flags{ display:flex; gap:8px; flex-shrink:0; align-items:center; }
+  .foot-flags svg{ display:block; }
+  .foot-copyright{ padding-top:16px; padding-bottom:24px; font-size:12.5px; color:var(--slate); border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="se-logo-wrap">
+      <svg class="se-logo-icon" width="40" height="40" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="seBadgeGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--gold)"/>
+            <stop offset="100%" stop-color="var(--charge)"/>
+          </linearGradient>
+          <mask id="seBiteMaskNav" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+            <rect x="0" y="0" width="100" height="100" fill="white"/>
+            <circle class="se-bite" cx="68" cy="38" r="9" fill="black"/>
+          </mask>
+        </defs>
+        <rect x="0" y="0" width="100" height="100" rx="22" fill="url(#seBadgeGradNav)"/>
+        <rect x="27" y="38" width="42" height="30" rx="6" fill="none" stroke="var(--paper)" stroke-width="4.5" mask="url(#seBiteMaskNav)"/>
+        <rect x="69" y="46" width="6" height="14" rx="2" fill="var(--paper)"/>
+        <polygon points="52,42 39,57 47,57 43,66 58,50 49,50 52,42" fill="var(--paper)"/>
+        <g class="se-sun-group">
+          <g class="se-sun-rays">
+            <line x1="73.4" y1="0.8" x2="69.8" y2="-4.3" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="82.4" y1="-2.4" x2="81.8" y2="-8.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="91.8" y1="-0.8" x2="94.5" y2="-6.5" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="99.2" y1="5.4" x2="104.3" y2="1.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="102.4" y1="14.4" x2="108.7" y2="13.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="101.6" y1="21.7" x2="107.6" y2="23.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+          </g>
+          <circle class="se-sun-circle" cx="84" cy="16" r="17.5" fill="var(--gold)" stroke="none"/>
+        </g>
+      </svg>
+      <div class="se-logo-text">
+        <div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
+        <div class="se-tagline">SOLAR . BATTERY . SOLVED</div>
+      </div>
+    </div>
+    <div class="navlinks">
+      <a href="#solver">Your number</a>
+      <a href="#how">How it works</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <div class="nav-dropdown" id="navSupportDropdown">
+        <button type="button" class="nav-dropdown-trigger" id="navSupportTrigger" aria-haspopup="true" aria-expanded="false">
+          Support
+          <svg class="nav-dropdown-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navSupportMenu">
+          <a href="contact.html">Contact us</a>
+          <a href="support-ticket.html">Submit a Ticket</a>
+          <a href="refunds-policy.html">Refunds Policy</a>
+          <a href="complaints-handling.html">Complaints Handling Policy</a>
+          <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener">New Energy Tech Consumer Code</a>
+        </div>
+      </div>
+    </div>
+    <a class="navcta" href="#quote">Get a quote</a>
+  </nav>
+</header>
+
+<section class="hero" id="solver">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="eyebrow">Residential &amp; commercial solar</div>
+      <h1>Your power bill is a problem.<br>We're here to <em>solve</em> it.</h1>
+      <p>Solve Energy designs, installs and monitors solar systems that are sized around your actual usage — not a sales quota. Move the slider below to see roughly what your system looks like.</p>
+    </div>
+
+    <div class="solver">
+      <div class="solver-left">
+        <div class="equation-line">for x, where x = your solar system</div>
+        <div class="bill-display"><span class="cur">$</span><span id="billOut">210</span><span style="font-size:0.32em; color:var(--slate); font-weight:400;">/mo</span></div>
+        <div class="bill-caption">Your average monthly electricity bill</div>
+        <input type="range" id="billSlider" min="50" max="600" step="10" value="210" aria-label="Average monthly electricity bill in dollars">
+        <div class="range-labels"><span>$50</span><span>$600</span></div>
+        <span class="solved-tag">✓ Solved for your usage</span>
+      </div>
+      <div class="solver-right">
+        <div class="metric-row">
+          <div class="metric-label">Estimated system size</div>
+          <div class="metric-value" id="sysSize">—<span>kW</span></div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Panels required (500W)</div>
+          <div class="metric-value" id="panelCount">—<span>panels</span></div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Estimated monthly savings</div>
+          <div class="metric-value" id="savings">—<span>/mo</span></div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Estimated payback period</div>
+          <div class="metric-value" id="payback">—<span>yrs</span></div>
+        </div>
+        <div class="solver-disclaimer">Illustrative estimate based on typical usage patterns and average install costs. Your roof, orientation and tariff will change the real numbers — a site assessment gets you an exact figure, free of charge.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The variables</div>
+        <h2>How the sun becomes<br>a lower bill</h2>
+      </div>
+      <p class="sub">Solar isn't magic, it's a circuit. Select a stage below to see what it actually does — most of what people find confusing about solar is just unfamiliar vocabulary for an otherwise simple loop.</p>
+    </div>
+
+    <div class="flow-wrap" id="flowWrap">
+      <svg class="flow-diagram-desktop" viewBox="0 -10 640 370" id="flowSvgDesktop" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Illustrated diagram of solar energy flow from sun to panels, inverter, and then home, battery or grid">
+        <defs>
+          <radialGradient id="sunGlowD" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.5"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="travelGlowD" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.55"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="travelCoreD" cx="35%" cy="32%" r="70%"><stop offset="0%" stop-color="#FFE9BE"/><stop offset="55%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--gold-deep)"/></radialGradient>
+          <radialGradient id="moonGlowD" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--slate)" stop-opacity="0.4"/><stop offset="100%" stop-color="var(--slate)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="moonCoreD" cx="38%" cy="35%" r="75%"><stop offset="0%" stop-color="#EDF0EA"/><stop offset="60%" stop-color="var(--slate)"/><stop offset="100%" stop-color="var(--navy-2)"/></radialGradient>
+          <mask id="moonCrescentD" maskUnits="userSpaceOnUse" x="-30" y="-30" width="60" height="60">
+            <rect x="-30" y="-30" width="60" height="60" fill="white"/>
+            <circle cx="6" cy="-5" r="12.5" fill="black"/>
+          </mask>
+        </defs>
+        <!-- hidden motion guides: sun arcs above, moon arcs below, completing one loop -->
+        <path id="sunPathD" class="sky-guide" d="M60,180 Q315,-80 570,180" fill="none"/>
+        <path id="moonPathD" class="sky-guide" d="M570,180 Q315,440 60,180" fill="none"/>
+
+        <g class="sky-traveler">
+          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.5;1">
+            <mpath href="#sunPathD" xlink:href="#sunPathD"/>
+          </animateMotion>
+          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="1;1;0;0" keyTimes="0;0.47;0.53;1"/>
+          <circle r="40" fill="url(#travelGlowD)"/>
+          <circle r="26" fill="url(#travelGlowD)"/>
+          <g class="sky-rays" stroke="var(--gold)" stroke-linecap="round">
+            <line x1="0" y1="-19" x2="0" y2="-29" stroke-width="2.6"/>
+            <line x1="13.4" y1="-13.4" x2="20.5" y2="-20.5" stroke-width="2.2"/>
+            <line x1="19" y1="0" x2="27" y2="0" stroke-width="2.6"/>
+            <line x1="13.4" y1="13.4" x2="19" y2="19" stroke-width="1.8"/>
+            <line x1="0" y1="19" x2="0" y2="27" stroke-width="2.2"/>
+            <line x1="-13.4" y1="13.4" x2="-20.5" y2="20.5" stroke-width="2.6"/>
+            <line x1="-19" y1="0" x2="-28" y2="0" stroke-width="1.8"/>
+            <line x1="-13.4" y1="-13.4" x2="-19" y2="-19" stroke-width="2.2"/>
+          </g>
+          <circle r="13" fill="url(#travelCoreD)"/>
+        </g>
+
+        <g class="sky-traveler">
+          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.5;1">
+            <mpath href="#moonPathD" xlink:href="#moonPathD"/>
+          </animateMotion>
+          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="0;0;1;1" keyTimes="0;0.47;0.53;1"/>
+          <circle r="22" fill="url(#moonGlowD)"/>
+          <circle cx="-22" cy="-16" r="1.3" fill="var(--slate)"/>
+          <circle cx="17" cy="-19" r="1" fill="var(--slate)"/>
+          <circle cx="24" cy="10" r="1.1" fill="var(--slate)"/>
+          <circle r="12.5" fill="url(#moonCoreD)" mask="url(#moonCrescentD)"/>
+        </g>
+        <path id="pathSunPanelD" class="flow-line" d="M102,180 L198,180" />
+        <path id="pathPanelInvD" class="flow-line" d="M262,180 L358,180" />
+        <path id="pathInvHomeD" class="flow-line" d="M422,180 L490,180 L490,70 L528,70" />
+        <path id="pathInvBattD" class="flow-line" d="M422,180 L528,180" />
+        <path id="pathInvGridD" class="flow-line" d="M422,180 L490,180 L490,290 L528,290" />
+        <!-- energy pulses -->
+        <circle r="3.4" class="pulse pulse-gold pulse-day-only"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#pathSunPanelD" xlink:href="#pathSunPanelD"/></animateMotion></circle>
+        <circle r="3.4" class="pulse pulse-gold pulse-day-only"><animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#pathPanelInvD" xlink:href="#pathPanelInvD"/></animateMotion></circle>
+        <circle r="3.4" class="pulse pulse-charge"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0.6s"><mpath href="#pathInvHomeD" xlink:href="#pathInvHomeD"/></animateMotion></circle>
+        <circle r="3.4" class="pulse pulse-charge pulse-day-only"><animateMotion dur="1.9s" repeatCount="indefinite" begin="1s"><mpath href="#pathInvBattD" xlink:href="#pathInvBattD"/></animateMotion></circle>
+        <circle r="3.4" class="pulse pulse-charge pulse-day-only"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.15s"><mpath href="#pathInvGridD" xlink:href="#pathInvGridD"/></animateMotion></circle>
+        <!-- night: battery discharges through the inverter (majority), grid trickles in (minority) -->
+        <circle r="3.4" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattD" xlink:href="#pathInvBattD"/></animateMotion></circle>
+        <circle r="3.4" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0.65s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattD" xlink:href="#pathInvBattD"/></animateMotion></circle>
+        <circle r="2.2" class="pulse pulse-gold pulse-night-only"><animateMotion dur="4.5s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvGridD" xlink:href="#pathInvGridD"/></animateMotion></circle>
+        <g class="flow-node" data-node="sun">
+          <circle class="flow-sun-glow" cx="70" cy="180" r="52" fill="url(#sunGlowD)"/>
+          <rect class="node-shape" x="38.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <g class="flow-sun-rays" stroke="var(--paper)" stroke-width="2.4" stroke-linecap="round">
+                <line x1="87.0" y1="180.0" x2="96.0" y2="180.0"/>
+                <line x1="82.0" y1="192.0" x2="88.4" y2="198.4"/>
+                <line x1="70.0" y1="197.0" x2="70.0" y2="206.0"/>
+                <line x1="58.0" y1="192.0" x2="51.6" y2="198.4"/>
+                <line x1="53.0" y1="180.0" x2="44.0" y2="180.0"/>
+                <line x1="58.0" y1="168.0" x2="51.6" y2="161.6"/>
+                <line x1="70.0" y1="163.0" x2="70.0" y2="154.0"/>
+                <line x1="82.0" y1="168.0" x2="88.4" y2="161.6"/>
+                </g>
+                <circle class="flow-sun-core" cx="70" cy="180" r="13" fill="var(--paper)"/>
+          <text x="70" y="232" text-anchor="middle">Sun</text>
+        </g>
+        <g class="flow-node" data-node="panel">
+          <rect class="node-shape" x="198.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <g transform="translate(230,180) rotate(-14)">
+                  <rect x="-24" y="-15" width="48" height="30" rx="2" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+                  <line x1="-8" y1="-15" x2="-8" y2="15" stroke="var(--navy)" stroke-width="1.2"/>
+                  <line x1="8" y1="-15" x2="8" y2="15" stroke="var(--navy)" stroke-width="1.2"/>
+                  <line x1="-24" y1="0" x2="24" y2="0" stroke="var(--navy)" stroke-width="1.2"/>
+                </g>
+          <text x="230" y="232" text-anchor="middle">Panels</text>
+        </g>
+        <g class="flow-node" data-node="inverter">
+          <rect class="node-shape" x="358.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <rect x="370" y="162" width="40" height="36" rx="6" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+                <path d="M376,180 L384,180 L388,170 L394,190 L398,180 L404,180" fill="none" stroke="var(--charge-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="390" y="232" text-anchor="middle">Inverter</text>
+        </g>
+        <g class="flow-node" data-node="home">
+          <rect class="node-shape" x="528.0" y="38.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <path d="M540,76 L560,58 L580,76 L580,90 L540,90 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6" stroke-linejoin="round"/>
+                <rect x="554" y="78" width="10" height="12" fill="var(--navy)"/>
+          <text x="560" y="122" text-anchor="middle">Home</text>
+        </g>
+        <g class="flow-node" data-node="battery">
+          <rect class="node-shape" x="528.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <rect x="542" y="168" width="36" height="24" rx="3" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+                <rect x="576" y="175" width="4" height="10" rx="1" fill="var(--navy)"/>
+                <rect x="545" y="171" width="19" height="18" fill="var(--charge)"/>
+          <text x="560" y="232" text-anchor="middle">Battery</text>
+        </g>
+        <g class="flow-node" data-node="grid">
+          <rect class="node-shape" x="528.0" y="258.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <g stroke="var(--navy)" stroke-width="1.6" stroke-linecap="round" fill="none">
+            <line x1="548" y1="310" x2="560" y2="272"/>
+            <line x1="572" y1="310" x2="560" y2="272"/>
+            <line x1="546" y1="310" x2="574" y2="310"/>
+            <line x1="553" y1="282" x2="567" y2="282"/>
+            <line x1="551" y1="294" x2="569" y2="294"/>
+            <line x1="543" y1="278" x2="577" y2="278"/>
+            <line x1="543" y1="278" x2="535" y2="285"/>
+            <line x1="577" y1="278" x2="585" y2="285"/>
+          </g>
+          <circle cx="543" cy="278" r="1.6" fill="var(--navy)"/><circle cx="577" cy="278" r="1.6" fill="var(--navy)"/>
+          <text x="560" y="342" text-anchor="middle">Grid</text>
+        </g>
+        <text class="night-flow-label batt-label" id="battLabelD" x="560" y="247" text-anchor="middle">90%</text>
+      </svg>
+      <svg class="flow-diagram-mobile" viewBox="0 -75 300 635" id="flowSvgMobile" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Illustrated diagram of solar energy flow from sun to panels, inverter, and then home, battery or grid">
+        <defs>
+          <radialGradient id="sunGlowM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.5"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="travelGlowM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.55"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="travelCoreM" cx="35%" cy="32%" r="70%"><stop offset="0%" stop-color="#FFE9BE"/><stop offset="55%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--gold-deep)"/></radialGradient>
+          <radialGradient id="moonGlowM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--slate)" stop-opacity="0.4"/><stop offset="100%" stop-color="var(--slate)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="moonCoreM" cx="38%" cy="35%" r="75%"><stop offset="0%" stop-color="#EDF0EA"/><stop offset="60%" stop-color="var(--slate)"/><stop offset="100%" stop-color="var(--navy-2)"/></radialGradient>
+          <mask id="moonCrescentM" maskUnits="userSpaceOnUse" x="-22" y="-22" width="44" height="44">
+            <rect x="-22" y="-22" width="44" height="44" fill="white"/>
+            <circle cx="4.5" cy="-4" r="9.5" fill="black"/>
+          </mask>
+        </defs>
+        <!-- hidden motion guides: sun arcs above, moon arcs below, completing one loop -->
+        <path id="sunPathM" class="sky-guide" d="M40,58 Q150,-122 260,58" fill="none"/>
+        <path id="moonPathM" class="sky-guide" d="M260,58 Q150,238 40,58" fill="none"/>
+
+        <g class="sky-traveler">
+          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.5;1">
+            <mpath href="#sunPathM" xlink:href="#sunPathM"/>
+          </animateMotion>
+          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="1;1;0;0" keyTimes="0;0.47;0.53;1"/>
+          <circle r="30" fill="url(#travelGlowM)"/>
+          <circle r="20" fill="url(#travelGlowM)"/>
+          <g class="sky-rays" stroke="var(--gold)" stroke-linecap="round">
+            <line x1="0" y1="-14.5" x2="0" y2="-22" stroke-width="2.2"/>
+            <line x1="10.1" y1="-10.1" x2="15.5" y2="-15.5" stroke-width="1.8"/>
+            <line x1="14.5" y1="0" x2="20.5" y2="0" stroke-width="2.2"/>
+            <line x1="10.1" y1="10.1" x2="14.5" y2="14.5" stroke-width="1.5"/>
+            <line x1="0" y1="14.5" x2="0" y2="20.5" stroke-width="1.8"/>
+            <line x1="-10.1" y1="10.1" x2="-15.5" y2="15.5" stroke-width="2.2"/>
+            <line x1="-14.5" y1="0" x2="-21" y2="0" stroke-width="1.5"/>
+            <line x1="-10.1" y1="-10.1" x2="-14.5" y2="-14.5" stroke-width="1.8"/>
+          </g>
+          <circle r="10" fill="url(#travelCoreM)"/>
+        </g>
+
+        <g class="sky-traveler">
+          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.5;1">
+            <mpath href="#moonPathM" xlink:href="#moonPathM"/>
+          </animateMotion>
+          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="0;0;1;1" keyTimes="0;0.47;0.53;1"/>
+          <circle r="16" fill="url(#moonGlowM)"/>
+          <circle cx="-16" cy="-12" r="1" fill="var(--slate)"/>
+          <circle cx="13" cy="-14" r="0.8" fill="var(--slate)"/>
+          <circle r="9.5" fill="url(#moonCoreM)" mask="url(#moonCrescentM)"/>
+        </g>
+        <path id="pathSunPanelM" class="flow-line" d="M150,88 L150,156" />
+        <path id="pathPanelInvM" class="flow-line" d="M150,216 L150,284" />
+        <path id="pathInvHomeM" class="flow-line" d="M150,344 L150,392 L72,392 L72,432" />
+        <path id="pathInvBattM" class="flow-line" d="M150,344 L150,432" />
+        <path id="pathInvGridM" class="flow-line" d="M150,344 L150,392 L228,392 L228,432" />
+        <!-- energy pulses -->
+        <circle r="3.2" class="pulse pulse-gold pulse-day-only"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#pathSunPanelM" xlink:href="#pathSunPanelM"/></animateMotion></circle>
+        <circle r="3.2" class="pulse pulse-gold pulse-day-only"><animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#pathPanelInvM" xlink:href="#pathPanelInvM"/></animateMotion></circle>
+        <circle r="3.2" class="pulse pulse-charge"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0.6s"><mpath href="#pathInvHomeM" xlink:href="#pathInvHomeM"/></animateMotion></circle>
+        <circle r="3.2" class="pulse pulse-charge pulse-day-only"><animateMotion dur="1.9s" repeatCount="indefinite" begin="1s"><mpath href="#pathInvBattM" xlink:href="#pathInvBattM"/></animateMotion></circle>
+        <circle r="3.2" class="pulse pulse-charge pulse-day-only"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.15s"><mpath href="#pathInvGridM" xlink:href="#pathInvGridM"/></animateMotion></circle>
+        <!-- night: battery discharges through the inverter (majority), grid trickles in (minority) -->
+        <circle r="3.2" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattM" xlink:href="#pathInvBattM"/></animateMotion></circle>
+        <circle r="3.2" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0.65s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattM" xlink:href="#pathInvBattM"/></animateMotion></circle>
+        <circle r="2.1" class="pulse pulse-gold pulse-night-only"><animateMotion dur="4.5s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvGridM" xlink:href="#pathInvGridM"/></animateMotion></circle>
+        <g class="flow-node" data-node="sun">
+          <circle class="flow-sun-glow" cx="150" cy="58" r="48" fill="url(#sunGlowM)"/>
+          <rect class="node-shape" x="120.0" y="28.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <g class="flow-sun-rays" stroke="var(--paper)" stroke-width="2.2" stroke-linecap="round">
+                <line x1="165.0" y1="58.0" x2="173.0" y2="58.0"/>
+                <line x1="160.6" y1="68.6" x2="166.3" y2="74.3"/>
+                <line x1="150.0" y1="73.0" x2="150.0" y2="81.0"/>
+                <line x1="139.4" y1="68.6" x2="133.7" y2="74.3"/>
+                <line x1="135.0" y1="58.0" x2="127.0" y2="58.0"/>
+                <line x1="139.4" y1="47.4" x2="133.7" y2="41.7"/>
+                <line x1="150.0" y1="43.0" x2="150.0" y2="35.0"/>
+                <line x1="160.6" y1="47.4" x2="166.3" y2="41.7"/>
+                </g>
+                <circle class="flow-sun-core" cx="150" cy="58" r="11.5" fill="var(--paper)"/>
+          <text x="150" y="106" text-anchor="middle">Sun</text>
+        </g>
+        <g class="flow-node" data-node="panel">
+          <rect class="node-shape" x="120.0" y="156.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <g transform="translate(150,186) rotate(-14) scale(0.88)">
+                  <rect x="-24" y="-15" width="48" height="30" rx="2" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+                  <line x1="-8" y1="-15" x2="-8" y2="15" stroke="var(--navy)" stroke-width="1.2"/>
+                  <line x1="8" y1="-15" x2="8" y2="15" stroke="var(--navy)" stroke-width="1.2"/>
+                  <line x1="-24" y1="0" x2="24" y2="0" stroke="var(--navy)" stroke-width="1.2"/>
+                </g>
+          <text x="150" y="234" text-anchor="middle">Panels</text>
+        </g>
+        <g class="flow-node" data-node="inverter">
+          <rect class="node-shape" x="120.0" y="284.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <rect x="132" y="298" width="36" height="32" rx="6" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+                <path d="M138,314 L145,314 L148.5,305 L153.5,323 L157,314 L162,314" fill="none" stroke="var(--charge-deep)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="150" y="362" text-anchor="middle">Inverter</text>
+        </g>
+        <g class="flow-node" data-node="home">
+          <rect class="node-shape" x="42.0" y="432.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <path d="M55,467 L72,452 L89,467 L89,479 L55,479 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.5" stroke-linejoin="round"/>
+                <rect x="67" y="468" width="9" height="11" fill="var(--navy)"/>
+          <text x="72" y="510" text-anchor="middle">Home</text>
+        </g>
+        <g class="flow-node" data-node="battery">
+          <rect class="node-shape" x="120.0" y="432.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <rect x="135" y="452" width="30" height="20" rx="3" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.5"/>
+                <rect x="163" y="458" width="3.5" height="8" rx="1" fill="var(--navy)"/>
+                <rect x="137.5" y="454.5" width="16" height="15" fill="var(--charge)"/>
+          <text x="150" y="510" text-anchor="middle">Battery</text>
+        </g>
+        <g class="flow-node" data-node="grid">
+          <rect class="node-shape" x="198.0" y="432.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+          <g stroke="var(--navy)" stroke-width="1.31" stroke-linecap="round" fill="none">
+            <line x1="218.2" y1="478.4" x2="228.0" y2="447.2"/>
+            <line x1="237.8" y1="478.4" x2="228.0" y2="447.2"/>
+            <line x1="216.5" y1="478.4" x2="239.5" y2="478.4"/>
+            <line x1="222.3" y1="455.4" x2="233.7" y2="455.4"/>
+            <line x1="220.6" y1="465.3" x2="235.4" y2="465.3"/>
+            <line x1="214.1" y1="452.2" x2="241.9" y2="452.2"/>
+            <line x1="214.1" y1="452.2" x2="207.5" y2="457.9"/>
+            <line x1="241.9" y1="452.2" x2="248.5" y2="457.9"/>
+          </g>
+          <circle cx="214.1" cy="452.2" r="1.3" fill="var(--navy)"/><circle cx="241.9" cy="452.2" r="1.3" fill="var(--navy)"/>
+          <text x="228" y="510" text-anchor="middle">Grid</text>
+        </g>
+        <text class="night-flow-label batt-label" id="battLabelM" x="150" y="524" text-anchor="middle">90%</text>
+      </svg>
+
+      <div class="flow-detail" id="flowDetail">
+        <span class="fd-index">01 / SUN</span>
+        <h4>Sunlight</h4>
+        <p>Photons hit the panel surface. More direct sun means more energy — but panels still generate on cloudy days, just at a reduced rate. Sydney gets enough usable sun year-round to make solar worthwhile in almost every case.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The solution</div>
+        <h2>Three ways we solve it</h2>
+      </div>
+      <p class="sub">Every install starts with your usage data, not a standard package. These are the building blocks we combine to fit it.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <path d="M14,34 L30,20 L46,34 L46,46 L14,46 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6" stroke-linejoin="round"/>
+        <g transform="translate(30,26) rotate(-2)">
+          <rect x="-9" y="-5" width="18" height="11" rx="1" fill="var(--gold)" stroke="var(--navy)" stroke-width="1.2"/>
+          <line x1="-3" y1="-5" x2="-3" y2="6" stroke="var(--navy)" stroke-width="0.9"/>
+          <line x1="3" y1="-5" x2="3" y2="6" stroke="var(--navy)" stroke-width="0.9"/>
+          <line x1="-9" y1="0.5" x2="9" y2="0.5" stroke="var(--navy)" stroke-width="0.9"/>
+        </g>
+        <rect x="24" y="38" width="8" height="8" fill="var(--navy)"/>
+      </svg></div>
+        <span class="num">01</span>
+        <h3>Residential solar</h3>
+        <p>Rooftop systems sized to your household's actual draw, not a generic package.</p>
+        <ul>
+          <li>Free site assessment</li>
+          <li>Tier-1 panels, 25-yr warranty</li>
+          <li>Real-time monitoring app</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <rect x="17" y="14" width="26" height="32" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+        <line x1="17" y1="22" x2="43" y2="22" stroke="var(--navy)" stroke-width="1.1"/>
+        <line x1="17" y1="30" x2="43" y2="30" stroke="var(--navy)" stroke-width="1.1"/>
+        <line x1="17" y1="38" x2="43" y2="38" stroke="var(--navy)" stroke-width="1.1"/>
+        <line x1="25" y1="14" x2="25" y2="46" stroke="var(--navy)" stroke-width="1.1"/>
+        <line x1="35" y1="14" x2="35" y2="46" stroke="var(--navy)" stroke-width="1.1"/>
+        <rect x="19.5" y="17" width="3.5" height="3" fill="var(--gold)"/>
+        <rect x="27.5" y="17" width="3.5" height="3" fill="var(--gold)"/>
+        <rect x="37" y="17" width="3.5" height="3" fill="var(--gold)"/>
+        <rect x="19.5" y="25" width="3.5" height="3" fill="var(--charge)"/>
+        <rect x="37" y="25" width="3.5" height="3" fill="var(--gold)"/>
+        <rect x="27.5" y="33" width="3.5" height="3" fill="var(--gold)"/>
+      </svg></div>
+        <span class="num">02</span>
+        <h3>Commercial &amp; industrial</h3>
+        <p>Larger arrays and load analysis for businesses that run on tighter margins.</p>
+        <ul>
+          <li>Load-profile modelling</li>
+          <li>Minimal-disruption install</li>
+          <li>ROI &amp; depreciation reporting</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <rect x="16" y="22" width="26" height="17" rx="3" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+        <rect x="42" y="27" width="4" height="7" rx="1" fill="var(--navy)"/>
+        <rect x="19" y="25" width="14" height="11" fill="var(--charge)"/>
+        <path d="M27,25 L21,32 L25,32 L23,37 L30,30 L26,30 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="0.8" stroke-linejoin="round"/>
+      </svg></div>
+        <span class="num">03</span>
+        <h3>Battery &amp; storage</h3>
+        <p>Store what you generate during the day so you're not buying it back at night.</p>
+        <ul>
+          <li>Blackout backup circuits</li>
+          <li>Time-of-use optimisation</li>
+          <li>EV charger integration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The method</div>
+        <h2>From first call to<br>first kilowatt</h2>
+      </div>
+      <p class="sub">This is a genuine sequence — each step depends on the one before it. Most customers go from enquiry to a switched-on system in four to six weeks.</p>
+    </div>
+
+    <div class="process-list">
+      <div class="process-item">
+        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <path d="M16,36 L30,24 L44,36" fill="none" stroke="var(--navy)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="36" cy="38" r="7" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+        <line x1="41" y1="43" x2="46" y2="48" stroke="var(--navy)" stroke-width="1.8" stroke-linecap="round"/>
+      </svg></div>
+        <div class="p-num">01</div>
+        <h4>Assessment</h4>
+        <p class="p-desc">We analyse your bills, roof orientation and shading using satellite data and a site visit.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <path d="M18,14 L32,14 L38,20 L38,46 L18,46 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M32,14 L32,20 L38,20 Z" fill="none" stroke="var(--navy)" stroke-width="1.3" stroke-linejoin="round"/>
+        <line x1="22" y1="26" x2="32" y2="26" stroke="var(--navy)" stroke-width="1.2"/>
+        <line x1="22" y1="31" x2="32" y2="31" stroke="var(--navy)" stroke-width="1.2"/>
+        <path d="M28,42 L40,30 L44,34 L32,46 L27,47 Z" fill="var(--charge)" stroke="var(--navy)" stroke-width="1.3" stroke-linejoin="round"/>
+      </svg></div>
+        <div class="p-num">02</div>
+        <h4>Design &amp; quote</h4>
+        <p class="p-desc">A system sized to your usage, with a fixed price — no vague "from" figures.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <path d="M16,15 L34,15 L34,45 L16,45 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.5" stroke-linejoin="round"/>
+        <line x1="20" y1="22" x2="30" y2="22" stroke="var(--navy)" stroke-width="1.2"/>
+        <line x1="20" y1="27" x2="30" y2="27" stroke="var(--navy)" stroke-width="1.2"/>
+        <line x1="20" y1="32" x2="26" y2="32" stroke="var(--navy)" stroke-width="1.2"/>
+        <circle cx="38" cy="38" r="10" fill="var(--charge)" stroke="var(--navy)" stroke-width="1.5"/>
+        <path d="M33.5,38 L37,41.5 L43,34.5" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg></div>
+        <div class="p-num">03</div>
+        <h4>Approvals</h4>
+        <p class="p-desc">We handle council, grid-connection and rebate paperwork on your behalf.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <path d="M23,20 a7,7 0 1 1 -4.2,12.6 L14,37 l3,3 l4.4,-4.8 A7,7 0 0 1 23,20 Z"
+              fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6" stroke-linejoin="round"/>
+        <line x1="30" y1="30" x2="44" y2="44" stroke="var(--navy)" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="30" y1="30" x2="44" y2="44" stroke="var(--paper)" stroke-width="1.2" stroke-linecap="round"/>
+      </svg></div>
+        <div class="p-num">04</div>
+        <h4>Installation</h4>
+        <p class="p-desc">Licensed electricians install and test the system, typically within one day.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <rect x="21" y="13" width="18" height="34" rx="4" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
+        <line x1="27" y1="41" x2="33" y2="41" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M24,30 L28,30 L30,25 L33,35 L35,30 L36,30" fill="none" stroke="var(--charge-deep)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M42,18 a10,10 0 0 1 0,10" fill="none" stroke="var(--gold-deep)" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M45,15 a15,15 0 0 1 0,16" fill="none" stroke="var(--gold-deep)" stroke-width="1.3" stroke-linecap="round" opacity="0.6"/>
+      </svg></div>
+        <div class="p-num">05</div>
+        <h4>Activation &amp; monitoring</h4>
+        <p class="p-desc">System goes live, and you get app access to watch generation and savings in real time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The proof</div>
+        <h2>Numbers, not slogans</h2>
+      </div>
+      <p class="sub">We'd rather show our working than make claims we can't back up on your next bill.</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat"><div class="stat-val">4–6<span>wk</span></div><div class="stat-label">Enquiry to activation</div></div>
+      <div class="stat"><div class="stat-val">25<span>yr</span></div><div class="stat-label">Panel performance warranty</div></div>
+      <div class="stat"><div class="stat-val">98<span>%</span></div><div class="stat-label">Installs completed in a single day</div></div>
+      <div class="stat"><div class="stat-val">0<span>$</span></div><div class="stat-label">Cost for the initial assessment</div></div>
+    </div>
+
+    <div class="quote-block">
+      <p>"They sized the system to what we actually use, not what fit their van that week. Bill dropped by 80% the first month."</p>
+      <div class="who">— G. Whitfield, homeowner, Northern Beaches</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Common variables</div>
+        <h2>Questions people<br>actually ask</h2>
+      </div>
+      <p class="sub">If yours isn't here, the quote form below reaches a person, not a queue.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Do I need battery storage, or just panels?</summary>
+        <div class="faq-a">Not necessarily. If you're mostly home and using power during the day, panels alone can offset most of your bill. Battery storage matters more if you're out during daylight hours and using power at night — we'll model your specific usage before recommending one.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens on a cloudy day, or at night?</summary>
+        <div class="faq-a">Panels still generate on overcast days, just at reduced output. At night, or when you use more than the panels produce, you draw from the grid as normal — or from a battery if you have one installed.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How much does an install actually cost?</summary>
+        <div class="faq-a">It depends on system size, roof complexity and your existing switchboard. We give a fixed, itemised quote after the site assessment — not a "starting from" number designed to get you on the phone.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if I generate more than I use?</summary>
+        <div class="faq-a">Excess power is exported to the grid, and most retailers credit you for it under a feed-in tariff. We'll walk you through which tariff applies to your address during the assessment.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you handle rebates and paperwork?</summary>
+        <div class="faq-a">Yes — council approval, grid-connection applications and any relevant government rebate paperwork are handled as part of the install, not as an add-on.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="quote" style="border-bottom:none;">
+  <div class="wrap cta-grid">
+    <div>
+      <div class="eyebrow">Get a quote</div>
+      <h2>Let's solve your<br>specific number.</h2>
+      <p>Tell us where you are and roughly what you're paying now. We'll come back with a real, fixed quote — usually within two business days.</p>
+    </div>
+    <form class="quote-form" id="quoteForm">
+      <input type="text" placeholder="Full name" required>
+      <input type="email" placeholder="Email address" required>
+      <input type="tel" placeholder="Phone number">
+      <div class="select-wrap" id="propertyTypeWrap">
+        <button type="button" class="select-trigger" id="propertyTypeTrigger" aria-haspopup="listbox" aria-expanded="false">
+          <span class="select-value placeholder" id="propertyTypeValue">Property type</span>
+          <svg class="select-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="select-options" id="propertyTypeOptions" role="listbox" tabindex="-1" aria-label="Property type">
+          <li role="option" data-value="Residential">Residential</li>
+          <li role="option" data-value="Commercial">Commercial</li>
+          <li role="option" data-value="Industrial">Industrial</li>
+        </ul>
+      </div>
+      <input type="text" placeholder="Suburb / postcode">
+      <button type="submit" class="submit-btn">Request my quote →</button>
+      <span class="form-note">No obligation. We don't sell your details on.</span>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <div class="se-logo-wrap">
+        <svg class="se-logo-icon" width="26" height="26" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="seBadgeGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--gold)"/>
+              <stop offset="100%" stop-color="var(--charge)"/>
+            </linearGradient>
+            <mask id="seBiteMaskFoot" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+              <rect x="0" y="0" width="100" height="100" fill="white"/>
+              <circle class="se-bite" cx="68" cy="38" r="9" fill="black"/>
+            </mask>
+          </defs>
+          <rect x="0" y="0" width="100" height="100" rx="22" fill="url(#seBadgeGradFoot)"/>
+          <rect x="27" y="38" width="42" height="30" rx="6" fill="none" stroke="var(--paper)" stroke-width="4.5" mask="url(#seBiteMaskFoot)"/>
+          <rect x="69" y="46" width="6" height="14" rx="2" fill="var(--paper)"/>
+          <polygon points="52,42 39,57 47,57 43,66 58,50 49,50 52,42" fill="var(--paper)"/>
+          <g class="se-sun-group">
+            <g class="se-sun-rays">
+              <line x1="73.4" y1="0.8" x2="69.8" y2="-4.3" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+              <line x1="82.4" y1="-2.4" x2="81.8" y2="-8.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+              <line x1="91.8" y1="-0.8" x2="94.5" y2="-6.5" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+              <line x1="99.2" y1="5.4" x2="104.3" y2="1.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+              <line x1="102.4" y1="14.4" x2="108.7" y2="13.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+              <line x1="101.6" y1="21.7" x2="107.6" y2="23.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            </g>
+            <circle class="se-sun-circle" cx="84" cy="16" r="17.5" fill="var(--gold)" stroke="none"/>
+          </g>
+        </svg>
+        <div class="se-logo-text">
+          <div class="se-logo-word" style="font-size:15px;"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
+          <div class="se-tagline" style="font-size:8px;">SOLAR . BATTERY . SOLVED</div>
+        </div>
+      </div>
+      <p class="foot-brand-blurb">Residential and commercial solar, sized to your usage — not a standard package.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Company</h4>
+      <div class="foot-links">
+        <a href="#how">How it works</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <h4>Get started</h4>
+      <div class="foot-links">
+        <a href="#quote">Get a quote</a>
+        <a href="#solver">Estimate your savings</a>
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <h4>Support</h4>
+      <div class="foot-links">
+        <a href="contact.html">Contact us</a>
+        <a href="support-ticket.html">Submit a Ticket</a>
+        <a href="refunds-policy.html">Refunds Policy</a>
+        <a href="complaints-handling.html">Complaints Handling Policy</a>
+        <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener">New Energy Tech Consumer Code</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="foot-bottom">
+      <div class="foot-flags">
+        <svg viewBox="0 0 80 40" width="48" height="24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Australian Aboriginal Flag">
+  <clipPath id="flagClipA"><rect x="0" y="0" width="80" height="40" rx="5"/></clipPath>
+  <g clip-path="url(#flagClipA)">
+    <rect x="0" y="0" width="80" height="20" fill="#000000"/>
+    <rect x="0" y="20" width="80" height="20" fill="#FF0000"/>
+    <circle cx="40" cy="20" r="12.2" fill="#FFFF00"/>
+  </g>
+  <rect x="0.75" y="0.75" width="78.5" height="38.5" rx="4.5" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+</svg>
+        <svg viewBox="0 0 80 40" width="48" height="24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Torres Strait Islander Flag">
+  <clipPath id="flagClipT"><rect x="0" y="0" width="80" height="40" rx="5"/></clipPath>
+  <g clip-path="url(#flagClipT)">
+    <rect x="0" y="0" width="80" height="40" fill="#008364"/>
+    <rect x="0" y="6.7" width="80" height="26.6" fill="#000000"/>
+    <rect x="0" y="9" width="80" height="22" fill="#004A87"/>
+    <path d="M38.77,9.53 C38,10.3 37.3,11 36.8,11.7 C33,12.8 30.5,14.6 30.0,16.46 C30.0,18 30.15,19.3 30.33,20.5 L35.26,20.5 C35.1,18.5 35.5,16.5 36.7,14.8 C37.6,13.5 39,12.3 40,10.9 C41,12.3 42.4,13.5 43.3,14.8 C44.5,16.5 44.9,18.5 44.74,20.5 L49.67,20.5 C49.85,19.3 50.0,18 50.0,16.46 C49.5,14.6 47.0,12.8 43.2,11.7 C42.7,11 42.0,10.3 41.23,9.53 C40.9,10.0 40.4,10.4 40,10.4 C39.6,10.4 39.1,10.0 38.77,9.53 Z" fill="#FFFFFF"/>
+    <path d="M30.00,16.47 L29.67,18.07 L29.67,19.67 L29.87,21.27 L30.27,22.87 L30.80,24.47 L31.53,26.07 L31.93,26.87 L30.67,27.93 L29.35,28.95 L28.35,29.35 L26.2,31.1 L28.75,29.85 L29.6,29.55 C29.0,30.3 30.4,29.3 31.9,27.8 C33.7,26 35.0,23 35.26,20.5 C35.3,19 35.3,17.6 35.26,17.0 C33.6,17.3 31.8,17.3 30.00,16.47 Z" fill="#FFFFFF"/>
+    <path d="M50.00,16.47 L50.33,18.07 L50.33,19.67 L50.13,21.27 L49.73,22.87 L49.20,24.47 L48.47,26.07 L48.07,26.87 L49.33,27.93 L50.65,28.95 L51.65,29.35 L53.8,31.1 L51.25,29.85 L50.4,29.55 C51.0,30.3 49.6,29.3 48.1,27.8 C46.3,26 45.0,23 44.74,20.5 C44.7,19 44.7,17.6 44.74,17.0 C46.4,17.3 48.2,17.3 50.00,16.47 Z" fill="#FFFFFF"/>
+    <path d="M40.00,16.46 L40.88,18.99 L43.56,19.04 L41.43,20.66 L42.20,23.23 L40.00,21.70 L37.80,23.23 L38.57,20.66 L36.44,19.04 L39.12,18.99 Z" fill="#FFFFFF"/>
+  </g>
+
+  <rect x="0.75" y="0.75" width="78.5" height="38.5" rx="4.5" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+</svg>
+      </div>
+      <span>Solve Energy acknowledges the Traditional Owners of the land on which we work, live, and connect, and pays respect to Elders past and present.</span>
+    </div>
+  </div>
+
+  <div class="wrap foot-copyright">© 2026 Solve Energy. Licensed solar retailer &amp; installer.</div>
+</footer>
+
+
+<script>
+  // ---- Bill solver calculator ----
+  const slider = document.getElementById('billSlider');
+  const billOut = document.getElementById('billOut');
+  const sysSize = document.getElementById('sysSize');
+  const panelCount = document.getElementById('panelCount');
+  const savings = document.getElementById('savings');
+  const payback = document.getElementById('payback');
+
+  function updateSolver(){
+    const bill = parseInt(slider.value, 10);
+    billOut.textContent = bill;
+
+    const kw = Math.max(1.5, bill / 27);           // rough sizing heuristic
+    const panels = Math.ceil((kw * 1000) / 500);     // 500W panels
+    const monthlySavings = Math.round(bill * 0.82);  // ~82% offset
+    const installCost = kw * 1150 + 900;             // per-kW cost + fixed soft costs (permits, admin, switchboard)
+    const annualSavings = monthlySavings * 12;
+    const paybackYrs = (installCost / annualSavings);
+
+    sysSize.innerHTML = kw.toFixed(1) + '<span>kW</span>';
+    panelCount.innerHTML = panels + '<span>panels</span>';
+    savings.innerHTML = '$' + monthlySavings + '<span>/mo</span>';
+    payback.innerHTML = paybackYrs.toFixed(1) + '<span>yrs</span>';
+  }
+  slider.addEventListener('input', updateSolver);
+  updateSolver();
+
+  // ---- Energy flow diagram ----
+  const flowData = {
+    sun: {
+      title:'Sunlight',
+      idx:'01 / SUN',
+      body:"Photons hit the panel surface. More direct sun means more energy — but panels still generate on cloudy days, just at a reduced rate. Sydney gets enough usable sun year-round to make solar worthwhile in almost every case."
+    },
+    panel: {
+      title:'Solar panels',
+      idx:'02 / PANELS',
+      body:"Panels convert sunlight into direct current (DC) electricity. Panel count and placement are set during your design phase based on roof size, tilt, and shading — not a fixed catalogue size."
+    },
+    inverter: {
+      title:'Inverter',
+      idx:'03 / INVERTER',
+      body:"DC electricity from the panels isn't usable in your home. The inverter converts it to alternating current (AC) — the same form of power your appliances and the grid run on."
+    },
+    home: {
+      title:'Your home or business',
+      idx:'04 / HOME',
+      body:"AC power is used immediately by whatever's running — lights, appliances, machinery. This is the cheapest power you'll ever use, because it never touches the grid."
+    },
+    battery: {
+      title:'Battery',
+      idx:'04 / BATTERY',
+      body:"Power you generate but don't use immediately can be stored in a battery, ready for the evening or a blackout, instead of being sold back at a lower rate than you'd pay to buy it."
+    },
+    grid: {
+      title:'The grid',
+      idx:'04 / GRID',
+      body:"Any surplus beyond your use and battery capacity is exported to the grid, usually earning a feed-in credit on your bill. At night, you draw back from the grid as needed."
+    }
+  };
+
+  const nodes = document.querySelectorAll('.flow-node');
+  const detail = document.getElementById('flowDetail');
+
+  function setNode(key){
+    nodes.forEach(n => n.classList.toggle('active', n.dataset.node === key));
+    const d = flowData[key];
+    detail.innerHTML = '<span class="fd-index">'+d.idx+'</span><h4>'+d.title+'</h4><p>'+d.body+'</p>';
+  }
+  nodes.forEach(n => {
+    n.addEventListener('mouseenter', () => setNode(n.dataset.node));
+    n.addEventListener('click', () => setNode(n.dataset.node));
+    n.setAttribute('tabindex','0');
+    n.addEventListener('focus', () => setNode(n.dataset.node));
+    n.addEventListener('keypress', (e) => { if(e.key === 'Enter') setNode(n.dataset.node); });
+  });
+  setNode('sun');
+
+  // ---- Header "Support" dropdown ----
+  (function(){
+    const wrap = document.getElementById('navSupportDropdown');
+    const trigger = document.getElementById('navSupportTrigger');
+    if(!wrap || !trigger) return;
+
+    function close(){
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    function toggle(){
+      const isOpen = wrap.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+    trigger.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+    document.addEventListener('click', (e) => { if(!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') close(); });
+  })();
+
+  // ---- Custom "Property type" dropdown ----
+  (function(){
+    const wrap = document.getElementById('propertyTypeWrap');
+    const trigger = document.getElementById('propertyTypeTrigger');
+    const valueEl = document.getElementById('propertyTypeValue');
+    const options = document.getElementById('propertyTypeOptions');
+    const items = Array.from(options.querySelectorAll('li'));
+    let activeIndex = -1;
+
+    function openList(){
+      wrap.classList.add('open');
+      wrap.classList.remove('error');
+      trigger.setAttribute('aria-expanded', 'true');
+      const selectedIdx = items.findIndex(li => li.getAttribute('aria-selected') === 'true');
+      activeIndex = selectedIdx >= 0 ? selectedIdx : 0;
+      highlight();
+    }
+    function closeList(){
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+      items.forEach(li => li.classList.remove('is-active'));
+    }
+    function highlight(){
+      items.forEach((li, i) => li.classList.toggle('is-active', i === activeIndex));
+    }
+    function choose(li){
+      items.forEach(l => l.removeAttribute('aria-selected'));
+      li.setAttribute('aria-selected', 'true');
+      valueEl.textContent = li.dataset.value;
+      valueEl.classList.remove('placeholder');
+      wrap.dataset.value = li.dataset.value;
+      closeList();
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', () => {
+      wrap.classList.contains('open') ? closeList() : openList();
+    });
+    items.forEach(li => li.addEventListener('click', () => choose(li)));
+
+    trigger.addEventListener('keydown', (e) => {
+      if(['Enter',' ','ArrowDown','ArrowUp'].includes(e.key)){
+        e.preventDefault();
+        if(!wrap.classList.contains('open')) openList();
+        else if(e.key === 'Enter') choose(items[activeIndex]);
+      } else if(e.key === 'Escape'){
+        closeList();
+      }
+    });
+    options.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowDown'){ e.preventDefault(); activeIndex = Math.min(activeIndex+1, items.length-1); highlight(); }
+      else if(e.key === 'ArrowUp'){ e.preventDefault(); activeIndex = Math.max(activeIndex-1, 0); highlight(); }
+      else if(e.key === 'Enter'){ e.preventDefault(); choose(items[activeIndex]); }
+      else if(e.key === 'Escape'){ closeList(); trigger.focus(); }
+    });
+    document.addEventListener('click', (e) => {
+      if(!wrap.contains(e.target)) closeList();
+    });
+
+    wrap.markInvalid = function(){
+      wrap.classList.add('error');
+      trigger.focus();
+    };
+  })();
+
+  // ---- Quote form (demo — no backend) ----
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const wrap = document.getElementById('propertyTypeWrap');
+    if(!wrap.dataset.value){
+      wrap.markInvalid();
+      return;
+    }
+    const btn = this.querySelector('.submit-btn');
+    btn.textContent = 'Request sent ✓';
+    btn.disabled = true;
+  });
+
+  // ---- Scroll reveal: each page bubbles into view as it naturally scrolls up into the viewport ----
+  (function(){
+    const ids = ['how','services','process','proof','faq','quote'];
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+    if(!sections.length) return;
+
+    const REVEAL_DIST = 420; // px of scroll over which a page settles into place as it arrives
+    let active = window.innerWidth >= 900;
+    let ticking = false;
+
+    function update(){
+      ticking = false;
+      if(!active) return;
+      const vh = window.innerHeight;
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        const raw = (vh - rect.top) / REVEAL_DIST;
+        const linear = Math.max(0, Math.min(1, raw));
+        const progress = 1 - Math.pow(1 - linear, 2); // ease-out: fast start, gentle settle
+        sec.style.setProperty('--reveal', progress.toFixed(4));
+      });
+    }
+    function onScroll(){
+      if(!ticking){
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', () => {
+      active = window.innerWidth >= 900;
+      if(active) update();
+      else sections.forEach(sec => sec.style.removeProperty('--reveal'));
+    });
+    update();
+  })();
+
+  // ---- Battery percentage + day/night cycle: one synchronized clock, stepping in multiples of 10 ----
+  // Day: 10% → 100% over the sun's 10s crossing (one +10 step per second).
+  // Night: 100% → 10% over the moon's 10s crossing, until it meets the sun again.
+  (function(){
+    const battEls = document.querySelectorAll('.batt-label');
+    const wrap = document.getElementById('flowWrap');
+    if(!battEls.length || !wrap) return;
+
+    let isNight = false;
+    let step = 0; // 0–9 across the current 10s phase
+
+    function render(){
+      const pct = isNight ? (100 - step * 10) : (step + 1) * 10;
+      battEls.forEach(el => el.textContent = pct + '%');
+      battEls.forEach(el => {
+        el.classList.remove('tick');
+        void el.offsetWidth; // restart flash animation
+        el.classList.add('tick');
+      });
+    }
+
+    wrap.classList.remove('is-night');
+    render();
+
+    setInterval(() => {
+      step++;
+      if(step >= 10){
+        step = 0;
+        isNight = !isNight;
+        wrap.classList.toggle('is-night', isNight);
+      }
+      render();
+    }, 1000);
+  })();
+</script>
+
+
+</body>
+</html>
