@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact us — Solve Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#152621;
+    --navy-2:#1E362F;
+    --paper:#F1F4EC;
+    --paper-2:#E3E9DA;
+    --gold:#F0A93E;
+    --gold-deep:#D9852A;
+    --charge:#3FBE8E;
+    --charge-deep:#2E9C73;
+    --slate:#333D37;
+    --ink:#152621;
+    --line: rgba(21,38,33,0.14);
+    --line-light: rgba(241,244,236,0.16);
+    --max: 1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Manrope', sans-serif; font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 32px;}
+  header{ border-bottom:1px solid var(--line); }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:82px; max-width:1180px; }
+.se-logo-wrap{ display:inline-flex; align-items:center; gap:10px; }
+  .se-logo-icon{ display:block; flex-shrink:0; }
+  .se-logo-text{ display:flex; flex-direction:column; gap:3px; }
+  .se-logo-word{
+    font-family:'Sora', sans-serif;
+    font-weight:700; font-size:19px; letter-spacing:-0.01em;
+    white-space:nowrap;
+  }
+  .se-logo-word .se-solve{ color:var(--navy); }
+  .se-logo-word .se-energy{ color:var(--gold-deep); }
+  .se-tagline{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px; letter-spacing:0.14em; font-weight:500;
+    color:var(--slate); white-space:nowrap;
+  }
+
+  @keyframes se-pulse-scale{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(0.8); } }
+  @keyframes se-ray-pulse{ 0%,100%{ opacity:0.6; transform:scale(0.85); } 50%{ opacity:1; transform:scale(1.25); } }
+  .se-sun-circle{ transform-origin:84px 16px; animation:se-pulse-scale 2s ease-in-out infinite; }
+  .se-sun-rays{ transform-origin:84px 16px; animation:se-ray-pulse 2s ease-in-out infinite; }
+  .se-bite{ transform-origin:68px 38px; animation:se-pulse-scale 2s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){
+    .se-sun-circle, .se-sun-rays, .se-bite{ animation:none; }
+  }
+
+  .navlinks{ display:flex; align-items:center; gap:26px; }
+  .navlinks a{ text-decoration:none; color:var(--navy); opacity:0.72; font-size:14.5px; }
+  .navlinks a:hover{ opacity:1; }
+  .nav-dropdown{ position:relative; }
+  .nav-dropdown-trigger{
+    display:flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer;
+    font-family:'Manrope', sans-serif; font-size:14.5px; color:var(--navy); opacity:0.72;
+    padding:0; transition:opacity .15s;
+  }
+  .nav-dropdown-trigger:hover{ opacity:1; }
+  .nav-dropdown-chevron{ width:12px; height:12px; transition:transform .2s cubic-bezier(.4,0,.2,1); }
+  .nav-dropdown.open .nav-dropdown-trigger{ opacity:1; }
+  .nav-dropdown.open .nav-dropdown-chevron{ transform:rotate(180deg); }
+  .nav-dropdown-menu{
+    position:absolute; top:calc(100% + 16px); right:0; transform:translateY(-8px) scale(0.97);
+    min-width:220px; background:var(--paper); border:1px solid var(--line); border-radius:12px;
+    padding:6px; box-shadow:0 16px 36px rgba(16,27,45,0.16); z-index:60;
+    opacity:0; visibility:hidden; transform-origin:top right;
+    transition:opacity .18s cubic-bezier(.4,0,.2,1), transform .18s cubic-bezier(.4,0,.2,1), visibility 0s linear .18s;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{
+    opacity:1; visibility:visible; transform:translateY(0) scale(1);
+    transition:opacity .18s cubic-bezier(.4,0,.2,1), transform .18s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-dropdown-menu a{
+    display:block; padding:10px 12px; border-radius:7px; font-size:14px;
+    color:var(--ink); opacity:1; text-decoration:none; transition:background .12s;
+  }
+  .nav-dropdown-menu a:hover{ background:rgba(63,190,142,0.14); color:var(--navy); }
+
+  main{ padding:72px 0 100px; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold-deep); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--gold-deep); display:inline-block;}
+  h1{ font-family:'Sora', sans-serif; font-weight:700; font-size:clamp(28px,4vw,42px); margin-bottom:20px; letter-spacing:-0.01em; }
+  .body-copy p{ color:var(--slate); margin-bottom:16px; max-width:600px; }
+  .placeholder-box{
+    margin-top:36px; padding:28px; border:1px dashed var(--line); border-radius:14px;
+    background:var(--paper-2); font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--slate);
+  }
+  .contact-layout{ display:grid; grid-template-columns:1.3fr 1fr; gap:56px; margin-top:36px; align-items:start; }
+  @media(max-width:760px){ .contact-layout{ grid-template-columns:1fr; } }
+  .contact-form{ display:flex; flex-direction:column; gap:20px; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media(max-width:500px){ .field-row{ grid-template-columns:1fr; } }
+  .field label{
+    display:block; font-family:'JetBrains Mono', monospace; font-size:11.5px;
+    letter-spacing:0.06em; text-transform:uppercase; color:var(--slate); margin-bottom:8px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--paper-2); border:1px solid var(--line); border-radius:8px;
+    padding:12px 14px; font-family:'Manrope', sans-serif; font-size:14.5px; color:var(--ink);
+    outline:none; transition:border-color .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--gold-deep); }
+  .field textarea{ resize:vertical; min-height:120px; }
+  .contact-submit{
+    align-self:flex-start; background:var(--gold); color:var(--navy); border:none;
+    font-family:'JetBrains Mono', monospace; font-size:13.5px; font-weight:500;
+    padding:14px 28px; border-radius:8px; cursor:pointer; transition:background .15s;
+  }
+  .contact-submit:hover{ background:var(--gold-deep); color:var(--paper); }
+  .contact-submit:disabled{ opacity:0.6; cursor:default; }
+  .contact-note{ font-size:12px; color:var(--slate); }
+
+  .direct-panel{ background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:28px; }
+  .direct-item{ padding:16px 0; border-top:1px solid var(--line); }
+  .direct-item:first-child{ border-top:none; padding-top:0; }
+  .direct-label{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--gold-deep); margin-bottom:6px; display:block;
+  }
+  .direct-value{ font-size:15px; color:var(--ink); text-decoration:none; }
+  .direct-value:hover{ color:var(--gold-deep); }
+  .direct-sub{ font-size:12.5px; color:var(--slate); margin-top:3px; }
+  .back-link{
+    display:inline-flex; align-items:center; gap:8px; margin-top:40px;
+    font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--navy); text-decoration:none;
+    border-bottom:1px solid var(--line); padding-bottom:2px;
+  }
+  .back-link:hover{ border-bottom-color:var(--navy); }
+  footer{ border-top:1px solid var(--line); padding:28px 0; }
+  .foot-simple{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px; color:var(--slate); max-width:1180px; margin:0 auto; padding:0 32px; }
+  .page-top-accent{
+    height:5px; background:linear-gradient(90deg, var(--gold) 0%, var(--charge) 100%);
+    margin:0 -32px 0; border-radius:3px 3px 0 0;
+  }
+  .page-header-row{ display:flex; align-items:center; gap:20px; margin-top:32px; }
+  .page-icon{ flex-shrink:0; }
+  .page-header-row h1{ margin-bottom:0; }
+
+  /* ---------- light-mode custom dropdown (matches the main site's Property type control) ---------- */
+  .select-wrap{ position:relative; }
+  .select-trigger{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:var(--paper-2); border:1px solid var(--line); border-radius:8px;
+    color:var(--ink); font-family:'Manrope',sans-serif; font-size:14.5px;
+    padding:12px 14px; cursor:pointer; text-align:left;
+    transition:border-color .2s;
+  }
+  .select-trigger .select-value.placeholder{ color:var(--slate); }
+  .select-chevron{ width:15px; height:15px; flex-shrink:0; color:var(--slate); transition:transform .25s cubic-bezier(.4,0,.2,1); }
+  .select-wrap.open .select-trigger{ border-color:var(--gold-deep); }
+  .select-wrap.open .select-chevron{ transform:rotate(180deg); color:var(--gold-deep); }
+  .select-wrap.error .select-trigger{ border-color:#c9503f; }
+
+  .select-options{
+    position:absolute; left:0; right:0; top:calc(100% + 8px); z-index:30;
+    background:var(--paper); border:1px solid var(--line); border-radius:10px;
+    list-style:none; margin:0; padding:6px; max-height:220px; overflow-y:auto;
+    box-shadow:0 16px 36px rgba(16,27,45,0.18);
+    opacity:0; visibility:hidden; transform:translateY(-8px) scale(0.97); transform-origin:top center;
+    transition:opacity .2s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1), visibility 0s linear .2s;
+  }
+  .select-wrap.open .select-options{
+    opacity:1; visibility:visible; transform:translateY(0) scale(1);
+    transition:opacity .2s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1);
+  }
+  .select-options li{
+    padding:10px 12px; border-radius:7px; font-size:14px; color:var(--ink);
+    cursor:pointer; transition:background .12s, color .12s; display:flex; justify-content:space-between; align-items:center;
+  }
+  .select-options li:hover, .select-options li.is-active{ background:rgba(63,190,142,0.14); color:var(--navy); }
+  .select-options li[aria-selected="true"]{ color:var(--charge-deep); font-weight:500; }
+  .select-options li[aria-selected="true"]::after{ content:"✓"; font-size:12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" style="text-decoration:none;">
+      <div class="se-logo-wrap">
+        <svg class="se-logo-icon" width="40" height="40" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="seBadgeGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--gold)"/>
+            <stop offset="100%" stop-color="var(--charge)"/>
+          </linearGradient>
+          <mask id="seBiteMaskNav" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+            <rect x="0" y="0" width="100" height="100" fill="white"/>
+            <circle class="se-bite" cx="68" cy="38" r="9" fill="black"/>
+          </mask>
+        </defs>
+        <rect x="0" y="0" width="100" height="100" rx="22" fill="url(#seBadgeGradNav)"/>
+        <rect x="27" y="38" width="42" height="30" rx="6" fill="none" stroke="var(--paper)" stroke-width="4.5" mask="url(#seBiteMaskNav)"/>
+        <rect x="69" y="46" width="6" height="14" rx="2" fill="var(--paper)"/>
+        <polygon points="52,42 39,57 47,57 43,66 58,50 49,50 52,42" fill="var(--paper)"/>
+        <g class="se-sun-group">
+          <g class="se-sun-rays">
+            <line x1="73.4" y1="0.8" x2="69.8" y2="-4.3" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="82.4" y1="-2.4" x2="81.8" y2="-8.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="91.8" y1="-0.8" x2="94.5" y2="-6.5" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="99.2" y1="5.4" x2="104.3" y2="1.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="102.4" y1="14.4" x2="108.7" y2="13.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+            <line x1="101.6" y1="21.7" x2="107.6" y2="23.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+          </g>
+          <circle class="se-sun-circle" cx="84" cy="16" r="17.5" fill="var(--gold)" stroke="none"/>
+        </g>
+      </svg>
+        <div class="se-logo-text">
+          <div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
+          <div class="se-tagline">SOLAR . BATTERY . SOLVED</div>
+        </div>
+      </div>
+    </a>
+    <div class="navlinks">
+      <a href="index.html">Back to home</a>
+      <div class="nav-dropdown" id="navSupportDropdown">
+        <button type="button" class="nav-dropdown-trigger" id="navSupportTrigger" aria-haspopup="true" aria-expanded="false">
+          Support
+          <svg class="nav-dropdown-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navSupportMenu">
+          <a href="contact.html">Contact us</a>
+          <a href="support-ticket.html">Submit a Ticket</a>
+          <a href="refunds-policy.html">Refunds Policy</a>
+          <a href="complaints-handling.html">Complaints Handling Policy</a>
+          <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener">New Energy Tech Consumer Code</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-top-accent"></div>
+    <div class="eyebrow">Support</div>
+    <div class="page-header-row">
+      <div class="page-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="58" height="58" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
+        <path d="M20,17 c2,-2 5,-2 6,0 l3,5 c1,1.5 0.5,3 -0.5,4 l-2,2 c1.5,4 4.5,7 8.5,8.5 l2,-2 c1,-1 2.5,-1.5 4,-0.5 l5,3 c2,1 2,4 0,6 c-3,3 -8,4 -12,2 c-7,-3 -13,-9 -16,-16 c-2,-4 -1,-9 2,-12 Z"
+      fill="var(--paper)" stroke="var(--navy)" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg></div>
+      <h1>Contact us</h1>
+    </div>
+    <div class="body-copy">
+      <p>Sales questions, support, or just want to talk through your options — send us a message and we'll get back to you, usually within one business day.</p>
+    </div>
+
+    <div class="contact-layout">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_INFO_FORM_ID" method="POST">
+        <div class="field-row">
+          <div class="field">
+            <label for="cName">Full name</label>
+            <input type="text" id="cName" name="name" required>
+          </div>
+          <div class="field">
+            <label for="cEmail">Email address</label>
+            <input type="email" id="cEmail" name="email" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="cPhone">Phone number</label>
+            <input type="tel" id="cPhone" name="phone" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label>Reason for contact</label>
+            <div class="select-wrap" id="reasonWrap">
+              <button type="button" class="select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="select-value placeholder">Select one</span>
+                <svg class="select-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="select-options" role="listbox" tabindex="-1" aria-label="Reason for contact">
+                <li role="option" data-value="New quote / sales enquiry">New quote / sales enquiry</li>
+                <li role="option" data-value="Existing customer support">Existing customer support</li>
+                <li role="option" data-value="Media &amp; partnerships">Media &amp; partnerships</li>
+                <li role="option" data-value="Something else">Something else</li>
+              </ul>
+              <input type="hidden" name="reason" id="reasonHidden">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cSubject">Subject</label>
+          <input type="text" id="cSubject" name="subject" required>
+        </div>
+
+        <div class="field">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" name="message" required placeholder="Tell us a bit about what you're after."></textarea>
+        </div>
+
+        <button type="submit" class="contact-submit" id="contactSubmitBtn">Send message →</button>
+        <span class="contact-note">We'll reply to the email address you provide.</span>
+      </form>
+
+      <!-- Placeholder contact details — swap in Solve Energy's real phone, email, and hours once confirmed. -->
+      <div class="direct-panel">
+        <div class="direct-item">
+          <span class="direct-label">Phone</span>
+          <a class="direct-value" href="tel:+610000000000">1300 000 000</a>
+          <!-- Placeholder hours — replace with Solve Energy's actual business hours once confirmed -->
+          <div class="direct-sub">Call anytime — business hours are Mon–Fri, 9am–5pm</div>
+        </div>
+        <div class="direct-item">
+          <span class="direct-label">Email</span>
+          <a class="direct-value" href="mailto:info@solveenergy.com.au">info@solveenergy.com.au</a>
+          <div class="direct-sub">Usually within one business day</div>
+        </div>
+        <div class="direct-item">
+          <span class="direct-label">Support</span>
+          <a class="direct-value" href="support-ticket.html">Submit a ticket</a>
+          <div class="direct-sub">For existing customers with a system issue</div>
+        </div>
+      </div>
+    </div>
+
+    <a class="back-link" href="index.html">← Back to Solve Energy</a>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-simple">
+    <span>© 2026 Solve Energy. Licensed solar retailer &amp; installer.</span>
+    <span><a href="index.html" style="text-decoration:none; color:var(--slate);">solveenergy.com.au</a></span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const wrap = document.getElementById('navSupportDropdown');
+    const trigger = document.getElementById('navSupportTrigger');
+    if(!wrap || !trigger) return;
+    function close(){ wrap.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+    function toggle(){
+      const isOpen = wrap.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+    trigger.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+    document.addEventListener('click', (e) => { if(!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') close(); });
+  })();
+
+  // ---- Reusable custom dropdown (matches the main site's component) ----
+  function initCustomSelect(wrapId){
+    const wrap = document.getElementById(wrapId);
+    if(!wrap) return;
+    const trigger = wrap.querySelector('.select-trigger');
+    const valueEl = wrap.querySelector('.select-value');
+    const placeholderText = valueEl.textContent;
+    const options = wrap.querySelector('.select-options');
+    const items = Array.from(options.querySelectorAll('li'));
+    let activeIndex = -1;
+
+    function openList(){
+      wrap.classList.add('open');
+      wrap.classList.remove('error');
+      trigger.setAttribute('aria-expanded', 'true');
+      const selectedIdx = items.findIndex(li => li.getAttribute('aria-selected') === 'true');
+      activeIndex = selectedIdx >= 0 ? selectedIdx : 0;
+      highlight();
+    }
+    function closeList(){
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+      items.forEach(li => li.classList.remove('is-active'));
+    }
+    function highlight(){
+      items.forEach((li, i) => li.classList.toggle('is-active', i === activeIndex));
+    }
+    function choose(li){
+      items.forEach(l => l.removeAttribute('aria-selected'));
+      li.setAttribute('aria-selected', 'true');
+      valueEl.textContent = li.dataset.value;
+      valueEl.classList.remove('placeholder');
+      wrap.dataset.value = li.dataset.value;
+      const hidden = wrap.querySelector('input[type="hidden"]');
+      if(hidden) hidden.value = li.dataset.value;
+      closeList();
+      trigger.focus();
+    }
+    wrap.resetSelect = function(){
+      items.forEach(l => l.removeAttribute('aria-selected'));
+      valueEl.textContent = placeholderText;
+      valueEl.classList.add('placeholder');
+      wrap.dataset.value = '';
+      const hidden = wrap.querySelector('input[type="hidden"]');
+      if(hidden) hidden.value = '';
+    };
+
+    trigger.addEventListener('click', () => {
+      wrap.classList.contains('open') ? closeList() : openList();
+    });
+    items.forEach(li => li.addEventListener('click', () => choose(li)));
+
+    trigger.addEventListener('keydown', (e) => {
+      if(['Enter',' ','ArrowDown','ArrowUp'].includes(e.key)){
+        e.preventDefault();
+        if(!wrap.classList.contains('open')) openList();
+        else if(e.key === 'Enter') choose(items[activeIndex]);
+      } else if(e.key === 'Escape'){
+        closeList();
+      }
+    });
+    options.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowDown'){ e.preventDefault(); activeIndex = Math.min(activeIndex+1, items.length-1); highlight(); }
+      else if(e.key === 'ArrowUp'){ e.preventDefault(); activeIndex = Math.max(activeIndex-1, 0); highlight(); }
+      else if(e.key === 'Enter'){ e.preventDefault(); choose(items[activeIndex]); }
+      else if(e.key === 'Escape'){ closeList(); trigger.focus(); }
+    });
+    document.addEventListener('click', (e) => {
+      if(!wrap.contains(e.target)) closeList();
+    });
+    wrap.markInvalid = function(){ wrap.classList.add('error'); trigger.focus(); };
+  }
+
+  initCustomSelect('reasonWrap');
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const form = this;
+    const reasonWrap = document.getElementById('reasonWrap');
+    if(!reasonWrap.dataset.value){ reasonWrap.markInvalid(); return; }
+    const btn = document.getElementById('contactSubmitBtn');
+    const originalLabel = 'Send message →';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if(response.ok){
+        btn.textContent = 'Message sent ✓';
+        form.reset();
+        if(reasonWrap.resetSelect) reasonWrap.resetSelect();
+        setTimeout(() => { btn.disabled = false; btn.textContent = originalLabel; }, 4000);
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    }).catch(() => {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    });
+  });
+</script>
+
+</body>
+</html>
