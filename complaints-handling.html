@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Complaints Handling Policy — Solve Energy</title>
+<title>Complaints Handling Policy | Solve Energy</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -51,9 +51,9 @@
 
   @keyframes se-pulse-scale{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(0.8); } }
   @keyframes se-ray-pulse{ 0%,100%{ opacity:0.6; transform:scale(0.85); } 50%{ opacity:1; transform:scale(1.25); } }
-  .se-sun-circle{ transform-origin:84px 16px; animation:se-pulse-scale 2s ease-in-out infinite; }
-  .se-sun-rays{ transform-origin:84px 16px; animation:se-ray-pulse 2s ease-in-out infinite; }
-  .se-bite{ transform-origin:68px 38px; animation:se-pulse-scale 2s ease-in-out infinite; }
+  .se-sun-circle{ transform-origin:90px 10px; animation:se-pulse-scale 2s ease-in-out infinite; }
+  .se-sun-rays{ transform-origin:90px 10px; animation:se-ray-pulse 2s ease-in-out infinite; }
+  .se-bite{ transform-origin:71px 36px; animation:se-pulse-scale 2s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce){
     .se-sun-circle, .se-sun-rays, .se-bite{ animation:none; }
   }
@@ -91,9 +91,10 @@
   main{ padding:72px 0 100px; }
   .eyebrow{
     font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:0.14em;
-    text-transform:uppercase; color:var(--gold-deep); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+    text-transform:uppercase; color:var(--gold-deep); margin-bottom:18px;
+    display:inline-flex; background:rgba(217,133,42,0.12);
+    border:1px solid rgba(217,133,42,0.35); border-radius:20px; padding:6px 14px;
   }
-  .eyebrow::before{content:""; width:22px; height:1px; background:var(--gold-deep); display:inline-block;}
   h1{ font-family:'Sora', sans-serif; font-weight:700; font-size:clamp(28px,4vw,42px); margin-bottom:20px; letter-spacing:-0.01em; }
   .body-copy p{ color:var(--slate); margin-bottom:16px; max-width:600px; }
   .placeholder-box{
@@ -180,23 +181,22 @@
           </linearGradient>
           <mask id="seBiteMaskNav" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
             <rect x="0" y="0" width="100" height="100" fill="white"/>
-            <circle class="se-bite" cx="68" cy="38" r="9" fill="black"/>
+            <circle class="se-bite" cx="71" cy="36" r="9" fill="black"/>
           </mask>
         </defs>
         <rect x="0" y="0" width="100" height="100" rx="22" fill="url(#seBadgeGradNav)"/>
-        <rect x="27" y="38" width="42" height="30" rx="6" fill="none" stroke="var(--paper)" stroke-width="4.5" mask="url(#seBiteMaskNav)"/>
-        <rect x="69" y="46" width="6" height="14" rx="2" fill="var(--paper)"/>
-        <polygon points="52,42 39,57 47,57 43,66 58,50 49,50 52,42" fill="var(--paper)"/>
+        <rect x="30" y="36" width="42" height="30" rx="6" fill="none" stroke="var(--paper)" stroke-width="4.5" mask="url(#seBiteMaskNav)"/>
+        <rect x="72" y="44" width="6" height="14" rx="2" fill="var(--paper)"/>
+        <polygon points="55,40 42,55 50,55 46,64 61,48 52,48 55,40" fill="var(--paper)"/>
         <g class="se-sun-group">
           <g class="se-sun-rays">
-            <line x1="73.4" y1="0.8" x2="69.8" y2="-4.3" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
-            <line x1="82.4" y1="-2.4" x2="81.8" y2="-8.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
-            <line x1="91.8" y1="-0.8" x2="94.5" y2="-6.5" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
-            <line x1="99.2" y1="5.4" x2="104.3" y2="1.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
-            <line x1="102.4" y1="14.4" x2="108.7" y2="13.8" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
-            <line x1="101.6" y1="21.7" x2="107.6" y2="23.7" stroke="var(--gold)" stroke-width="3.8" stroke-linecap="round"/>
+          <path d="M80.38,-9.30 L73.26,-17.86 L77.47,-7.55 Z" fill="var(--gold)"/>
+          <path d="M96.85,-10.45 L97.86,-21.53 L93.55,-11.27 Z" fill="var(--gold)"/>
+          <path d="M109.30,0.38 L117.86,-6.74 L107.55,-2.53 Z" fill="var(--gold)"/>
+          <path d="M110.45,16.85 L121.53,17.86 L111.27,13.55 Z" fill="var(--gold)"/>
+          <path d="M99.62,29.30 L106.74,37.86 L102.53,27.55 Z" fill="var(--gold)"/>
           </g>
-          <circle class="se-sun-circle" cx="84" cy="16" r="17.5" fill="var(--gold)" stroke="none"/>
+          <circle class="se-sun-circle" cx="90" cy="10" r="17.5" fill="var(--gold)" stroke="none"/>
         </g>
       </svg>
         <div class="se-logo-text">
@@ -219,6 +219,7 @@
           <a href="support-ticket.html">Submit a Ticket</a>
           <a href="refunds-policy.html">Refunds Policy</a>
           <a href="complaints-handling.html">Complaints Handling Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
           <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener">New Energy Tech Consumer Code</a>
         </div>
       </div>
@@ -261,23 +262,24 @@
       <p>We'll investigate the issue, which may include contacting the installer, checking system data, or requesting further information from you. We aim to keep you updated at each meaningful step rather than leaving you waiting.</p>
 
       <h2>5. Resolution timeframe</h2>
-      <p>Most complaints are resolved within 15 business days. If a complaint is more complex and needs longer, we'll tell you why and give you a revised timeframe.</p>
+      <p>If your complaint isn't resolved sooner, we'll provide you with an update within 15 business days of receiving it. We'll provide a final response within 25 business days, unless we've both agreed to a longer timeframe for a more complex issue.</p>
 
       <h2>6. If you're not satisfied</h2>
-      <p>If you're not happy with how your complaint has been handled, you can ask for it to be reviewed by a more senior member of our team. If it's still unresolved, you may be able to escalate it to your state's fair trading body or an applicable energy/solar industry ombudsman scheme.</p>
+      <p>If you're not happy with how your complaint has been handled, you can ask for it to be reviewed by a more senior member of our team. If it's still unresolved, you may be able to escalate it to an external dispute resolution (ombudsman) scheme, your state's Fair Trading or consumer affairs body, or the New Energy Tech Consumer Code Administrator.</p>
 
       <h2>7. Record keeping</h2>
       <p>We keep a record of all complaints and how they were resolved, which helps us identify and fix recurring issues.</p>
 
-      <span class="legal-updated">Status: pending — not yet published as an active policy.</span>
+      <span class="legal-updated">Status: pending. Not yet published as an active policy.</span>
     </div>
     <a class="back-link" href="index.html">← Back to Solve Energy</a>
   </div>
 </main>
 
 <footer>
-  <div class="foot-simple">
-    <span>© 2026 Solve Energy. Licensed solar retailer &amp; installer.</span>
+  <div class="foot-simple" style="flex-direction:column; align-items:flex-start; gap:6px;">
+    <span>© 2026 Solve Energy. Licensed solar retailer &amp; installer. ABN 82 248 386 385.</span>
+    <span>Solve Energy aligns its practices with the <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener" style="color:var(--slate); text-decoration:underline;">New Energy Tech Consumer Code</a>.</span>
     <span><a href="index.html" style="text-decoration:none; color:var(--slate);">solveenergy.com.au</a></span>
   </div>
 </footer>
