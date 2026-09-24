@@ -155,7 +155,7 @@
 
 
   /* ── hero ── */
-  .hero{padding:8px 0 0; text-align:center;}
+  .hero{padding:8px 0 28px; text-align:center;}
   .hero h1{
     font-family:'Outfit',sans-serif; font-weight:700;
     font-size:clamp(34px,5vw,60px); line-height:1.06; letter-spacing:-.018em;
@@ -834,6 +834,11 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
     text-decoration:none;font-size:14.5px;font-weight:600;transition:background .16s,box-shadow .16s;}
   .seelink:hover{background:rgba(244,162,89,.12);box-shadow:inset 0 0 0 1.5px var(--dawn);}
 
+  .logolink{display:inline-flex;text-decoration:none;color:inherit;border-radius:14px;
+    transition:opacity .16s;}
+  .logolink:hover{opacity:.82;}
+  .logolink:focus-visible{outline:2px solid var(--dawn);outline-offset:4px;}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","@id":"https://www.solveenergy.com.au/#org",
@@ -857,7 +862,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
 
 <div class="greenbar">
   <nav>
-    <div class="se-logo-wrap">
+    <a class="logolink" href="index.html" aria-label="Solve Energy home"><div class="se-logo-wrap">
       <svg class="se-logo-icon" width="40" height="40" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="seBadgeGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -888,7 +893,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
         <div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
         <div class="se-tagline">SOLAR . BATTERY . SOLVED</div>
       </div>
-    </div>
+    </div></a>
     <div class="navlinks">
       <a href="#calc">Your day</a>
       <a href="technical-details.html">How it works</a>
@@ -1273,7 +1278,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
       </ul>
     </div>
     <div class="form">
-      <form id="assessForm" action="https://formsubmit.co/ajax/info@solveenergy.com.au" method="POST">
+      <form id="assessForm" action="https://formsubmit.co/ajax/94d9555e8237bbda86023f6892eb6fdc" method="POST">
         <input type="hidden" name="_subject" value="New assessment request — solveenergy.com.au">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
@@ -1340,7 +1345,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
 <footer class="v2">
   <div class="fgrid">
     <div class="fbrand">
-      <div class="se-logo-wrap">
+      <a class="logolink" href="index.html" aria-label="Solve Energy home"><div class="se-logo-wrap">
         <svg class="se-logo-icon" width="34" height="34" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="seBadgeGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--charge)"/></linearGradient>
@@ -1358,7 +1363,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
           <circle cx="90" cy="10" r="17.5" fill="var(--gold)"/></svg>
         <div class="se-logo-text"><div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
         <div class="se-tagline">SOLAR . BATTERY . SOLVED</div></div>
-      </div>
+      </div></a>
       <p class="blurb">Residential and commercial solar across Sydney, sized to your usage rather than to a standard package.</p>
     </div>
     <div class="fcol">

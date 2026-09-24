@@ -997,6 +997,11 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
   .eqnote{margin-top:18px;font-size:13.8px;line-height:1.6;color:var(--faint);max-width:70ch;}
   .eqnote b{color:var(--ink);font-weight:600;}
 
+  .logolink{display:inline-flex;text-decoration:none;color:inherit;border-radius:14px;
+    transition:opacity .16s;}
+  .logolink:hover{opacity:.82;}
+  .logolink:focus-visible{outline:2px solid var(--dawn);outline-offset:4px;}
+
 </style>
 </head>
 <body>
@@ -1009,7 +1014,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
 
 <div class="greenbar">
   <nav>
-    <div class="se-logo-wrap">
+    <a class="logolink" href="index.html" aria-label="Solve Energy home"><div class="se-logo-wrap">
       <svg class="se-logo-icon" width="40" height="40" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="seBadgeGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1040,7 +1045,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
         <div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
         <div class="se-tagline">SOLAR . BATTERY . SOLVED</div>
       </div>
-    </div>
+    </div></a>
     <div class="navlinks">
       <a href="index.html#calc">Your day</a>
       <a href="technical-details.html">How it works</a>
@@ -1134,7 +1139,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
 <footer class="v2">
   <div class="fgrid">
     <div class="fbrand">
-      <div class="se-logo-wrap">
+      <a class="logolink" href="index.html" aria-label="Solve Energy home"><div class="se-logo-wrap">
         <svg class="se-logo-icon" width="34" height="34" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="seBadgeGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--charge)"/></linearGradient>
@@ -1152,7 +1157,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
           <circle cx="90" cy="10" r="17.5" fill="var(--gold)"/></svg>
         <div class="se-logo-text"><div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
         <div class="se-tagline">SOLAR . BATTERY . SOLVED</div></div>
-      </div>
+      </div></a>
       <p class="blurb">Residential and commercial solar across Sydney, sized to your usage rather than to a standard package.</p>
     </div>
     <div class="fcol">

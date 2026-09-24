@@ -27,13 +27,10 @@ DEPLOY (GitHub Pages)
 
 AFTER DEPLOY — REQUIRED
 -----------------------
-1. FORMS: all three forms post to
-   https://formsubmit.co/ajax/info@solveenergy.com.au
-   Submit the assessment form once on the live site, then open the activation
-   email at info@solveenergy.com.au and click the link. Until that is done,
-   NO enquiry is delivered. The activation email contains a hashed endpoint —
-   swap it into the three form action attributes so the address is not exposed
-   in the page source.
+1. FORMS: activated. All three forms post to
+   https://formsubmit.co/ajax/94d9555e8237bbda86023f6892eb6fdc
+   which delivers to info@solveenergy.com.au. Send a test through the live
+   assessment form after deploying and confirm the email arrives.
 2. SEARCH: verify solveenergy.com.au in Google Search Console and request
    indexing. The favicon and Organization JSON-LD only take effect after a
    re-crawl, which can take days.
