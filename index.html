@@ -3,75 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solve Energy | Solar, solved.</title>
+<title>Solar Panel & Battery Installation Sydney | Solve Energy</title>
+<meta name="description" content="Solve Energy installs solar panels and home batteries across Sydney. Free bill analysis and site assessment, fixed-price quotes, monitoring from day one.">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta property="og:title" content="Solar Panel & Battery Installation Sydney | Solve Energy">
+<meta property="og:description" content="Solve Energy installs solar panels and home batteries across Sydney. Free bill analysis and site assessment, fixed-price quotes, monitoring from day one.">
+<meta property="og:image" content="https://www.solveenergy.com.au/logo-512.png">
+<meta property="og:url" content="https://www.solveenergy.com.au/">
+<meta property="og:site_name" content="Solve Energy">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://www.solveenergy.com.au/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Sora:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
+    --night:#17253F;
+    --dawn:#F4A259;
+    --noon:#6FA8DC;
+    --dusk:#C4553B;
+    --ground:#F4F7FA;
+    --warm:#FFF3DC;
+    --cool:#DDEAF6;
+    --sand:#FBE7CE;
+    --body:#3A4A63;
+    --hair:#D5DEE9;
+    --max:1120px;
+    /* theme-able surfaces */
+    --page:#F4F7FA;        /* page background      */
+    --surface:#FCFDFF;     /* bubble panels        */
+    --surface-2:#FFFFFF;   /* cards inside bubbles */
+    --edge:#D3DFEC;        /* panel borders        */
+    --ink:#17253F;         /* headings             */
+    --muted:#3A4A63;       /* body copy            */
+    --faint:#6B7C93;       /* intro copy           */
+    --bar:#152621;         /* nav + footer         */
+    --warm-a:#FDF4E6;      /* warm panel start     */
+    --warm-b:#F3DEC2;      /* warm panel end       */
+    --warm-ink:#3C3223;    /* text on warm panel   */
+    --field:#F8FAFC;       /* form inputs          */
+    --hair:#D5DEE9;
+    --gold-deep:#D9852A;
+    /* original brand-mark palette — the logo SVG depends on these */
     --navy:#152621;
-    --navy-2:#1E362F;
     --paper:#F1F4EC;
-    --paper-2:#E3E9DA;
     --gold:#F0A93E;
     --gold-deep:#D9852A;
     --charge:#60A98D;
-    --charge-deep:#468B71;
-    --slate:#333D37;
-    --ink:#152621;
-    --line: rgba(21,38,33,0.14);
-    --line-light: rgba(241,244,236,0.16);
-    --max: 1180px;
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box;margin:0;padding:0;}
   body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Manrope', sans-serif;
-    font-size:16px;
-    line-height:1.55;
+    background:var(--page); color:var(--night);
+    font-family:'Inter',sans-serif; font-size:16px; line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 34px;}
   a{color:inherit;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
-  @media(max-width:640px){ .wrap{padding:0 20px;} }
 
-  h1,h2,h3,h4{font-family:'Sora', sans-serif; font-weight:600; letter-spacing:-0.01em; line-height:1.08;}
-  .mono{font-family:'JetBrains Mono', monospace;}
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--gold-deep);
-    display:inline-flex;
-    background:rgba(217,133,42,0.12);
-    border:1px solid rgba(217,133,42,0.35);
-    border-radius:20px;
-    padding:6px 14px;
-  }
-  :focus-visible{ outline:2px solid var(--gold-deep); outline-offset:3px; }
-
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(21,38,33,0.92);
-    backdrop-filter:blur(14px) saturate(1.3);
-    -webkit-backdrop-filter:blur(14px) saturate(1.3);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    box-shadow:0 4px 20px rgba(16,27,45,0.2);
-    border-radius:0 0 24px 24px;
-  }
-  nav.wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:82px;
-    position:relative;
-  }
-  .se-logo-wrap{ display:inline-flex; align-items:center; gap:10px; }
+  /* ── ribbon: gradient behind, curved green bar in front ── */
+  .skyband{position:relative; height:189px; z-index:0; margin-bottom:22px;}
+  .skybg{position:absolute; left:0; right:0; top:-110px; bottom:0; border-radius:0 0 28px 28px;
+    background:linear-gradient(100deg,#152621 0%,#2A2A38 6%,#56405A 13%,#A0705E 20%,#E6995A 28%,#F8B36F 35%,#FDD095 42%,#FFF6E0 49%,#C7C9BB 56%,#8DB2D0 63%,#7A9EC8 70%,#928699 78%,#AB6E6B 85%,#C3563C 92%,#152621 100%);
+    pointer-events:none;}
+  
+  .gradlayer{position:absolute; top:0; left:0; right:0; bottom:0; border-radius:0 0 28px 28px; background:linear-gradient(100deg,#152621 0%,#2A2A38 6%,#56405A 13%,#A0705E 20%,#E6995A 28%,#F8B36F 35%,#FDD095 42%,#FFF6E0 49%,#C7C9BB 56%,#8DB2D0 63%,#7A9EC8 70%,#928699 78%,#AB6E6B 85%,#C3563C 92%,#152621 100%);}
+  .skybg .sun{position:absolute; top:205px; margin-left:-18px; left:49%; width:36px; height:36px; border-radius:50%;
+    background:#FFF8E8; box-shadow:0 0 50px 22px rgba(255,243,205,.8);}
+  .greenbar{position:sticky; top:0; z-index:200; background:var(--navy); border-radius:0 0 28px 28px;
+    box-shadow:0 6px 18px -8px rgba(12,20,17,.55);}
+  
+  nav{display:flex; align-items:center; justify-content:space-between; height:82px; max-width:var(--max); margin:0 auto; padding:0 26px;}
+.se-logo-wrap{ display:inline-flex; align-items:center; }
   .se-logo-icon{ display:block; flex-shrink:0; }
-  .se-logo-text{ display:flex; flex-direction:column; gap:3px; }
+  .se-logo-text{ display:flex; flex-direction:column; margin-left:10px; }
+  .se-tagline{ margin-top:3px; }
   .se-logo-word{
     font-family:'Sora', sans-serif;
     font-weight:700; font-size:19px; letter-spacing:-0.01em;
@@ -84,9 +93,9 @@
     font-size:9.5px; letter-spacing:0.14em; font-weight:500;
     color:var(--slate); white-space:nowrap;
   }
-  header .se-logo-word .se-solve{ color:var(--paper); }
-  header .se-logo-word .se-energy{ color:var(--gold); }
-  header .se-tagline{ color:rgba(241,244,236,0.55); }
+    .greenbar .se-logo-word .se-solve{ color:#F1F4EC; }
+    .greenbar .se-logo-word .se-energy{ color:var(--gold); }
+    .greenbar .se-tagline{ color:rgba(241,244,236,0.55); }
 
   @keyframes se-pulse-scale{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(0.8); } }
   @keyframes se-ray-pulse{ 0%,100%{ opacity:0.6; transform:scale(0.85); } 50%{ opacity:1; transform:scale(1.25); } }
@@ -96,429 +105,758 @@
   @media (prefers-reduced-motion: reduce){
     .se-sun-circle, .se-sun-rays, .se-bite{ animation:none; }
   }
-  .navlinks{display:flex; gap:6px; font-size:14.5px; align-items:center;}
+  /* navy nav: flip logo text to light */
+    .greenbar .se-logo-word .se-solve{ color:#F1F4EC; }
+    .greenbar .se-logo-word .se-energy{ color:var(--gold); }
+    .greenbar .se-tagline{ color:rgba(241,244,236,.58); }
+
+  .navlinks{display:flex; font-size:13.5px;}
+  .navlinks > a + a{margin-left:7px;}
+  .navdrop{margin-left:7px;}
   .navlinks a{
-    text-decoration:none; color:rgba(241,244,236,0.82);
-    padding:9px 16px; border-radius:20px;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.18);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-    transition:background .15s, border-color .15s, color .15s;
+    text-decoration:none; color:#F1F4EC; font-weight:500;
+    padding:9px 16px; border-radius:100px; white-space:nowrap; line-height:1.35; font-size:13.5px;
+    background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.16);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    transition:background .15s, border-color .15s;
   }
-  .navlinks a:hover{ background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.32); color:var(--paper); }
-  .nav-dropdown{ position:relative; }
-  .nav-dropdown-trigger{
-    display:flex; align-items:center; gap:6px; cursor:pointer;
-    font-family:'Manrope', sans-serif; font-size:14.5px; color:rgba(241,244,236,0.82);
-    padding:9px 16px; border-radius:20px;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.18);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-    transition:background .15s, border-color .15s, color .15s;
-  }
-  .nav-dropdown-trigger:hover{ background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.32); color:var(--paper); }
-  .nav-dropdown-chevron{ width:12px; height:12px; transition:transform .2s cubic-bezier(.4,0,.2,1); }
-  .nav-dropdown.open .nav-dropdown-trigger{ background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.32); color:var(--paper); }
-  .nav-dropdown.open .nav-dropdown-chevron{ transform:rotate(180deg); }
-  .nav-dropdown-menu{
-    position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%) translateY(-8px) scale(0.97);
-    min-width:220px; background:var(--paper); border:1px solid var(--line); border-radius:12px;
-    padding:6px; box-shadow:0 16px 36px rgba(16,27,45,0.3); z-index:60;
-    opacity:0; visibility:hidden; transform-origin:top center;
-    transition:opacity .18s cubic-bezier(.4,0,.2,1), transform .18s cubic-bezier(.4,0,.2,1), visibility 0s linear .18s;
-  }
-  .nav-dropdown.open .nav-dropdown-menu{
-    opacity:1; visibility:visible; transform:translateX(-50%) translateY(0) scale(1);
-    transition:opacity .18s cubic-bezier(.4,0,.2,1), transform .18s cubic-bezier(.4,0,.2,1);
-  }
-  .nav-dropdown-menu a{
-    display:block; padding:10px 12px; border-radius:7px; font-size:14px;
-    color:var(--ink); opacity:1; background:none; border:none; backdrop-filter:none; text-decoration:none; transition:background .12s;
-  }
-  .nav-dropdown-menu a:hover{ background:rgba(63,190,142,0.14); color:var(--navy); border:none; }
+  .navlinks a:hover{background:rgba(255,255,255,.17); border-color:rgba(255,255,255,.3);}
+  .navright{display:flex; align-items:center; flex-shrink:0;}
   .navcta{
-    font-family:'JetBrains Mono', monospace; font-size:13px;
-    border:1px solid var(--gold); padding:9px 16px; border-radius:20px;
-    text-decoration:none; color:var(--gold);
-    transition:background .15s, color .15s;
+    background:var(--gold); color:#14201C; text-decoration:none; font-weight:700; font-size:13.5px;
+    padding:11px 20px; border-radius:100px; white-space:nowrap;
+    box-shadow:0 4px 14px -6px rgba(240,169,62,.9);
   }
-  .navcta:hover{background:var(--gold); color:var(--navy);}
-  @media(max-width:840px){ .navlinks{display:none;} }
-
-  .mobile-menu-toggle{
-    display:none; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.18);
-    border-radius:12px; cursor:pointer; padding:9px; width:40px; height:40px;
-    align-items:center; justify-content:center; flex-shrink:0;
+  .burger{display:none; width:40px; height:40px; margin-left:10px; padding:12px 9px; cursor:pointer;
+    background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); border-radius:11px;}
+  .burger span{display:block; height:2px; background:#F1F4EC; border-radius:2px;}
+  .burger span + span{margin-top:4px;}
+  @media(max-width:900px){
+    .navlinks a{padding:8px 12px; font-size:12.5px;}
+    .navlinks a + a{margin-left:5px;}
+    .navcta{padding:10px 15px; font-size:12.5px;}
+    nav{padding:0 16px;}
   }
-  @media(max-width:840px){ .mobile-menu-toggle{ display:flex; } }
-  .mobile-menu-toggle svg{ width:20px; height:20px; color:var(--paper); }
-  .mobile-menu-toggle .icon-close{ display:none; }
-  .mobile-menu-toggle.open .icon-burger{ display:none; }
-  .mobile-menu-toggle.open .icon-close{ display:block; }
-
-  .mobile-menu{
-    display:none;
-    position:absolute; top:100%; left:16px; right:16px;
-    background:rgba(21,38,33,0.97);
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-    border:1px solid rgba(255,255,255,0.12);
-    border-radius:20px;
-    margin-top:10px;
-    padding:12px;
-    flex-direction:column; gap:2px;
-    box-shadow:0 20px 40px rgba(16,27,45,0.3);
-    max-height:calc(100vh - 120px); overflow-y:auto;
-    z-index:60;
+  @media(max-width:680px){
+    .navlinks{display:none;}
+    .burger{display:block;}
+    nav{height:72px;}
+    .se-logo-word{font-size:16.5px;}
+    .se-tagline{font-size:8px;}
+    .se-logo-icon{width:33px; height:33px;}
+    .skyband{height:147px;}
+    .skybg{top:-92px;} .skybg .sun{top:165px; width:28px; height:28px; margin-left:-14px;}
+    .gradlayer, .greenbar{border-radius:0 0 20px 20px;}
   }
-  .mobile-menu.open{ display:flex; }
-  .mobile-menu a, .mobile-menu-heading{
-    display:block; text-decoration:none; color:rgba(241,244,236,0.88);
-    font-size:15.5px; padding:13px 14px; border-radius:12px;
-    transition:background .15s;
+  @media(max-width:380px){
+    .se-tagline{display:none;}
+    .navcta{padding:9px 13px; font-size:12px;}
   }
-  .mobile-menu a:active, .mobile-menu a:hover{ background:rgba(255,255,255,0.08); }
-  .mobile-menu-heading{
-    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.08em;
-    text-transform:uppercase; color:rgba(241,244,236,0.45); padding:14px 14px 4px;
-  }
-  .mobile-menu-divider{ height:1px; background:rgba(255,255,255,0.1); margin:8px 6px; }
 
 
-  /* ---------- HERO / CALCULATOR ---------- */
-  .hero{ padding:64px 0 40px; border-bottom:1px solid var(--line); }
-  .hero-top{ max-width:1000px; margin-bottom:36px; }
-  .hero-top h1{
-    font-size:clamp(32px, 4.2vw, 50px);
-    margin:18px 0 20px;
+  /* ── hero ── */
+  .hero{padding:8px 0 0; text-align:center;}
+  .hero h1{
+    font-family:'Outfit',sans-serif; font-weight:700;
+    font-size:clamp(34px,5vw,60px); line-height:1.06; letter-spacing:-.018em;
+    max-width:34ch; margin:0 auto 24px;
   }
-  .hero-top h1 em{ font-style:normal; color:var(--gold-deep); }
-  .hero-top p{ font-size:16.5px; color:var(--slate); max-width:620px; }
-  .path-choice{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:26px; }
-  .path-choice-label{ font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--slate); opacity:0.7; }
-  .path-btn{ font-size:14.5px; text-decoration:none; padding:11px 20px; border-radius:24px; transition:background .15s, color .15s, border-color .15s; white-space:nowrap; }
-  .path-btn-simple{ color:var(--ink); border:1px solid var(--line); background:var(--paper); }
-  .path-btn-simple:hover{ background:var(--paper-2); }
-  .path-btn-detail{ color:var(--paper); background:var(--navy); border:1px solid var(--navy); font-weight:500; }
-  .path-btn-detail:hover{ background:var(--navy-2); }
-  @media(max-width:560px){ .path-choice{ flex-direction:column; align-items:flex-start; } }
+  .hbr{display:inline;}
+  @media(max-width:760px){ .hbr{display:none;} }
+  @media(max-width:900px){ .hero h1{max-width:22ch;} .hero .lede{font-size:16.8px;max-width:60ch;} }
+  .hero .lede{font-size:18px; line-height:1.62; max-width:74ch; margin:0 auto 34px; color:var(--body);}
+  .hero .pair{display:flex; justify-content:center; flex-wrap:wrap;}
+  .hero .pair .btn + .btn{margin-left:13px;}
+  @media(max-width:600px){
+    .hero .pair{flex-direction:column; align-items:center;}
+    .hero .pair .btn{width:100%; max-width:320px; text-align:center;}
+    .hero .pair .btn + .btn{margin-left:0; margin-top:11px;}
+  }
+  .btn{
+    display:inline-block; text-decoration:none; font-weight:600; font-size:15.5px;
+    padding:15px 30px; border-radius:100px; transition:transform .12s, box-shadow .12s;
+  }
+  .btn.solid{background:var(--night); color:#fff;}
+  .btn.solid:hover{transform:translateY(-1px); box-shadow:0 8px 22px -10px rgba(23,37,63,.7);}
+  .btn.quiet{background:none; color:var(--night); box-shadow:inset 0 0 0 1.5px var(--hair);}
+  .btn.quiet:hover{box-shadow:inset 0 0 0 1.5px var(--night);}
 
-  .solver{
-    border:2px solid rgba(255,255,255,0.9);
-    background:rgba(240,233,220,0.55);
-    backdrop-filter:blur(20px) saturate(1.4);
-    -webkit-backdrop-filter:blur(20px) saturate(1.4);
-    color:var(--ink);
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    border-radius:28px;
-    overflow:hidden;
-    box-shadow:
-      0 24px 50px -20px rgba(16,27,45,0.22),
-      0 0 0 1.5px rgba(255,255,255,0.5),
-      0 0 0 3px rgba(16,27,45,0.05),
-      inset 0 1.5px 0 rgba(255,255,255,0.95),
-      inset 0 -1.5px 0 rgba(16,27,45,0.09),
-      inset 1.5px 0 0 rgba(255,255,255,0.45),
-      inset -1.5px 0 0 rgba(16,27,45,0.06);
+  /* ── day panel ── */
+  .day{
+    max-width:900px; margin:0 auto; background:#fff;
+    border-radius:26px; padding:38px 38px 34px;
+    box-shadow:0 18px 44px -32px rgba(23,37,63,.42);
   }
-  @media(max-width:900px){ .solver{grid-template-columns:1fr; max-width:none;} }
+  .day h2{font-family:'Outfit',sans-serif; font-weight:600; font-size:23px; text-align:center; margin-bottom:6px;}
+  .day .note{text-align:center; font-size:14.5px; color:var(--body); margin-bottom:30px;}
 
-  .solver-left{ padding:44px 40px 40px; }
-  @media(max-width:900px){ .solver-left{ padding-bottom:32px; } }
-
-  .equation-line{
-    font-family:'JetBrains Mono', monospace;
-    font-size:14px; color:var(--gold-deep);
-    letter-spacing:0.06em; text-transform:uppercase;
-    margin-bottom:22px;
-  }
-  .bill-display{
-    font-family:'Sora', sans-serif;
-    font-weight:700;
-    font-size:clamp(48px,7vw,72px);
-    line-height:1;
-    display:flex; align-items:baseline; gap:6px;
-    margin-bottom:6px;
-    color:var(--ink);
-  }
-  .bill-display .cur{font-size:0.4em; color:var(--gold-deep); font-weight:600;}
-  .bill-caption{ color:var(--slate); font-size:14px; margin-bottom:28px;}
+  .billrow{display:flex; align-items:baseline; justify-content:center; gap:10px; margin-bottom:6px;}
+  .billrow .amt{font-family:'Outfit',sans-serif; font-weight:700; font-size:54px; line-height:1;}
+  .billrow .per{font-size:16px; color:var(--body);}
+  .billcap{text-align:center; font-size:14px; color:var(--body); margin-bottom:26px;}
 
   input[type=range]{
-    -webkit-appearance:none; appearance:none;
-    width:100%; height:3px; border-radius:2px; background:rgba(21,38,33,0.16);
-    outline:none; margin-bottom:10px;
+    -webkit-appearance:none; appearance:none; width:100%; height:5px; border-radius:100px;
+    background:linear-gradient(90deg,var(--sand),var(--warm),var(--cool)); outline:none; margin-bottom:9px;
   }
   input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none; appearance:none;
-    width:19px; height:19px; border-radius:50%;
-    background:var(--charge); cursor:pointer;
-    border:3px solid var(--paper);
-    box-shadow:0 2px 8px rgba(16,27,45,0.25), 0 0 0 1px var(--charge);
+    -webkit-appearance:none; appearance:none; width:26px;height:26px;border-radius:50%;
+    background:#FFF6E0; border:none; cursor:pointer;
+    box-shadow:0 0 0 4px rgba(244,162,89,.55), 0 4px 14px -4px rgba(23,37,63,.6);
   }
   input[type=range]::-moz-range-thumb{
-    width:19px; height:19px; border-radius:50%;
-    background:var(--charge); cursor:pointer; border:3px solid var(--paper);
+    width:26px;height:26px;border-radius:50%;background:#FFF6E0;border:none;cursor:pointer;
+    box-shadow:0 0 0 4px rgba(244,162,89,.55);
   }
-  .range-labels{ display:flex; justify-content:space-between; font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--slate); margin-bottom:30px;}
+  .ends{display:flex; justify-content:space-between; font-size:13px; color:var(--body); margin-bottom:32px;}
 
-  .solved-tag{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'JetBrains Mono', monospace; font-size:12.5px;
-    color:var(--charge-deep); background:rgba(255,255,255,0.5);
-    border:1px solid rgba(96,169,141,0.5);
-    padding:7px 14px; border-radius:20px;
-  }
+  .band{display:flex; border-radius:100px; overflow:hidden; margin-bottom:28px;}
+  .seg{flex:1 1 0; min-width:0; padding:20px 12px 22px; text-align:center;}
+  .seg:nth-child(1){background:var(--sand);}
+  .seg:nth-child(2){background:var(--warm);}
+  .seg:nth-child(3){background:var(--cool);}
+  .seg:nth-child(4){background:var(--night); color:#EAF0F8;}
+  .seg .when{font-size:12.5px; opacity:.74; margin-bottom:8px;}
+  .seg .val{font-family:'Outfit',sans-serif; font-weight:700; font-size:26px; line-height:1;}
 
-  .solver-right{ padding:44px 40px 40px; display:flex; flex-direction:column; justify-content:center; gap:0; position:relative; }
-  @media(min-width:901px){ .solver-right::before{ content:""; position:absolute; left:0; top:44px; bottom:44px; width:1px; background:linear-gradient(180deg, transparent, rgba(21,38,33,0.14) 20%, rgba(21,38,33,0.14) 80%, transparent); } }
-  .metric-row{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:16px 0;
-  }
-  .metric-row:first-child{padding-top:0;}
-  .metric-row:last-child{padding-bottom:0;}
-  .metric-label{ font-size:14px; color:var(--ink); opacity:0.9; font-weight:600; max-width:180px;}
-  .metric-value{ font-family:'JetBrains Mono', monospace; font-size:24px; color:var(--ink); font-weight:700; text-align:right;}
-  .metric-value span{ font-size:13px; color:var(--charge-deep); font-weight:600; margin-left:4px;}
-  .solver-disclaimer{
-    font-size:11.5px; color:var(--ink); opacity:0.78; margin-top:22px; line-height:1.5;
-  }
+  .summary{display:flex; border-top:1px solid var(--hair); padding-top:22px;}
+  .sum{flex:1 1 0; min-width:0; text-align:center; border-right:1px solid var(--hair); padding:0 10px;}
+  .sum:last-child{border-right:none;}
+  .sum .v{font-family:'Outfit',sans-serif; font-weight:700; font-size:25px; line-height:1; margin-bottom:7px;}
+  .sum .v small{font-size:13px; font-weight:600; color:var(--body);}
+  .sum .l{font-size:13px; color:var(--body); line-height:1.4;}
 
-  /* ---------- SECTION generic ---------- */
-  section{ padding:88px 0; border-bottom:1px solid var(--line); scroll-margin-top:82px; background:var(--paper); position:relative; }
-  #how::before, #services::before, #process::before, #proof::before, #faq::before, #quote::before{
-    content:""; position:absolute; top:0; left:0; right:0; height:5px;
-    background:linear-gradient(90deg, var(--gold) 0%, var(--charge) 100%);
-  }
+  .disc{max-width:900px; margin:22px auto 0; font-size:12.5px; color:var(--body); text-align:center; line-height:1.55; opacity:.85;}
 
-  /* ---------- SCROLL REVEAL: one continuous scroll; each page bubbles into view as it arrives ---------- */
-  @media (min-width:900px){
-    #how, #services, #process, #proof, #faq, #quote{
-      margin:0 22px 26px; border-radius:32px;
-      border:1px solid var(--line);
-      overflow:hidden;
-      box-shadow:0 calc(10px * var(--reveal,1)) calc(34px * var(--reveal,1)) -14px rgba(16,27,45,0.22);
-      transform-origin:50% 30%;
-      will-change:transform, opacity, filter;
-      transform:
-        perspective(1800px)
-        translateZ(calc((var(--reveal,1) - 1) * 260px))
-        translateY(calc((1 - var(--reveal,1)) * 50px))
-        rotateX(calc((1 - var(--reveal,1)) * 5deg));
-      opacity:calc(0.3 + var(--reveal,1) * 0.7);
-      filter:blur(calc((1 - var(--reveal,1)) * 4px));
-    }
-    #quote{ border-color:var(--navy-2); }
-    footer{
-      margin:0 22px 22px; border-radius:32px;
-      border:1px solid var(--line);
-      overflow:hidden;
-    }
-  }
-  .section-head{ display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-bottom:56px; align-items:end;}
-  #how .section-head{ margin-bottom:20px; }
-  @media(max-width:760px){ .section-head{grid-template-columns:1fr; gap:16px;} }
-  .section-head h2{ font-size:clamp(28px,3.6vw,40px); margin-top:14px;}
-  .section-head .sub{ color:var(--slate); font-size:15.5px; }
-
-  /* ---------- HOW IT WORKS DIAGRAM ---------- */
-  .flow-wrap{ display:grid; grid-template-columns:1.3fr 1fr; gap:56px; align-items:start;}
-  @media(max-width:900px){ .flow-wrap{grid-template-columns:1fr;} }
-  .flow-detail{ border:1px solid var(--line); padding:28px; background:var(--paper-2); min-height:220px; }
-  .flow-detail .fd-index{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--gold-deep); margin-bottom:10px; display:block;}
-  .flow-detail h4{ font-size:19px; margin-bottom:10px;}
-  .flow-detail p{ color:var(--slate); font-size:14.5px;}
-  .flow-node{ cursor:pointer; }
-  .flow-node .node-shape{ transition:fill .18s, stroke .18s; }
-  .flow-node text{ font-family:'JetBrains Mono', monospace; font-size:12.5px; fill:var(--navy); text-transform:uppercase; letter-spacing:0.05em; opacity:0.72;}
-  .flow-node:hover text, .flow-node.active text{ opacity:1; }
-  .flow-node.active .node-shape{ fill:var(--gold); }
-  .flow-node[data-node="sun"] .node-shape{ fill:var(--gold); }
-  .flow-node[data-node="battery"].active .node-shape{ fill:var(--charge); }
-  .flow-line{ stroke:var(--line); stroke-width:1.5; fill:none; }
-  .pulse{ opacity:0.9; }
-  .pulse-gold{ fill:var(--gold); }
-  .pulse-charge{ fill:var(--charge); }
-
-  /* ---------- DAY / NIGHT ---------- */
-  .sky-guide{ display:none; }
-  .sky-traveler{ pointer-events:none; }
-  .sky-rays{ transform-origin:0px 0px; animation:sky-ray-spin 24s linear infinite; }
-  @keyframes sky-ray-spin{ 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
-  @media (prefers-reduced-motion: reduce){
-    .sky-rays{ animation:none; }
-  }
-  .flow-sun-glow, .flow-sun-rays, .flow-sun-core, .flow-node[data-node="sun"] .node-shape{ transition:opacity .3s, fill .3s, stroke .3s; }
-  .flow-wrap.is-night .flow-sun-glow{ opacity:0; }
-  .flow-wrap.is-night .flow-sun-rays{ opacity:0.65; stroke:var(--gold-deep); }
-  .flow-wrap.is-night .flow-sun-core{ opacity:0.9; fill:var(--gold); }
-  .flow-wrap.is-night .flow-node[data-node="sun"] .node-shape{ fill:var(--paper-2); stroke:var(--line); }
-  .flow-wrap.is-night .flow-node[data-node="sun"] text{ opacity:0.45; }
-  .pulse-night-only{ display:none; }
-  .flow-wrap.is-night .pulse-night-only{ display:block; }
-  .flow-wrap.is-night .pulse-day-only{ display:none; }
-  .night-flow-label{
-    display:none; font-family:'JetBrains Mono', monospace; font-size:11px;
-    fill:var(--charge-deep); font-weight:500;
-  }
-  .flow-wrap.is-night .night-flow-label{ display:block; }
-  .batt-label{ display:block; } /* state of charge is relevant day and night */
-  .night-flow-label.tick{ animation:label-flash 0.6s ease-out; }
-  @keyframes label-flash{
-    0%{ fill:var(--gold); }
-    100%{ fill:var(--charge-deep); }
-  }
-
-  .flow-diagram-mobile{ display:none; }
   @media(max-width:700px){
-    .flow-diagram-desktop{ display:none; }
-    .flow-diagram-mobile{ display:block; max-width:230px; margin:0 auto; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .pulse animateMotion{ display:none; }
-    .pulse{ display:none; }
+    .day{padding:28px 20px 26px; border-radius:20px;}
+    .band{flex-wrap:wrap; border-radius:20px;}
+    .seg{flex:1 1 50%;}
+    .summary{flex-wrap:wrap; gap:18px 0;}
+    .sum{flex:1 1 50%; border-right:none;}
+    .billrow .amt{font-size:44px;}
   }
 
-  /* ---------- SERVICES ---------- */
-  .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
-  @media(max-width:760px){ .services-grid{grid-template-columns:1fr;} }
-  .service-card{ background:var(--paper); padding:34px 30px;}
-  .service-icon{ margin-bottom:18px; }
-  .service-card .num{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--gold-deep); margin-bottom:16px; display:block;}
-  .service-card h3{ font-size:21px; margin-bottom:10px;}
-  .service-card p{ color:var(--slate); font-size:14.5px; margin-bottom:16px;}
-  .service-card ul{ list-style:none; font-size:13.5px; color:var(--navy); }
-  .service-card li{ padding:5px 0; border-top:1px solid var(--line); }
-  .service-card li:first-child{border-top:none;}
 
-  /* ---------- PROCESS ---------- */
-  .process-list{ display:grid; grid-template-columns:repeat(5,1fr); gap:26px; }
-  @media(max-width:900px){ .process-list{ grid-template-columns:repeat(3,1fr); } }
-  @media(max-width:560px){ .process-list{ grid-template-columns:repeat(2,1fr); } }
-  .process-item{
-    display:flex; flex-direction:column; align-items:flex-start; gap:8px;
-    padding-top:22px; border-top:1px solid var(--line);
-  }
-  .process-icon{ margin-bottom:2px; }
-  .process-item .p-num{ font-family:'JetBrains Mono', monospace; font-size:14px; color:var(--gold-deep); }
-  .process-item h4{ font-size:16.5px; }
-  .process-item p{ color:var(--slate); font-size:13.5px; }
 
-  /* ---------- PROOF / STATS ---------- */
-  .stats-row{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); }
-  @media(max-width:760px){ .stats-row{grid-template-columns:1fr 1fr;} }
-  .stat{ padding:30px; border-right:1px solid var(--line); }
-  .stat:last-child{border-right:none;}
-  @media(max-width:760px){ .stat:nth-child(2n){border-right:none;} .stat{border-bottom:1px solid var(--line);} }
-  .stat .stat-val{ font-family:'Sora',sans-serif; font-size:36px; font-weight:700; color:var(--navy);}
-  .stat .stat-val span{ color:var(--gold-deep); }
-  .stat .stat-label{ font-size:13px; color:var(--slate); margin-top:6px;}
 
-  .quote-block{ margin-top:56px; border-left:2px solid var(--gold-deep); padding-left:28px; max-width:640px;}
-  .quote-block p{ font-size:19px; font-family:'Sora', sans-serif; font-weight:500; margin-bottom:12px;}
-  .quote-block .who{ font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--slate); }
+.sunsec{max-width:1120px;margin:0 auto;padding:56px 34px 52px;}
+.sunsec h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-.018em;max-width:20ch;margin-bottom:16px;}
+.sub{font-size:16.5px;line-height:1.6;color:var(--body);max-width:62ch;margin-bottom:30px;}
 
-  /* ---------- FAQ ---------- */
-  .faq-item{ border-top:1px solid var(--line); }
-  .faq-item:last-child{border-bottom:1px solid var(--line);}
-  .faq-item summary{
-    cursor:pointer; padding:22px 0; font-family:'Sora',sans-serif;
-    font-size:17px; font-weight:600; list-style:none;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .faq-item summary::-webkit-details-marker{ display:none; }
-  .faq-item summary::after{
-    content:"+"; font-family:'JetBrains Mono',monospace; font-size:20px; color:var(--gold-deep); font-weight:400;
-    transition:transform .15s;
-  }
-  .faq-item[open] summary::after{ transform:rotate(45deg); }
-  .faq-item .faq-a{ padding-bottom:24px; color:var(--slate); font-size:14.5px; max-width:640px;}
+.flowpanel{position:relative;border-radius:22px;overflow:hidden;}
+.skylayer{position:absolute;top:0;left:0;right:0;bottom:0;transition:opacity 2s ease;}
+.sky-day{background:linear-gradient(120deg,#4E7FB5,#7FB0D8 32%,#BBD6EC 58%,#8FBBDF 82%,#5B88BC);opacity:1;}
+.sky-set{background:linear-gradient(120deg,#3B3350,#8A5A62 26%,#E08A52 52%,#F2B368 70%,#8C5C72);opacity:0;}
+.sky-night{background:linear-gradient(120deg,#0E1728,#1B2A44 34%,#22354F 56%,#182740 78%,#0C1422);opacity:0;}
+.is-set .sky-day,.is-night .sky-day{opacity:0;}
+.is-set .sky-set{opacity:1;} .is-night .sky-night{opacity:1;}
+.scrim{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(rgba(10,17,14,.28),rgba(10,17,14,.13));}
+.flowinner{position:relative;padding:14px 18px 4px;}
+svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
 
-  /* ---------- CTA / FOOTER ---------- */
-  .cta{ background:var(--navy); color:var(--paper); padding:80px 0; border-bottom:1px solid var(--line);}
-  .cta-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
-  @media(max-width:800px){ .cta-grid{grid-template-columns:1fr;} }
-  .cta h2{ font-size:clamp(28px,4vw,42px); color:var(--paper); margin-bottom:14px;}
-  .cta p{ color:rgba(241,244,236,0.65); max-width:420px;}
-  form.quote-form{ display:flex; flex-direction:column; gap:14px; }
-  form.quote-form input{
-    background:transparent; border:none; border-bottom:1px solid var(--line-light);
-    color:var(--paper); font-family:'Manrope',sans-serif; font-size:15px;
-    padding:12px 2px; outline:none;
-  }
-  form.quote-form input::placeholder{ color:rgba(241,244,236,0.45);}
-  form.quote-form input:focus{ border-bottom-color:var(--charge); }
+.wire{fill:none;stroke:rgba(241,244,236,.32);stroke-width:1.25;transition:stroke .9s;}
+.is-night .wire.solar{stroke:rgba(241,244,236,.11);}
+.ico{fill:none;stroke:#F1F4EC;stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;transition:stroke .9s;}
+.nlabel{font-size:11.5px;font-weight:600;fill:rgba(241,244,236,.9);transition:fill .9s;}
+.is-night .node.solarpath .ico{stroke:rgba(241,244,236,.26);}
+.is-night .node.solarpath .nlabel{fill:rgba(241,244,236,.32);}
+.sundisc{transition:opacity .9s;}
+.is-night .sundisc{opacity:.16;} .is-set .sundisc{opacity:.85;}
+.pulse{opacity:0;transition:opacity 1s;}
+.is-day .pulse.day,.is-set .pulse.day{opacity:1;}
+.is-night .pulse.night{opacity:1;}
 
-  /* ---------- CUSTOM DROPDOWN ---------- */
-  .select-wrap{ position:relative; }
-  .select-trigger{
-    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
-    background:transparent; border:none; border-bottom:1px solid var(--line-light);
-    color:var(--paper); font-family:'Manrope',sans-serif; font-size:15px;
-    padding:12px 2px; cursor:pointer; text-align:left;
-    transition:border-color .2s;
-  }
-  .select-trigger .select-value.placeholder{ color:rgba(241,244,236,0.45); }
-  .select-chevron{ width:15px; height:15px; flex-shrink:0; color:rgba(241,244,236,0.55); transition:transform .25s cubic-bezier(.4,0,.2,1); }
-  .select-wrap.open .select-trigger{ border-bottom-color:var(--charge); }
-  .select-wrap.open .select-chevron{ transform:rotate(180deg); color:var(--charge); }
-  .select-wrap.error .select-trigger{ border-bottom-color:#e08a7d; }
+.stages{position:relative;display:flex;justify-content:space-between;padding:14px 34px 0;
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;}
+.stages span{color:rgba(241,244,236,.34);transition:color .9s;}
+.is-day .stages .s1,.is-set .stages .s2,.is-night .stages .s3{color:#FFE2AE;}
+.caption{position:relative;text-align:center;padding:4px 24px 20px;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:17.5px;color:rgba(241,244,236,.95);}
 
-  .select-options{
-    position:absolute; left:0; right:0; top:calc(100% + 8px); z-index:30;
-    background:var(--navy-2); border:1px solid var(--line-light); border-radius:10px;
-    list-style:none; margin:0; padding:6px; max-height:220px; overflow-y:auto;
-    box-shadow:0 16px 36px rgba(7,14,12,0.4);
-    opacity:0; visibility:hidden; transform:translateY(-8px) scale(0.97); transform-origin:top center;
-    transition:opacity .2s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1), visibility 0s linear .2s;
-  }
-  .select-wrap.open .select-options{
-    opacity:1; visibility:visible; transform:translateY(0) scale(1);
-    transition:opacity .2s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1);
-  }
-  .select-options li{
-    padding:10px 12px; border-radius:7px; font-size:14.5px; color:rgba(241,244,236,0.85);
-    cursor:pointer; transition:background .12s, color .12s; display:flex; justify-content:space-between; align-items:center;
-  }
-  .select-options li:hover, .select-options li.is-active{ background:rgba(63,190,142,0.16); color:var(--paper); }
-  .select-options li[aria-selected="true"]{ color:var(--charge); }
-  .select-options li[aria-selected="true"]::after{ content:"✓"; font-size:12px; }
+.chartcard{background:var(--surface-2);border:1px solid var(--edge);border-radius:20px;padding:28px 28px 22px;margin-top:34px;box-shadow:0 18px 44px -32px rgba(23,37,63,.42);}
+.legend{display:flex;flex-wrap:wrap;font-size:13px;color:var(--body);margin-bottom:16px;}
+.legend span{display:inline-flex;align-items:center;margin-right:22px;margin-bottom:6px;}
+.legend i{width:16px;height:10px;border-radius:2px;margin-right:7px;display:inline-block;}
+.reads{display:flex;border-top:1px solid var(--hair);margin-top:18px;padding-top:18px;}
+.r{flex:1 1 0;min-width:0;text-align:center;border-right:1px solid var(--hair);padding:0 8px;}
+.r:last-child{border-right:none;}
+.r .v{font-family:'Outfit',sans-serif;font-weight:700;font-size:24px;line-height:1;}
+.r .v s{text-decoration:none;font-size:11.5px;font-weight:600;color:var(--body);margin-left:2px;}
+.r .l{font-size:12.5px;color:var(--body);margin-top:6px;}
+.kicker{font-family:'Outfit',sans-serif;font-weight:700;font-size:21px;margin:22px 0 0;}
+.kicker span{color:var(--charge);}
+.sunnote{font-size:13px;color:var(--body);margin:10px 0 4px;max-width:70ch;}
+@media(max-width:700px){
+  .flowinner{padding:10px 6px 2px;} .stages{padding:12px 16px 0;font-size:9.5px;letter-spacing:.1em;}
+  .caption{font-size:15px;padding:4px 16px 16px;}
+  .chartcard{padding:18px 14px 16px;} .reads{flex-wrap:wrap;} .r{flex:1 1 50%;border-right:none;margin-bottom:14px;}
+}
+@media (prefers-reduced-motion: reduce){.pulse circle{display:none;}}
 
-  .submit-btn{
-    margin-top:10px; align-self:flex-start;
-    background:var(--charge); color:var(--navy); border:none;
-    font-family:'JetBrains Mono',monospace; font-size:13.5px; font-weight:500;
-    padding:14px 26px; cursor:pointer; transition:background .15s;
-  }
-  .submit-btn:hover{ background:var(--charge-deep); color:var(--paper); }
-  .form-note{ font-size:12px; color:rgba(241,244,236,0.4); }
 
-  footer{ padding:56px 0 0; }
-  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; font-size:13.5px; color:var(--slate); padding-bottom:40px; }
-  @media(max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
-  .foot-col h4{ font-family:'Sora', sans-serif; font-size:13px; color:var(--navy); margin-bottom:14px; letter-spacing:0.02em; }
-  .foot-links{ display:flex; flex-direction:column; gap:10px; }
-  .foot-links a{ text-decoration:none; color:var(--slate); transition:color .15s; }
-  .foot-links a:hover{ color:var(--navy); }
-  .foot-brand-blurb{ font-size:13px; color:var(--slate); margin-top:14px; max-width:220px; line-height:1.55; }
-  .foot-bottom{
-    border-top:1px solid var(--line); padding:22px 0;
-    display:flex; align-items:flex-start; gap:14px; font-size:12.5px; color:var(--slate); line-height:1.6;
+  /* ---- money-first calculator ---- */
+  .calcsec{padding:56px 0 52px;}
+  .ch{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(26px,3.3vw,38px);line-height:1.06;letter-spacing:-.018em;margin-bottom:12px;}
+  .clede{font-size:16px;line-height:1.6;color:var(--body);max-width:58ch;margin-bottom:26px;}
+  .b2{display:flex;background:var(--surface-2);border:1px solid var(--edge);border-radius:24px;overflow:hidden;
+    box-shadow:0 18px 44px -32px rgba(23,37,63,.42);}
+  .b2.stack{display:block;margin-top:18px;}
+  .b2 .side{flex:1 1 0;min-width:0;padding:38px 34px 34px;}
+  .b2 .side.set{border-right:1px solid var(--hair);}
+  .b2 .side.res{background:linear-gradient(150deg,var(--warm-a),var(--warm-b));color:var(--warm-ink);}
+  .ceyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;}
+  .res .ceyebrow{color:#B5741E;}
+  .billnum{font-family:'Outfit',sans-serif;font-weight:700;font-size:56px;line-height:1;letter-spacing:-.02em;}
+  .billnum s{text-decoration:none;font-size:15px;font-weight:600;color:var(--body);margin-left:10px;letter-spacing:0;}
+  .chint{font-size:13.5px;color:var(--body);margin:16px 0 22px;line-height:1.5;}
+  .cends{display:flex;justify-content:space-between;font-size:13px;color:var(--body);}
+  .save{font-family:'Outfit',sans-serif;font-weight:700;font-size:64px;font-size:clamp(46px,6vw,70px);line-height:1;letter-spacing:-.022em;color:#2E7D5B;}
+  .per{font-size:14px;color:#6B5B45;margin-top:8px;}
+  .ten{border-top:1px solid rgba(181,116,30,.26);margin-top:24px;padding-top:18px;font-size:14.5px;color:#544734;line-height:1.5;}
+  .ten b{font-family:'Outfit',sans-serif;font-size:21px;color:#24402F;font-weight:700;}
+  .compare{padding:26px 34px 8px;}
+  .cmp{margin-bottom:16px;}
+  .cmp .top{display:flex;justify-content:space-between;font-size:13.5px;color:var(--body);margin-bottom:7px;}
+  .cmp .top b{color:var(--night);font-weight:600;}
+  .cmp .track{height:16px;border-radius:100px;background:#EDF1F6;overflow:hidden;}
+  .cmp .fill{height:100%;border-radius:100px;transition:width .25s ease;}
+  .cmp.now .fill{background:linear-gradient(90deg,#B24B34,#DE8055);}
+  .cmp.aft .fill{background:linear-gradient(90deg,#2E7D5B,#6FBF97);}
+  .mrow2{display:flex;border-top:1px solid var(--hair);padding:22px 34px 0;}
+  .m2{flex:1 1 0;min-width:0;text-align:center;border-right:1px solid var(--hair);padding:0 10px;}
+  .m2:last-child{border-right:none;}
+  .m2 .v{font-family:'Outfit',sans-serif;font-weight:700;font-size:22px;line-height:1;}
+  .m2 .v s{text-decoration:none;font-size:11.5px;color:var(--body);margin-left:2px;font-weight:600;}
+  .m2 .l{font-size:12.5px;color:var(--body);margin-top:6px;}
+  .footline{padding:22px 34px 30px;font-size:12.5px;color:var(--body);line-height:1.65;}
+  .footline b{color:var(--night);font-weight:600;}
+  @media(max-width:820px){
+    .b2{flex-direction:column;}
+    .b2 .side.set{border-right:none;border-bottom:1px solid var(--hair);}
+    .b2 .side{padding:26px 20px 24px;}
+    .compare,.mrow2,.footline{padding-left:20px;padding-right:20px;}
+    .mrow2{flex-wrap:wrap;} .m2{flex:1 1 50%;border-right:none;margin-bottom:14px;}
+    .billnum{font-size:44px;}
   }
-  .foot-bottom-icon{ flex-shrink:0; width:22px; height:22px; opacity:0.7; margin-top:1px; }
-  .foot-flags{ display:flex; gap:8px; flex-shrink:0; align-items:center; }
-  .foot-flags svg{ display:block; }
-  .foot-copyright{ padding-top:16px; padding-bottom:24px; font-size:12.5px; color:var(--slate); border-top:1px solid var(--line); }
+
+  /* ---- how we size a system ---- */
+  .sizing{padding:56px 0 52px;}
+  .sizing .head{max-width:62ch;margin-bottom:34px;}
+  .sizing h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-.018em;margin-bottom:14px;}
+  .sizing .head p{font-size:16.5px;line-height:1.6;color:var(--body);}
+  .steps{border-top:1.5px solid var(--night);}
+  .step{display:flex;gap:0;padding:26px 0;border-bottom:1px solid var(--hair);}
+  .step .num{flex:0 0 74px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gold-deep);padding-top:4px;letter-spacing:.06em;}
+  .step .body h3{font-family:'Outfit',sans-serif;font-weight:600;font-size:19px;margin-bottom:7px;}
+  .step .body p{font-size:14.8px;line-height:1.6;color:var(--body);max-width:68ch;}
+  .step .body .aside{margin-top:9px;font-size:13.5px;color:#6B7C93;font-style:italic;}
+
+  /* ---- assessment form ---- */
+  .assess{padding:56px 0 52px;}
+  .acard{display:flex;background:var(--surface-2);border:1px solid var(--edge);border-radius:24px;overflow:hidden;
+    box-shadow:0 18px 44px -32px rgba(23,37,63,.42);}
+  .acard .pitch{flex:0 0 40%;padding:38px 32px;background:linear-gradient(150deg,var(--warm-a),var(--warm-b));color:var(--warm-ink);}
+  .acard .pitch h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:28px;line-height:1.1;margin-bottom:12px;}
+  .acard .pitch p{font-size:14.5px;line-height:1.6;color:#544734;margin-bottom:16px;}
+  .acard .pitch ul{list-style:none;padding:0;margin:0;}
+  .acard .pitch li{font-size:14px;color:#544734;padding-left:20px;position:relative;margin-bottom:9px;line-height:1.5;}
+  .acard .pitch li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:#2E7D5B;}
+  .acard .form{flex:1 1 0;min-width:0;padding:36px 32px 30px;}
+  .frow{display:flex;gap:14px;}
+  .fld{flex:1 1 0;min-width:0;margin-bottom:15px;}
+  .fld label{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--body);margin-bottom:6px;}
+  .fld input,.fld textarea{width:100%;background:var(--field);border:1px solid var(--hair);border-radius:10px;
+    padding:11px 13px;font-family:'Inter',sans-serif;font-size:14.5px;color:var(--night);outline:none;transition:border-color .15s;}
+  .fld input:focus,.fld textarea:focus{border-color:var(--gold-deep);}
+  .fld textarea{resize:vertical;min-height:84px;}
+  .asubmit{background:var(--night);color:#fff;border:none;font-family:'Inter',sans-serif;font-weight:600;
+    font-size:15px;padding:14px 28px;border-radius:100px;cursor:pointer;transition:background .15s;}
+  .asubmit:hover{background:#22314F;}
+  .asubmit:disabled{opacity:.6;cursor:default;}
+  .anote{font-size:12.5px;color:var(--body);margin-top:12px;line-height:1.55;}
+  @media(max-width:820px){
+    .acard{flex-direction:column;}
+    .acard .pitch{flex:1 1 auto;padding:26px 20px;}
+    .acard .form{padding:26px 20px 24px;}
+    .frow{flex-direction:column;gap:0;}
+    .step{flex-direction:column;} .step .num{margin-bottom:8px;}
+  }
+
+  /* ---- shared section header ---- */
+  .shead{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:30px;}
+  .shead h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.04;letter-spacing:-.02em;max-width:16ch;}
+  .shead p{margin-left:56px;font-size:14.5px;line-height:1.5;color:#6B7C93;max-width:38ch;padding-top:6px;}
+  .seyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:12px;}
+
+  /* ---- sizing rail ---- */
+  .rail{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--night);}
+  .rail li{display:flex;align-items:baseline;gap:0;padding:17px 0;border-bottom:1px solid var(--hair);}
+  .rail .n{flex:0 0 58px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gold-deep);letter-spacing:.06em;}
+  .rail strong{flex:0 0 210px;font-family:'Outfit',sans-serif;font-weight:600;font-size:18px;}
+  .rail em{font-style:normal;font-size:15px;color:var(--body);line-height:1.5;}
+
+  /* ---- three ways ---- */
+  .ways{padding:56px 0 52px;}
+  
+  
+  
+  .way .idx{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold-deep);letter-spacing:.08em;margin-bottom:16px;}
+  .way h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:23px;line-height:1.12;margin-bottom:6px;}
+  .way .when{font-size:13px;color:var(--gold-deep);font-weight:600;margin-bottom:12px;}
+  .way p{font-size:14.5px;line-height:1.6;color:var(--body);margin-bottom:20px;}
+  .way ul{list-style:none;margin:0;padding:0;}
+  .way li{font-size:13.8px;color:var(--night);padding:10px 0;border-top:1px solid var(--hair);}
+
+  /* ---- process timeline ---- */
+  .proc{padding:56px 0 52px;}
+  .track2{position:relative;display:flex;margin-top:8px;}
+  .track2:before{content:"";position:absolute;left:31px;right:calc(20% - 31px);top:33.5px;height:1.5px;
+    background:linear-gradient(90deg,var(--dawn),#E9C79A 48%,var(--noon));opacity:.85;}
+  .pstep{position:relative;flex:1 1 0;min-width:0;padding:0 18px 0 0;}
+  .pstep .dot{position:relative;width:28px;height:28px;border-radius:50%;background:#fff;
+    border:2px solid var(--gold-deep);display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold-deep);margin-bottom:16px;}
+  .pstep h4{font-family:'Outfit',sans-serif;font-weight:600;font-size:17.5px;margin-bottom:6px;}
+  .pstep p{font-size:13.8px;line-height:1.55;color:var(--body);}
+  .pstep .wk{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#8496AC;margin-top:9px;letter-spacing:.05em;}
+
+  /* ---- faq ---- */
+  .faq{padding:56px 0 46px;}
+  .qs{border-top:1.5px solid var(--night);}
+  .q{border-bottom:1px solid var(--hair);}
+  .q button{width:100%;display:flex;align-items:center;justify-content:space-between;
+    background:none;border:none;cursor:pointer;text-align:left;padding:22px 0;
+    font-family:'Outfit',sans-serif;font-weight:600;font-size:18px;color:var(--night);}
+  .q button>span{flex:1 1 auto;}
+  .q .chev{flex:0 0 auto;width:15px;height:15px;margin-left:20px;color:var(--gold-deep);transition:transform .25s cubic-bezier(.4,0,.2,1);}
+  .q.open .chev{transform:rotate(180deg);}
+  .q .ans{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1);}
+  .q.open .ans{max-height:340px;}
+  .q .ans p{font-size:15px;line-height:1.65;color:var(--body);max-width:72ch;padding-bottom:22px;}
+
+  @media(max-width:860px){
+    .shead{flex-direction:column;align-items:flex-start;}
+    .shead p{margin-left:0;margin-top:12px;}
+    .shead h2{max-width:none;} .shead p{max-width:none;padding-bottom:0;}
+    .waygrid{flex-direction:column;}
+    .waycard + .waycard{margin-left:0;margin-top:18px;}
+    .way{border-right:none;border-bottom:1px solid var(--hair);padding:24px 0 26px;}
+    .way:last-child{border-bottom:none;}
+    .track2{flex-direction:column;} .track2:before{display:none;}
+    .pstep{padding:0 0 26px 0;border-left:2px solid #EBDCC4;padding-left:22px;margin-left:13px;}
+    .pstep .dot{position:absolute;left:-15px;top:0;margin-bottom:0;background:#F4F7FA;}
+    .pstep h4{margin-left:26px;} .pstep p,.pstep .wk{margin-left:26px;}
+    .rail li{flex-wrap:wrap;}
+    .rail strong{flex:0 0 100%;margin:2px 0 4px;}
+    .rail em{flex:1 1 100%;padding-left:58px;}
+  }
+
+  /* ---- footer ---- */
+  footer.v2 .se-logo-word .se-solve{color:#F1F4EC;}
+  footer.v2 .se-logo-word .se-energy{color:var(--gold);}
+  footer.v2 .se-tagline{color:rgba(232,237,230,.5);}
+  footer.v2{background:var(--navy);color:#E8EDE6;margin-top:22px;border-radius:32px 32px 0 0;overflow:hidden;}
+  .fgrid{display:flex;gap:44px;max-width:var(--max);margin:0 auto;padding:58px 34px 40px;}
+  .fbrand{flex:1.5 1 0;min-width:0;}
+  .fbrand .blurb{font-size:13.5px;line-height:1.6;color:rgba(232,237,230,.66);max-width:30ch;margin-top:16px;}
+  .fcol{flex:1 1 0;min-width:0;}
+  .fcol h5{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px;margin-bottom:14px;color:#fff;}
+  .fcol a{display:block;text-decoration:none;font-size:13.5px;color:rgba(232,237,230,.7);padding:5px 0;transition:color .15s;}
+  .fcol a:hover{color:#fff;}
+  .fack{max-width:var(--max);margin:0 auto;padding:22px 34px;display:flex;align-items:flex-start;
+    border-top:1px solid rgba(232,237,230,.14);font-size:12.5px;line-height:1.6;color:rgba(232,237,230,.66);}
+  .fack .flags{flex:0 0 auto;display:flex;margin-right:14px;}
+  .fack .flags svg{display:block;}
+  .fack .flags svg + svg{margin-left:7px;}
+  .fbase{max-width:var(--max);margin:0 auto;padding:16px 34px 30px;font-size:12.5px;
+    color:rgba(232,237,230,.52);border-top:1px solid rgba(232,237,230,.14);}
+  @media(max-width:820px){
+    .fgrid{flex-direction:column;gap:26px;padding:40px 20px 28px;}
+    .fack,.fbase{padding-left:20px;padding-right:20px;}
+    .fack{flex-direction:column;} .fack .flags{margin:0 0 10px 0;}
+  }
+
+  /* ---- section reveal (carried from v1) ---- */
+  .reveal{
+    opacity:calc(.25 + var(--rv,1)*.75);
+    transform:translateY(calc((1 - var(--rv,1)) * 34px)) scale(calc(.985 + var(--rv,1)*.015));
+    filter:blur(calc((1 - var(--rv,1)) * 3px));
+    transition:none; will-change:transform,opacity,filter;
+  }
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;filter:none;} }
+
+  /* ---- three ways: cards ---- */
+  .waygrid{display:flex;}
+  .waycard + .waycard{margin-left:20px;}
+  .waycard{flex:1 1 0;min-width:0;background:#fff;border:1px solid var(--hair);border-radius:22px;
+    overflow:hidden;box-shadow:0 18px 44px -32px rgba(23,37,63,.42);display:flex;flex-direction:column;}
+  .wtop{padding:26px 26px 20px;background:linear-gradient(160deg,#FDF6EA,#F7EAD6);border-bottom:1px solid #EFE0CA;}
+  .waycard .idx{font-family:'JetBrains Mono',monospace;font-size:11px;color:#B5741E;letter-spacing:.1em;margin-bottom:12px;}
+  .waycard h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:23px;line-height:1.12;margin-bottom:5px;color:#2A2317;}
+  .waycard .when{font-size:13px;color:#B5741E;font-weight:600;margin-bottom:16px;}
+  .spark{display:block;width:100%;height:auto;}
+  .sparklab{font-size:11.5px;color:#7C6A4F;margin-top:8px;line-height:1.45;}
+  .wbody{padding:22px 26px 26px;display:flex;flex-direction:column;flex:1 1 auto;}
+  .wbody p{font-size:14.5px;line-height:1.6;color:var(--body);margin-bottom:18px;}
+  .wbody ul{list-style:none;margin:0;padding:0;}
+  .wbody li{font-size:13.8px;color:var(--night);padding:10px 0;border-top:1px solid var(--hair);}
+
+  /* ---- process: card ---- */
+  .proccard{background:#fff;border:1px solid var(--hair);border-radius:22px;padding:34px 30px 30px;
+    box-shadow:0 18px 44px -32px rgba(23,37,63,.42);}
+  .track2{position:relative;display:flex;}
+  .track2:before{content:"";position:absolute;left:31px;right:calc(20% - 31px);top:33.5px;height:1.5px;
+    background:linear-gradient(90deg,var(--dawn),#E9C79A 48%,var(--noon));opacity:.85;}
+  .pstep{position:relative;flex:1 1 0;min-width:0;padding-right:20px;}
+  .pnode{position:relative;width:62px;height:62px;border-radius:50%;background:linear-gradient(150deg,#FFECCF,#F7BE7A);
+    border:1.5px solid #E89A45;display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;box-shadow:0 7px 16px -9px rgba(217,133,42,.75);}
+  .pglyph{width:36px;height:auto;fill:none;stroke:#7E440F;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round;}
+  .pnum{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold-deep);
+    letter-spacing:.12em;margin-bottom:7px;}
+  .pstep h4{font-family:'Outfit',sans-serif;font-weight:600;font-size:17.5px;margin-bottom:6px;}
+  .pstep p{font-size:13.8px;line-height:1.55;color:var(--body);}
+  .pstep .wk{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#8496AC;margin-top:10px;letter-spacing:.05em;}
+
+  /* ---- faq ---- */
+  .faq{padding:56px 0 46px;}
+  .qs{border-top:1.5px solid var(--night);}
+  .q{border-bottom:1px solid var(--hair);}
+  .q button{width:100%;display:flex;align-items:center;justify-content:space-between;
+    background:none;border:none;cursor:pointer;text-align:left;padding:22px 0;
+    font-family:'Outfit',sans-serif;font-weight:600;font-size:18px;color:var(--night);}
+  .q button>span{flex:1 1 auto;}
+  .q .chev{flex:0 0 auto;width:15px;height:15px;margin-left:20px;color:var(--gold-deep);transition:transform .25s cubic-bezier(.4,0,.2,1);}
+  .q.open .chev{transform:rotate(180deg);}
+  .q .ans{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1);}
+  .q.open .ans{max-height:340px;}
+  .q .ans p{font-size:15px;line-height:1.65;color:var(--body);max-width:72ch;padding-bottom:22px;}
+
+  @media(max-width:860px){
+    .shead{flex-direction:column;align-items:flex-start;}
+    .shead p{margin-left:0;margin-top:12px;}
+    .shead h2{max-width:none;} .shead p{max-width:none;padding-bottom:0;}
+    .waygrid{flex-direction:column;}
+    .waycard + .waycard{margin-left:0;margin-top:18px;}
+    .way{border-right:none;border-bottom:1px solid var(--hair);padding:24px 0 26px;}
+    .way:last-child{border-bottom:none;}
+    .track2{flex-direction:column;} .track2:before{display:none;}
+    .pstep{padding:0 0 26px 0;border-left:2px solid #EBDCC4;padding-left:22px;margin-left:13px;}
+    .pstep .dot{position:absolute;left:-15px;top:0;margin-bottom:0;background:#F4F7FA;}
+    .pstep h4{margin-left:26px;} .pstep p,.pstep .wk{margin-left:26px;}
+    .rail li{flex-wrap:wrap;}
+    .rail strong{flex:0 0 100%;margin:2px 0 4px;}
+    .rail em{flex:1 1 100%;padding-left:58px;}
+  }
+
+  /* ---- footer ---- */
+  footer.v2 .se-logo-word .se-solve{color:#F1F4EC;}
+  footer.v2 .se-logo-word .se-energy{color:var(--gold);}
+  footer.v2 .se-tagline{color:rgba(232,237,230,.5);}
+  footer.v2{background:var(--navy);color:#E8EDE6;margin-top:22px;border-radius:32px 32px 0 0;overflow:hidden;}
+  .fgrid{display:flex;gap:44px;max-width:var(--max);margin:0 auto;padding:58px 34px 40px;}
+  .fbrand{flex:1.5 1 0;min-width:0;}
+  .fbrand .blurb{font-size:13.5px;line-height:1.6;color:rgba(232,237,230,.66);max-width:30ch;margin-top:16px;}
+  .fcol{flex:1 1 0;min-width:0;}
+  .fcol h5{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px;margin-bottom:14px;color:#fff;}
+  .fcol a{display:block;text-decoration:none;font-size:13.5px;color:rgba(232,237,230,.7);padding:5px 0;transition:color .15s;}
+  .fcol a:hover{color:#fff;}
+  .fack{max-width:var(--max);margin:0 auto;padding:22px 34px;display:flex;align-items:flex-start;
+    border-top:1px solid rgba(232,237,230,.14);font-size:12.5px;line-height:1.6;color:rgba(232,237,230,.66);}
+  .fack .flags{flex:0 0 auto;display:flex;margin-right:14px;}
+  .fack .flags svg{display:block;}
+  .fack .flags svg + svg{margin-left:7px;}
+  .fbase{max-width:var(--max);margin:0 auto;padding:16px 34px 30px;font-size:12.5px;
+    color:rgba(232,237,230,.52);border-top:1px solid rgba(232,237,230,.14);}
+  @media(max-width:820px){
+    .fgrid{flex-direction:column;gap:26px;padding:40px 20px 28px;}
+    .fack,.fbase{padding-left:20px;padding-right:20px;}
+    .fack{flex-direction:column;} .fack .flags{margin:0 0 10px 0;}
+  }
+
+  /* ---- section reveal (carried from v1) ---- */
+  .reveal{
+    opacity:calc(.25 + var(--rv,1)*.75);
+    transform:translateY(calc((1 - var(--rv,1)) * 34px)) scale(calc(.985 + var(--rv,1)*.015));
+    filter:blur(calc((1 - var(--rv,1)) * 3px));
+    transition:none; will-change:transform,opacity,filter;
+  }
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;filter:none;} }
+
+  /* ---- three ways: cards ---- */
+  .waygrid{display:flex;}
+  .waycard + .waycard{margin-left:20px;}
+  .waycard{flex:1 1 0;min-width:0;background:#fff;border:1px solid var(--hair);border-radius:22px;
+    overflow:hidden;box-shadow:0 18px 44px -32px rgba(23,37,63,.42);display:flex;flex-direction:column;}
+  .wtop{padding:26px 26px 20px;background:linear-gradient(160deg,#FDF6EA,#F7EAD6);border-bottom:1px solid #EFE0CA;}
+  .waycard .idx{font-family:'JetBrains Mono',monospace;font-size:11px;color:#B5741E;letter-spacing:.1em;margin-bottom:12px;}
+  .waycard h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:23px;line-height:1.12;margin-bottom:5px;color:#2A2317;}
+  .waycard .when{font-size:13px;color:#B5741E;font-weight:600;margin-bottom:16px;}
+  .spark{display:block;width:100%;height:auto;}
+  .sparklab{font-size:11.5px;color:#7C6A4F;margin-top:8px;line-height:1.45;}
+  .wbody{padding:22px 26px 26px;display:flex;flex-direction:column;flex:1 1 auto;}
+  .wbody p{font-size:14.5px;line-height:1.6;color:var(--body);margin-bottom:18px;}
+  .wbody ul{list-style:none;margin:0;padding:0;}
+  .wbody li{font-size:13.8px;color:var(--night);padding:10px 0;border-top:1px solid var(--hair);}
+
+  /* ---- process: card ---- */
+  .proccard{background:#fff;border:1px solid var(--hair);border-radius:22px;padding:34px 30px 30px;
+    box-shadow:0 18px 44px -32px rgba(23,37,63,.42);}
+  .track2{position:relative;display:flex;}
+  .track2:before{content:"";position:absolute;left:31px;right:calc(20% - 31px);top:33.5px;height:1.5px;
+    background:linear-gradient(90deg,var(--dawn),#E9C79A 48%,var(--noon));opacity:.85;}
+  .pstep{position:relative;flex:1 1 0;min-width:0;padding:0 18px 0 0;}
+  .pstep .dot{position:relative;width:28px;height:28px;border-radius:50%;background:#fff;
+    border:2px solid var(--gold-deep);display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold-deep);margin-bottom:16px;}
+  .pstep h4{font-family:'Outfit',sans-serif;font-weight:600;font-size:17.5px;margin-bottom:6px;}
+  .pstep p{font-size:13.8px;line-height:1.55;color:var(--body);}
+  .pstep .wk{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#8496AC;margin-top:9px;letter-spacing:.05em;}
+
+  /* ---- faq: bubbles ---- */
+  .qs{border-top:none;}
+  .q{background:#fff;border:1px solid var(--hair);border-radius:18px;margin-bottom:12px;
+    box-shadow:0 18px 44px -32px rgba(23,37,63,.42);transition:border-color .2s, box-shadow .2s;}
+  .q:last-child{margin-bottom:0;}
+  .q:hover{border-color:#C9D5E2;}
+  .q.open{border-color:#E7D2AE;box-shadow:0 18px 44px -32px rgba(23,37,63,.42);}
+  .q button{width:100%;display:flex;align-items:center;background:none;border:none;cursor:pointer;
+    text-align:left;padding:20px 24px;font-family:'Outfit',sans-serif;font-weight:600;font-size:17.5px;color:var(--night);}
+  .q button>span{flex:1 1 auto;}
+  .q .chev{flex:0 0 auto;width:15px;height:15px;margin-left:20px;color:var(--gold-deep);
+    transition:transform .25s cubic-bezier(.4,0,.2,1);}
+  .q.open .chev{transform:rotate(180deg);}
+  .q .ans{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1);}
+  .q.open .ans{max-height:360px;}
+  .q .ans p{font-size:15px;line-height:1.65;color:var(--body);padding:0 24px 22px;}
+
+  @media(max-width:900px){
+    .sunsec,.calcsec,.sizing,.ways,.proc,.faq,.assess{padding-top:40px;padding-bottom:36px;}
+    .waygrid{flex-direction:column;}
+    .waycard + .waycard{margin-left:0;margin-top:18px;}
+    .proccard{padding:24px 18px 20px;}
+    .track2{flex-direction:column;} .track2:before{display:none;}
+    .pstep{padding:0 0 26px 72px;min-height:72px;}
+    .pstep:last-child{padding-bottom:0;}
+    .pnode{position:absolute;left:0;top:0;margin-bottom:0;width:54px;height:54px;}
+    .q button{padding:17px 18px;font-size:16px;}
+    .q .ans p{padding:0 18px 18px;}
+  }
+
+  /* ---- sizing: glyph cards ---- */
+  .sgrid{display:flex;}
+  .scard{flex:1 1 0;min-width:0;background:#fff;border:1px solid var(--hair);border-radius:20px;
+    padding:24px 20px 26px;box-shadow:0 18px 44px -32px rgba(23,37,63,.42);}
+  .scard + .scard{margin-left:16px;}
+  .snode{width:54px;height:54px;border-radius:16px;background:linear-gradient(150deg,#FDD9A2,#F4A259);
+    border:1px solid #E89A45;box-shadow:0 6px 14px -8px rgba(217,133,42,.7);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .sglyph{width:32px;height:auto;fill:none;stroke:#7E440F;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+  .snum{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold-deep);letter-spacing:.12em;margin-bottom:7px;}
+  .scard h4{font-family:'Outfit',sans-serif;font-weight:600;font-size:17px;margin-bottom:7px;}
+  .scard p{font-size:13.6px;line-height:1.55;color:var(--body);}
+  @media(max-width:900px){
+    .sgrid{flex-wrap:wrap;}
+    .scard{flex:1 1 100%;}
+    .scard + .scard{margin-left:0;margin-top:14px;}
+  }
+
+  /* ================= SECTION BUBBLES ================= */
+  .bubble{
+    position:relative; margin:0 22px 22px; border-radius:32px; overflow:hidden;
+    background:var(--surface); border:1px solid var(--edge);
+    box-shadow:0 18px 44px -32px rgba(23,37,63,.34);
+  }
+  .bubble:before{
+    content:""; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,#F4A259,#F8C877 38%,#8CC0E4 72%,#6FA8DC);
+  }
+  .bubble > .wrap, .bubble > .sunsec{ padding-left:44px; padding-right:44px; }
+
+  /* eyebrow as a pill */
+  .seyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep);
+    background:rgba(244,162,89,.11); border:1px solid rgba(244,162,89,.36);
+    border-radius:100px; padding:6px 14px; margin-bottom:14px;
+  }
+
+  /* inner content no longer boxed — the bubble is the box */
+  .scard, .waycard, .proccard, .q{
+    background:none !important; border:none !important; box-shadow:none !important;
+    border-radius:0 !important;
+  }
+  .scard{ padding:20px 16px 0 0; border-top:1px solid var(--hair) !important; }
+  .scard + .scard{ margin-left:16px; }
+  .waycard{ padding:0; display:block; }
+  .waycard + .waycard{ margin-left:24px; }
+  .wtop{ padding:20px 20px 16px 0; background:none; border-bottom:none;
+         border-top:1px solid var(--hair); }
+  .wbody{ padding:0 20px 0 0; }
+  .proccard{ padding:0; }
+  .q{ border-top:1px solid var(--hair) !important; margin-bottom:0 !important; }
+  .q:first-child{ border-top:1.5px solid var(--night) !important; }
+  .q button{ padding:20px 4px; }
+  .q .ans p{ padding:0 4px 20px; }
+  .qs{ border-top:none; }
+  .track2{ padding-top:4px; }
+
+  @media(max-width:900px){
+    .bubble{ margin:0 12px 14px; border-radius:24px; }
+    .bubble > .wrap, .bubble > .sunsec{ padding-left:20px; padding-right:20px; }
+    .scard + .scard{ margin-left:0; }
+    .waycard + .waycard{ margin-left:0; margin-top:6px; }
+  }
+
+  /* ---- nav support dropdown ---- */
+  .navdrop{position:relative;}
+  .navdrop-btn{display:flex;align-items:center;background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.16);color:#F1F4EC;font-family:'Inter',sans-serif;
+    font-weight:500;font-size:13.5px;line-height:1.35;padding:9px 16px;border-radius:100px;
+    cursor:pointer;white-space:nowrap;}
+  .navdrop-btn svg{width:12px;height:12px;margin-left:7px;transition:transform .2s;}
+  .navdrop.open .navdrop-btn{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3);}
+  .navdrop.open .navdrop-btn svg{transform:rotate(180deg);}
+  .navdrop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(-6px);
+    min-width:218px;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:8px;
+    box-shadow:0 20px 44px -22px rgba(12,20,17,.55);opacity:0;visibility:hidden;
+    transition:opacity .18s,transform .18s,visibility 0s linear .18s;z-index:210;}
+  .navdrop.open .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
+    transition:opacity .18s,transform .18s;}
+  .navdrop-menu a{display:block;margin:0 !important;padding:10px 12px;border-radius:9px;
+    font-size:13.8px;line-height:1.4;color:var(--night);text-decoration:none;background:none;
+    border:none;backdrop-filter:none;transition:background .13s;}
+  .navdrop-menu a:hover{background:rgba(244,162,89,.14);}
+
+  /* ---- mobile menu ---- */
+  .mobmenu{display:none;position:sticky;top:72px;z-index:190;background:var(--navy);
+    padding:10px 16px 18px;border-radius:0 0 20px 20px;box-shadow:0 14px 30px -18px rgba(12,20,17,.7);}
+  .mobmenu.open{display:block;}
+  .mobmenu a{display:block;color:rgba(241,244,236,.86);text-decoration:none;font-size:15px;
+    padding:11px 4px;border-bottom:1px solid rgba(241,244,236,.1);}
+  .mobmenu a:last-child{border-bottom:none;}
+  .mobsep{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(241,244,236,.45);padding:16px 4px 6px;}
+  .mobcta{margin-top:14px;background:var(--gold);color:#14201C !important;font-weight:700;
+    text-align:center;border-radius:100px;border-bottom:none !important;}
+  @media(min-width:881px){ .mobmenu{display:none !important;} }
+
+  /* ================= DARK THEME ================= */
+  html[data-theme="dark"]{
+    --page:#0F1720;
+    --surface:#18222E;
+    --surface-2:#1C2734;
+    --edge:#2E3C4C;
+    --ink:#E9EEF4;
+    --muted:#A7B6C6;
+    --faint:#8798A9;
+    --bar:#1E2A38;          /* deliberately LIGHTER than the page, so the bar reads as a surface */
+    --warm-a:#3A2D1C;
+    --warm-b:#2C2317;
+    --warm-ink:#F2E3C8;
+    --field:#141D28;
+    --hair:#2E3C4C;
+    --night:#E9EEF4;
+    --body:#A7B6C6;
+    --navy:#1E2A38;
+    --paper:#E9EEF4;
+  }
+  html[data-theme="dark"] body{background:var(--page);color:var(--ink);}
+  html[data-theme="dark"] .bubble{background:var(--surface);border-color:var(--edge);
+    box-shadow:0 18px 44px -32px rgba(0,0,0,.75);}
+  html[data-theme="dark"] .chartcard,
+  html[data-theme="dark"] .b2,
+  html[data-theme="dark"] .acard{background:var(--surface-2);border-color:var(--edge);}
+  html[data-theme="dark"] .b2 .side.set{border-right-color:var(--edge);}
+  html[data-theme="dark"] .b2 .side.res,
+  html[data-theme="dark"] .acard .pitch{background:linear-gradient(150deg,var(--warm-a),var(--warm-b));color:var(--warm-ink);}
+  html[data-theme="dark"] .per,
+  html[data-theme="dark"] .acard .pitch p,
+  html[data-theme="dark"] .acard .pitch li{color:#CBB68F;}
+  html[data-theme="dark"] .ten{color:#D8C7A4;border-top-color:rgba(242,227,200,.2);}
+  html[data-theme="dark"] .ten b{color:#9FE0BE;}
+  html[data-theme="dark"] .save{color:#8FD4B4;}
+  html[data-theme="dark"] .kicker span{color:#8FD4B4;}
+  html[data-theme="dark"] .notice{background:linear-gradient(150deg,var(--warm-a),var(--warm-b));
+    border-color:#4A3A22;color:#E4D2AE;}
+  html[data-theme="dark"] .notice b{color:#F4C57F;}
+  html[data-theme="dark"] .fld input,
+  html[data-theme="dark"] .fld textarea{background:var(--field);border-color:var(--edge);color:var(--ink);}
+  html[data-theme="dark"] .cmp .track{background:#22303F;}
+  html[data-theme="dark"] .greenbar{background:var(--bar);}
+  html[data-theme="dark"] footer.v2{background:var(--bar);}
+  html[data-theme="dark"] .mobmenu{background:var(--bar);}
+  html[data-theme="dark"] .navdrop-menu{background:var(--surface-2);border-color:var(--edge);}
+  html[data-theme="dark"] .navdrop-menu a{color:var(--ink);}
+  html[data-theme="dark"] .navdrop-menu a:hover{background:rgba(244,162,89,.16);}
+  html[data-theme="dark"] .pnode{background:linear-gradient(150deg,#F7BE7A,#E08B3C);}
+  html[data-theme="dark"] .snode{background:linear-gradient(150deg,#F7BE7A,#E08B3C);}
+  html[data-theme="dark"] .spectable li span:last-child{color:var(--ink);}
+  html[data-theme="dark"] .chartcard svg text{fill:var(--faint);}
+  html[data-theme="dark"] .chartcard svg line[stroke="#E4EBF3"]{stroke:#2A3745;}
+  html[data-theme="dark"] .asubmit{background:var(--dawn);color:#1A1208;}
+  html[data-theme="dark"] .asubmit:hover{background:#F7B871;}
+  html[data-theme="dark"] .btn.solid{background:var(--dawn);color:#1A1208;}
+  html[data-theme="dark"] .btn.quiet{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--edge);}
+  html[data-theme="dark"] .scard,
+  html[data-theme="dark"] .waycard,
+  html[data-theme="dark"] .q,
+  html[data-theme="dark"] .wtop{border-top-color:var(--edge) !important;}
+  html[data-theme="dark"] .wbody li,
+  html[data-theme="dark"] .spectable li{border-color:var(--edge);}
+  html[data-theme="dark"] .q:first-child{border-top-color:var(--ink) !important;}
+  html[data-theme="dark"] .steps,
+  html[data-theme="dark"] .spectable,
+  html[data-theme="dark"] .rail{border-top-color:var(--ink);}
+
+
+  html[data-theme="dark"] .chartcard svg path[stroke="#17253F"]{stroke:#9FC4E8;}
+  html[data-theme="dark"] .chartcard svg line[stroke="#17253F"]{stroke:#5C6E80;}
+  html[data-theme="dark"] .legend span:nth-child(2) i{background:#9FC4E8 !important;}
+  html[data-theme="dark"] .legend{color:var(--muted);}
+  /* theme toggle */
+  .themebtn{width:38px;height:38px;margin-left:10px;margin-right:12px;border-radius:50%;cursor:pointer;
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0;}
+  .themebtn svg{width:17px;height:17px;stroke:#F1F4EC;fill:none;stroke-width:1.7;
+    stroke-linecap:round;stroke-linejoin:round;}
+  .themebtn .moon{display:none;}
+  html[data-theme="dark"] .themebtn .moon{display:block;}
+  html[data-theme="dark"] .themebtn .sun{display:none;}
+  /* ---- nav fit: no horizontal overflow at any width ---- */
+  @media(max-width:880px){ .navlinks{display:none;} .burger{display:block;} nav{height:72px;} }
+  @media(max-width:480px){ .navcta{display:none;} .themebtn{margin-left:0;margin-right:4px;} nav{padding:0 14px;} }
+
+  .seelink{display:inline-flex;align-items:center;gap:8px;margin-top:30px;padding:12px 20px;
+    border-radius:100px;box-shadow:inset 0 0 0 1.5px var(--edge);color:var(--ink);
+    text-decoration:none;font-size:14.5px;font-weight:600;transition:background .16s,box-shadow .16s;}
+  .seelink:hover{background:rgba(244,162,89,.12);box-shadow:inset 0 0 0 1.5px var(--dawn);}
+
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","@id":"https://www.solveenergy.com.au/#org",
+"name":"Solve Energy","url":"https://www.solveenergy.com.au/",
+"logo":{"@type":"ImageObject","url":"https://www.solveenergy.com.au/logo-512.png","width":512,"height":512},
+"image":"https://www.solveenergy.com.au/logo-512.png",
+"email":"info@solveenergy.com.au",
+"description":"Solar and battery design, installation and monitoring across Sydney, sized to actual household usage.",
+"areaServed":{"@type":"City","name":"Sydney"},
+"address":{"@type":"PostalAddress","addressRegion":"NSW","addressCountry":"AU"}}
+</script>
 </head>
 <body>
+<script>
+(function(){
+  if('scrollRestoration' in history){ history.scrollRestoration='manual'; }
+  if(!location.hash){ window.scrollTo(0,0); window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,0); }); }
+})();
+</script>
 
-<header>
-  <nav class="wrap">
+
+<div class="greenbar">
+  <nav>
     <div class="se-logo-wrap">
       <svg class="se-logo-icon" width="40" height="40" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -552,1070 +890,562 @@
       </div>
     </div>
     <div class="navlinks">
-      <a href="#solver">Your number</a>
-      <a href="#how">How it works</a>
-      <a href="#services">Services</a>
+      <a href="#calc">Your day</a>
+      <a href="technical-details.html">How it works</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
-      <div class="nav-dropdown" id="navSupportDropdown">
-        <button type="button" class="nav-dropdown-trigger" id="navSupportTrigger" aria-haspopup="true" aria-expanded="false">
-          Support
-          <svg class="nav-dropdown-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <div class="navdrop" id="navdrop">
+        <button type="button" class="navdrop-btn">Support
+          <svg viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="nav-dropdown-menu" id="navSupportMenu">
+        <div class="navdrop-menu">
           <a href="contact.html">Contact us</a>
-          <a href="support-ticket.html">Submit a Ticket</a>
-          <a href="refunds-policy.html">Refunds Policy</a>
-          <a href="complaints-handling.html">Complaints Handling Policy</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener">New Energy Tech Consumer Code</a>
+          <a href="support-ticket.html">Submit a ticket</a>
+          <a href="refunds-policy.html">Refunds policy</a>
+          <a href="complaints-handling.html">Complaints handling</a>
+          <a href="privacy-policy.html">Privacy policy</a>
         </div>
       </div>
     </div>
-    <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <svg class="icon-burger" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-      <svg class="icon-close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <a class="navcta" href="#quote">Get a quote</a>
+    <div class="navright">
+      <button class="themebtn" id="themeBtn" aria-label="Switch theme" title="Switch theme">
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></svg>
+      </button>
+      <a class="navcta" href="#assessment">Get a quote</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#solver">Your number</a>
-    <a href="#how">How it works</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#faq">FAQ</a>
-    <div class="mobile-menu-divider"></div>
-    <div class="mobile-menu-heading">Support</div>
-    <a href="contact.html">Contact us</a>
-    <a href="support-ticket.html">Submit a Ticket</a>
-    <a href="refunds-policy.html">Refunds Policy</a>
-    <a href="complaints-handling.html">Complaints Handling Policy</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener">New Energy Tech Consumer Code</a>
   </div>
-</header>
+<div class="mobmenu" id="mobMenu">
+  <a href="#calc">Your day</a>
+  <a href="technical-details.html">How it works</a>
+  <a href="#process">Process</a>
+  <a href="#faq">FAQ</a>
+  <div class="mobsep">Support</div>
+  <a href="contact.html">Contact us</a>
+  <a href="support-ticket.html">Submit a ticket</a>
+  <a href="refunds-policy.html">Refunds policy</a>
+  <a href="complaints-handling.html">Complaints handling</a>
+  <a href="privacy-policy.html">Privacy policy</a>
+  <a class="mobcta" href="#assessment">Book a free assessment</a>
+</div>
+<div class="skyband"><div class="skybg"><div class="sun"></div></div></div>
 
-<section class="hero" id="solver">
+<section class="hero">
   <div class="wrap">
-    <div class="hero-top">
-      <div class="eyebrow">Residential &amp; commercial solar</div>
-      <h1>Your power bill is a problem.<br>We're here to <em>solve</em> it.</h1>
-      <p>Solve Energy designs, installs and monitors solar systems that are sized around your actual usage, not a sales quota. Move the slider below to see roughly what your system looks like.</p>
-      <div class="path-choice">
-        <span class="path-choice-label">Prefer to go deeper?</span>
-        <a href="#solver" class="path-btn path-btn-simple">Keep it simple ↓</a>
-        <a href="technical-details.html" class="path-btn path-btn-detail">See the full technical picture →</a>
-      </div>
-    </div>
-
-    <div class="solver">
-      <div class="solver-left">
-        <div class="equation-line">for x, where x = your solar system</div>
-        <div class="bill-display"><span class="cur">$</span><span id="billOut">210</span><span style="font-size:0.32em; color:var(--slate); font-weight:400;">/mo</span></div>
-        <div class="bill-caption">Your average monthly electricity bill</div>
-        <input type="range" id="billSlider" min="50" max="600" step="10" value="210" aria-label="Average monthly electricity bill in dollars">
-        <div class="range-labels"><span>$50</span><span>$600</span></div>
-        <span class="solved-tag">✓ Solved for your usage</span>
-      </div>
-      <div class="solver-right">
-        <div class="metric-row">
-          <div class="metric-label">Estimated system size</div>
-          <div class="metric-value" id="sysSize">—<span>kW</span></div>
-        </div>
-        <div class="metric-row">
-          <div class="metric-label">Panels required (500W)</div>
-          <div class="metric-value" id="panelCount">—<span>panels</span></div>
-        </div>
-        <div class="metric-row">
-          <div class="metric-label">Estimated monthly savings</div>
-          <div class="metric-value" id="savings">—<span>/mo</span></div>
-        </div>
-        <div class="metric-row">
-          <div class="metric-label">Estimated payback period</div>
-          <div class="metric-value" id="payback">—<span>yrs</span></div>
-        </div>
-        <div class="solver-disclaimer">Illustrative estimate based on typical usage patterns and average install costs. Your roof, orientation and tariff will change the real numbers. A site assessment gets you an exact figure, free of charge.</div>
-      </div>
+    <h1>Your house already gets the fuel.<br class="hbr"> It just isn't collecting it.</h1>
+    <p class="lede">7 to 9 hours of usable sun crosses a Sydney roof on most days, and lands on tiles. Solve Energy designs the system that catches it, stores what you don't need at noon &amp; hands it back at seven.</p>
+    <div class="pair">
+      <a class="btn solid" href="#assessment">Book a free assessment</a>
+      <a class="btn quiet" href="#sizing">See how we size a system</a>
     </div>
   </div>
 </section>
 
-<section id="how">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">The variables</div>
-        <h2>How the sun becomes<br>a lower bill</h2>
+<section class="bubble reveal" id="calc">
+<div class="wrap">
+  <div class="calcsec">
+    <h2 class="ch">What you'd stop paying</h2>
+    <p class="clede">Move the slider to what you're paying now. Everything else is the consequence of that one number.</p>
+
+    <div class="b2">
+      <div class="side set">
+        <div class="ceyebrow">Your bill today</div>
+        <div class="billnum">$<span id="bBill">210</span><s>a month</s></div>
+        <p class="chint">Use the figure from a recent quarterly bill, divided by three. Close is good enough at this stage.</p>
+        <input type="range" id="bSlider" min="50" max="500" step="10" value="210" aria-label="Current monthly electricity bill">
+        <div class="cends"><span>$50</span><span>$500</span></div>
       </div>
-      <p class="sub">Solar isn't magic, it's a circuit. Select a stage below to see what it actually does. Most of what people find confusing about solar is just unfamiliar vocabulary for an otherwise simple loop.</p>
+      <div class="side res">
+        <div class="ceyebrow">You'd stop buying</div>
+        <div class="save">$<span id="bYr">1,764</span></div>
+        <div class="per">worth of electricity a year, on conservative assumptions</div>
+        <div class="ten">Over ten years that's about <b id="bTen">$7,040</b> net, after the system has paid for itself.</div>
+      </div>
     </div>
 
-    <div class="flow-wrap" id="flowWrap">
-      <svg class="flow-diagram-desktop" viewBox="0 -10 640 370" id="flowSvgDesktop" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Illustrated diagram of solar energy flow from sun to panels, inverter, and then home, battery or grid">
-        <defs>
-          <radialGradient id="sunGlowD" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.5"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="travelGlowD" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.55"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="travelCoreD" cx="35%" cy="32%" r="70%"><stop offset="0%" stop-color="#FFE9BE"/><stop offset="55%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--gold-deep)"/></radialGradient>
-          <radialGradient id="moonGlowD" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--slate)" stop-opacity="0.4"/><stop offset="100%" stop-color="var(--slate)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="moonCoreD" cx="38%" cy="35%" r="75%"><stop offset="0%" stop-color="#EDF0EA"/><stop offset="60%" stop-color="var(--slate)"/><stop offset="100%" stop-color="var(--navy-2)"/></radialGradient>
-          <mask id="moonCrescentD" maskUnits="userSpaceOnUse" x="-30" y="-30" width="60" height="60">
-            <rect x="-30" y="-30" width="60" height="60" fill="white"/>
-            <circle cx="6" cy="-5" r="12.5" fill="black"/>
-          </mask>
+    <div class="b2 stack">
+      <div class="compare">
+        <div class="cmp now">
+          <div class="top"><span>What you pay now</span><b id="cNow">$210 / month</b></div>
+          <div class="track"><div class="fill" id="fNow" style="width:100%"></div></div>
+        </div>
+        <div class="cmp aft">
+          <div class="top"><span>What you'd pay with solar</span><b id="cAft">$63 / month</b></div>
+          <div class="track"><div class="fill" id="fAft" style="width:30%"></div></div>
+        </div>
+      </div>
+      <div class="mrow2">
+        <div class="m2"><div class="v" id="bMo">$147<s>/mo</s></div><div class="l">Monthly saving</div></div>
+        <div class="m2"><div class="v" id="bPb">6.0<s>yrs</s></div><div class="l">Pays for itself in</div></div>
+        <div class="m2"><div class="v" id="bKw">8.0<s>kW</s></div><div class="l">Solar array</div></div>
+        <div class="m2"><div class="v" id="bPn">16</div><div class="l">500W panels</div></div>
+      </div>
+      <p class="footline"><b>Indicative figures only.</b> Conservative model: typical Sydney irradiance, 70% of usage offset, average installed costs, solar only. A battery raises how much of your own solar you use instead of exporting — we size it to your evening pattern rather than quoting a standard box. Pitch, orientation, shading, tariff and real usage all shift these. Actual numbers follow a bill analysis and site assessment, both free.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+(function(){
+  function money(n){var s=String(Math.round(n)),o='',k=0;for(var i=s.length-1;i>=0;i--){o=s[i]+o;if(++k%3===0&&i>0)o=','+o;}return o;}
+  var sl=document.getElementById('bSlider');
+  function $(id){return document.getElementById(id);}
+  function go(){
+    var bill=+sl.value;
+    var panels=Math.ceil(Math.max(1.5,bill/27)*1000/500);
+    var kw=panels*500/1000;
+    var save=Math.round(bill*0.70);
+    var cost=Math.round(kw*1150+1400);
+    var payback=cost/(save*12);
+    var left=bill-save;
+    $('bBill').textContent=bill;
+    $('bYr').textContent=money(save*12);
+    $('bTen').textContent='$'+money(save*12*10-cost);
+    $('bMo').innerHTML='$'+save+'<s>/mo</s>';
+    $('bPb').innerHTML=payback.toFixed(1)+'<s>yrs</s>';
+    $('bKw').innerHTML=kw.toFixed(1)+'<s>kW</s>';
+    $('bPn').textContent=panels;
+    $('cNow').textContent='$'+bill+' / month';
+    $('cAft').textContent='$'+left+' / month';
+    $('fAft').style.width=Math.max(4,Math.round(left/bill*100))+'%';
+  }
+  sl.addEventListener('input',go); go();
+})();
+</script>
+
+
+<section class="bubble reveal">
+<div class="sunsec">
+  <h2>How the sun becomes a lower bill</h2>
+  <p class="sub">There are only ever three places your solar can go: into the house, into the battery, or out to the grid. Which one it picks depends entirely on the time of day.</p>
+
+  <div class="flowpanel is-day" id="panel">
+    <div class="skylayer sky-day"></div><div class="skylayer sky-set"></div><div class="skylayer sky-night"></div>
+    <div class="scrim"></div>
+    <div class="stages"><span class="s1">MIDDAY</span><span class="s2">SUNSET</span><span class="s3">NIGHT</span></div>
+    <div class="flowinner">
+      <svg class="flow" viewBox="0 0 900 290" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Energy flow across the day">
+        <defs><path id="w1" d="M178,160 L258,160"/><path id="w2" d="M302,160 L398,160"/><path id="w3" d="M442,160 L526,160"/><path id="w4" d="M530,160 C586,160 586,72 688,72"/><path id="w5" d="M534,160 L688,160"/><path id="w6" d="M530,160 C586,160 586,248 688,248"/><path id="w7" d="M710,136 L710,96"/><path id="w8" d="M734,248 C782,248 782,72 734,72"/>
+          <radialGradient id="sg"><stop offset="0%" stop-color="#FFE9C4" stop-opacity=".95"/>
+            <stop offset="52%" stop-color="#F4A259" stop-opacity=".34"/>
+            <stop offset="100%" stop-color="#F4A259" stop-opacity="0"/></radialGradient>
         </defs>
-        <!-- hidden motion guides: sun arcs above, moon arcs below, completing one loop -->
-        <path id="sunPathD" class="sky-guide" d="M60,180 Q315,-80 570,180" fill="none"/>
-        <path id="moonPathD" class="sky-guide" d="M570,180 Q315,440 60,180" fill="none"/>
-
-        <g class="sky-traveler">
-          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.5;1">
-            <mpath href="#sunPathD" xlink:href="#sunPathD"/>
-          </animateMotion>
-          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="1;1;0;0" keyTimes="0;0.47;0.53;1"/>
-          <circle r="40" fill="url(#travelGlowD)"/>
-          <circle r="26" fill="url(#travelGlowD)"/>
-          <g class="sky-rays" stroke="var(--gold)" stroke-linecap="round">
-            <line x1="0" y1="-19" x2="0" y2="-29" stroke-width="2.6"/>
-            <line x1="13.4" y1="-13.4" x2="20.5" y2="-20.5" stroke-width="2.2"/>
-            <line x1="19" y1="0" x2="27" y2="0" stroke-width="2.6"/>
-            <line x1="13.4" y1="13.4" x2="19" y2="19" stroke-width="1.8"/>
-            <line x1="0" y1="19" x2="0" y2="27" stroke-width="2.2"/>
-            <line x1="-13.4" y1="13.4" x2="-20.5" y2="20.5" stroke-width="2.6"/>
-            <line x1="-19" y1="0" x2="-28" y2="0" stroke-width="1.8"/>
-            <line x1="-13.4" y1="-13.4" x2="-19" y2="-19" stroke-width="2.2"/>
-          </g>
-          <circle r="13" fill="url(#travelCoreD)"/>
+        <path d="M178,160 L258,160" class="wire solar"/>
+      <path d="M302,160 L398,160" class="wire solar"/>
+      <path d="M442,160 L526,160" class="wire solar"/>
+      <path d="M530,160 C586,160 586,72 688,72" class="wire solar"/>
+      <path d="M534,160 L688,160" class="wire solar"/>
+      <path d="M530,160 C586,160 586,248 688,248" class="wire solar"/>
+      <path d="M710,136 L710,96" class="wire"/>
+      <path d="M734,248 C782,248 782,72 734,72" class="wire"/>
+        <g class="node solarpath">
+          <circle cx="140" cy="160" r="52" fill="url(#sg)" class="sundisc"/>
+          <circle cx="140" cy="160" r="21" fill="#F4A259" class="sundisc"/>
+          <text class="nlabel" x="140" y="198" text-anchor="middle">Sun</text>
         </g>
-
-        <g class="sky-traveler">
-          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.5;1">
-            <mpath href="#moonPathD" xlink:href="#moonPathD"/>
-          </animateMotion>
-          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="0;0;1;1" keyTimes="0;0.47;0.53;1"/>
-          <circle r="22" fill="url(#moonGlowD)"/>
-          <circle cx="-22" cy="-16" r="1.3" fill="var(--slate)"/>
-          <circle cx="17" cy="-19" r="1" fill="var(--slate)"/>
-          <circle cx="24" cy="10" r="1.1" fill="var(--slate)"/>
-          <circle r="12.5" fill="url(#moonCoreD)" mask="url(#moonCrescentD)"/>
-        </g>
-        <path id="pathSunPanelD" class="flow-line" d="M102,180 L198,180" />
-        <path id="pathPanelInvD" class="flow-line" d="M262,180 L358,180" />
-        <path id="pathInvHomeD" class="flow-line" d="M422,180 L490,180 L490,70 L528,70" />
-        <path id="pathInvBattD" class="flow-line" d="M422,180 L528,180" />
-        <path id="pathInvGridD" class="flow-line" d="M422,180 L490,180 L490,290 L528,290" />
-        <!-- energy pulses -->
-        <circle r="3.4" class="pulse pulse-gold pulse-day-only"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#pathSunPanelD" xlink:href="#pathSunPanelD"/></animateMotion></circle>
-        <circle r="3.4" class="pulse pulse-gold pulse-day-only"><animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#pathPanelInvD" xlink:href="#pathPanelInvD"/></animateMotion></circle>
-        <circle r="3.4" class="pulse pulse-charge"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0.6s"><mpath href="#pathInvHomeD" xlink:href="#pathInvHomeD"/></animateMotion></circle>
-        <circle r="3.4" class="pulse pulse-charge pulse-day-only"><animateMotion dur="1.9s" repeatCount="indefinite" begin="1s"><mpath href="#pathInvBattD" xlink:href="#pathInvBattD"/></animateMotion></circle>
-        <circle r="3.4" class="pulse pulse-charge pulse-day-only"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.15s"><mpath href="#pathInvGridD" xlink:href="#pathInvGridD"/></animateMotion></circle>
-        <!-- night: battery discharges through the inverter (majority), grid trickles in (minority) -->
-        <circle r="3.4" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattD" xlink:href="#pathInvBattD"/></animateMotion></circle>
-        <circle r="3.4" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0.65s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattD" xlink:href="#pathInvBattD"/></animateMotion></circle>
-        <circle r="2.2" class="pulse pulse-gold pulse-night-only"><animateMotion dur="4.5s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvGridD" xlink:href="#pathInvGridD"/></animateMotion></circle>
-        <g class="flow-node" data-node="sun">
-          <circle class="flow-sun-glow" cx="70" cy="180" r="52" fill="url(#sunGlowD)"/>
-          <rect class="node-shape" x="38.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g class="flow-sun-rays" stroke="var(--paper)" stroke-width="2.4" stroke-linecap="round">
-                <line x1="87.0" y1="180.0" x2="96.0" y2="180.0"/>
-                <line x1="82.0" y1="192.0" x2="88.4" y2="198.4"/>
-                <line x1="70.0" y1="197.0" x2="70.0" y2="206.0"/>
-                <line x1="58.0" y1="192.0" x2="51.6" y2="198.4"/>
-                <line x1="53.0" y1="180.0" x2="44.0" y2="180.0"/>
-                <line x1="58.0" y1="168.0" x2="51.6" y2="161.6"/>
-                <line x1="70.0" y1="163.0" x2="70.0" y2="154.0"/>
-                <line x1="82.0" y1="168.0" x2="88.4" y2="161.6"/>
-                </g>
-                <circle class="flow-sun-core" cx="70" cy="180" r="13" fill="var(--paper)"/>
-          <text x="70" y="232" text-anchor="middle">Sun</text>
-        </g>
-        <g class="flow-node" data-node="panel">
-          <rect class="node-shape" x="198.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(230,180) rotate(-12) scale(1.3)">
-    <rect x="-16" y="-10.5" width="32" height="21" rx="2" fill="#2A5688" stroke="#122238" stroke-width="1.8"/>
-    <g stroke="#5D8FC2" stroke-width="1.1">
-      <line x1="-5.3" y1="-10.5" x2="-5.3" y2="10.5"/>
-      <line x1="5.3" y1="-10.5" x2="5.3" y2="10.5"/>
-      <line x1="-16" y1="0" x2="16" y2="0"/>
-    </g>
-    <rect x="-16" y="-10.5" width="10.5" height="10.5" fill="#3E6FA0" opacity="0.6"/>
-    <rect x="5.3" y="0" width="10.5" height="10.5" fill="#3E6FA0" opacity="0.6"/>
-    <path d="M-13,-8.5 L-7,-8.5 L-13,3 L-15,3 Z" fill="#FFFFFF" opacity="0.22"/>
-  </g>
-          <text x="230" y="232" text-anchor="middle">Panels</text>
-        </g>
-        <g class="flow-node" data-node="inverter">
-          <rect class="node-shape" x="358.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(390,180) scale(1.3)">
-    <rect x="-14" y="-13" width="28" height="26" rx="5" fill="#1E2B2A" stroke="#0E1615" stroke-width="1.6"/>
-    <circle cx="-7" cy="-6.5" r="1.8" fill="#60A98D"/>
-    <path d="M-9,4 L-4,4 L-1,-4 L3,9 L6,4 L10,4" fill="none" stroke="#60A98D" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-          <text x="390" y="232" text-anchor="middle">Inverter</text>
-        </g>
-        <g class="flow-node" data-node="home">
-          <rect class="node-shape" x="528.0" y="38.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(560,70) scale(1.3)">
-    <path d="M-17,2.5 L0,-15 L17,2.5 L17,4.5 L-17,4.5 Z" fill="#D9852A" stroke="#8F5416" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M0,-15 L17,2.5 L17,4.5 L0,-11 Z" fill="#B5741E"/>
-    <rect x="-13" y="4.5" width="26" height="12.5" fill="#F1E9D8" stroke="#8F5416" stroke-width="1.4"/>
-    <rect x="1.5" y="7.5" width="7" height="9.5" fill="#1E2B2A"/>
-    <circle cx="7" cy="12.2" r="0.7" fill="#F0A93E"/>
-    <rect x="-9.5" y="7.5" width="7" height="7" fill="#7FB6D9" stroke="#1E2B2A" stroke-width="1"/>
-    <line x1="-6" y1="7.5" x2="-6" y2="14.5" stroke="#1E2B2A" stroke-width="0.8"/>
-    <line x1="-9.5" y1="11" x2="-2.5" y2="11" stroke="#1E2B2A" stroke-width="0.8"/>
-  </g>
-          <text x="560" y="122" text-anchor="middle">Home</text>
-        </g>
-        <g class="flow-node" data-node="battery">
-          <rect class="node-shape" x="528.0" y="148.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(560,180) scale(1.3)">
-    <rect x="-15" y="-9" width="30" height="18" rx="4" fill="#1E2B2A" stroke="#0E1615" stroke-width="1.6"/>
-    <rect x="15" y="-4" width="3.5" height="8" rx="1" fill="#0E1615"/>
-    <rect x="-12.5" y="-6.5" width="16" height="13" fill="#60A98D"/>
-    <path d="M-6.5,-4 L-2,-4 L-4.5,1.5 L-1,1.5 L-6,6.5 L-4.5,1.8 L-7.5,1.8 Z" fill="#0E1615"/>
-  </g>
-          <text x="560" y="232" text-anchor="middle">Battery</text>
-        </g>
-        <g class="flow-node" data-node="grid">
-          <rect class="node-shape" x="528.0" y="258.0" width="64" height="64" rx="16" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(560,290) scale(1.2)">
-    <g stroke="#152621" stroke-width="1.9" stroke-linecap="round" fill="none">
-      <line x1="-10" y1="16" x2="0" y2="-15"/>
-      <line x1="10" y1="16" x2="0" y2="-15"/>
-      <line x1="-11.5" y1="16" x2="11.5" y2="16"/>
-      <line x1="-5.5" y1="-8" x2="5.5" y2="-8"/>
-      <line x1="-7" y1="2" x2="7" y2="2"/>
-      <line x1="-13.5" y1="-12" x2="13.5" y2="-12"/>
-      <line x1="-13.5" y1="-12" x2="-19" y2="-6.5"/>
-      <line x1="13.5" y1="-12" x2="19" y2="-6.5"/>
-    </g>
-    <circle cx="-13.5" cy="-12" r="1.5" fill="#F0A93E"/>
-    <circle cx="13.5" cy="-12" r="1.5" fill="#F0A93E"/>
-  </g>
-          <text x="560" y="342" text-anchor="middle">Grid</text>
-        </g>
-        <text class="night-flow-label batt-label" id="battLabelD" x="560" y="247" text-anchor="middle">90%</text>
+        <g class="node solarpath"><g class="ico" transform="translate(280,160) scale(1.72) translate(-12,-12)"><path d="M4.28 14h15.44a1 1 0 0 0 .97 -1.243l-1.5 -6a1 1 0 0 0 -.97 -.757h-12.44a1 1 0 0 0 -.97 .757l-1.5 6a1 1 0 0 0 .97 1.243"/><path d="M4 10h16"/><path d="M10 6l-1 8"/><path d="M14 6l1 8"/><path d="M12 14v4"/><path d="M7 18h10"/></g><text class="nlabel" x="280" y="198" text-anchor="middle">Panels</text></g>
+        <g class="node solarpath"><g class="ico" transform="translate(420,160) scale(1.72) translate(-12,-12)"><path d="M21 12h-2c-.894 0 -1.662 -.857 -1.761 -2c-.296 -3.45 -.749 -6 -2.749 -6s-2.5 3.582 -2.5 8s-.5 8 -2.5 8s-2.452 -2.547 -2.749 -6c-.1 -1.147 -.867 -2 -1.763 -2h-2"/></g><text class="nlabel" x="420" y="198" text-anchor="middle">Inverter</text></g>
+        <g class="node "><g class="ico" transform="translate(710,72) scale(1.72) translate(-12,-12)"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></g><text class="nlabel" x="710" y="40" text-anchor="middle">Home</text></g>
+        <g class="node "><g class="ico" transform="translate(710,160) scale(1.72) translate(-12,-12)"><path d="M6 7h11a2 2 0 0 1 2 2v.5a.5 .5 0 0 0 .5 .5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5a.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-11a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2"/><path d="M7 10l0 4"/><path d="M10 10l0 4"/><path d="M13 10l0 4"/></g><text class="nlabel" x="710" y="198" text-anchor="middle">Battery</text></g>
+        <g class="node "><g class="ico" transform="translate(710,248) scale(1.72) translate(-12,-12)"><path d="M7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1 -5 -5l1.5 -1.5"/><path d="M17 12l-5 -5l1.5 -1.5a3.536 3.536 0 1 1 5 5l-1.5 1.5"/><path d="M3 21l2.5 -2.5"/><path d="M18.5 5.5l2.5 -2.5"/><path d="M10 11l-2 2"/><path d="M13 14l-2 2"/></g><text class="nlabel" x="710" y="286" text-anchor="middle">Grid</text></g>
+        <g class="pulse day"><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite"><mpath href="#w1" xlink:href="#w1"/></animateMotion></circle><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#w1" xlink:href="#w1"/></animateMotion></circle><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.3s" begin="0s" repeatCount="indefinite"><mpath href="#w2" xlink:href="#w2"/></animateMotion></circle><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.2s" begin="0s" repeatCount="indefinite"><mpath href="#w3" xlink:href="#w3"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="2.3s" begin="0s" repeatCount="indefinite"><mpath href="#w4" xlink:href="#w4"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="2.1s" begin="0s" repeatCount="indefinite"><mpath href="#w5" xlink:href="#w5"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="2.1s" begin="1.05s" repeatCount="indefinite"><mpath href="#w5" xlink:href="#w5"/></animateMotion></circle><circle class="p" r="3.2" fill="#AFCDE8"><animateMotion dur="2.7s" begin="0s" repeatCount="indefinite"><mpath href="#w6" xlink:href="#w6"/></animateMotion></circle></g>
+        <g class="pulse night"><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="1.4s" begin="0s" repeatCount="indefinite"><mpath href="#w7" xlink:href="#w7"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="1.4s" begin="0.7s" repeatCount="indefinite"><mpath href="#w7" xlink:href="#w7"/></animateMotion></circle><circle class="p" r="3.2" fill="#AFCDE8"><animateMotion dur="2.6s" begin="0s" repeatCount="indefinite"><mpath href="#w8" xlink:href="#w8"/></animateMotion></circle></g>
       </svg>
-      <svg class="flow-diagram-mobile" viewBox="0 -75 300 635" id="flowSvgMobile" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Illustrated diagram of solar energy flow from sun to panels, inverter, and then home, battery or grid">
-        <defs>
-          <radialGradient id="sunGlowM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.5"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="travelGlowM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--gold)" stop-opacity="0.55"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="travelCoreM" cx="35%" cy="32%" r="70%"><stop offset="0%" stop-color="#FFE9BE"/><stop offset="55%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--gold-deep)"/></radialGradient>
-          <radialGradient id="moonGlowM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="var(--slate)" stop-opacity="0.4"/><stop offset="100%" stop-color="var(--slate)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="moonCoreM" cx="38%" cy="35%" r="75%"><stop offset="0%" stop-color="#EDF0EA"/><stop offset="60%" stop-color="var(--slate)"/><stop offset="100%" stop-color="var(--navy-2)"/></radialGradient>
-          <mask id="moonCrescentM" maskUnits="userSpaceOnUse" x="-22" y="-22" width="44" height="44">
-            <rect x="-22" y="-22" width="44" height="44" fill="white"/>
-            <circle cx="4.5" cy="-4" r="9.5" fill="black"/>
-          </mask>
-        </defs>
-        <!-- hidden motion guides: sun arcs above, moon arcs below, completing one loop -->
-        <path id="sunPathM" class="sky-guide" d="M40,58 Q150,-122 260,58" fill="none"/>
-        <path id="moonPathM" class="sky-guide" d="M260,58 Q150,238 40,58" fill="none"/>
-
-        <g class="sky-traveler">
-          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.5;1">
-            <mpath href="#sunPathM" xlink:href="#sunPathM"/>
-          </animateMotion>
-          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="1;1;0;0" keyTimes="0;0.47;0.53;1"/>
-          <circle r="30" fill="url(#travelGlowM)"/>
-          <circle r="20" fill="url(#travelGlowM)"/>
-          <g class="sky-rays" stroke="var(--gold)" stroke-linecap="round">
-            <line x1="0" y1="-14.5" x2="0" y2="-22" stroke-width="2.2"/>
-            <line x1="10.1" y1="-10.1" x2="15.5" y2="-15.5" stroke-width="1.8"/>
-            <line x1="14.5" y1="0" x2="20.5" y2="0" stroke-width="2.2"/>
-            <line x1="10.1" y1="10.1" x2="14.5" y2="14.5" stroke-width="1.5"/>
-            <line x1="0" y1="14.5" x2="0" y2="20.5" stroke-width="1.8"/>
-            <line x1="-10.1" y1="10.1" x2="-15.5" y2="15.5" stroke-width="2.2"/>
-            <line x1="-14.5" y1="0" x2="-21" y2="0" stroke-width="1.5"/>
-            <line x1="-10.1" y1="-10.1" x2="-14.5" y2="-14.5" stroke-width="1.8"/>
-          </g>
-          <circle r="10" fill="url(#travelCoreM)"/>
-        </g>
-
-        <g class="sky-traveler">
-          <animateMotion dur="20s" repeatCount="indefinite" begin="0s" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.5;1">
-            <mpath href="#moonPathM" xlink:href="#moonPathM"/>
-          </animateMotion>
-          <animate attributeName="opacity" dur="20s" repeatCount="indefinite" begin="0s" values="0;0;1;1" keyTimes="0;0.47;0.53;1"/>
-          <circle r="16" fill="url(#moonGlowM)"/>
-          <circle cx="-16" cy="-12" r="1" fill="var(--slate)"/>
-          <circle cx="13" cy="-14" r="0.8" fill="var(--slate)"/>
-          <circle r="9.5" fill="url(#moonCoreM)" mask="url(#moonCrescentM)"/>
-        </g>
-        <path id="pathSunPanelM" class="flow-line" d="M150,88 L150,156" />
-        <path id="pathPanelInvM" class="flow-line" d="M150,216 L150,284" />
-        <path id="pathInvHomeM" class="flow-line" d="M150,344 L150,392 L72,392 L72,432" />
-        <path id="pathInvBattM" class="flow-line" d="M150,344 L150,432" />
-        <path id="pathInvGridM" class="flow-line" d="M150,344 L150,392 L228,392 L228,432" />
-        <!-- energy pulses -->
-        <circle r="3.2" class="pulse pulse-gold pulse-day-only"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#pathSunPanelM" xlink:href="#pathSunPanelM"/></animateMotion></circle>
-        <circle r="3.2" class="pulse pulse-gold pulse-day-only"><animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#pathPanelInvM" xlink:href="#pathPanelInvM"/></animateMotion></circle>
-        <circle r="3.2" class="pulse pulse-charge"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0.6s"><mpath href="#pathInvHomeM" xlink:href="#pathInvHomeM"/></animateMotion></circle>
-        <circle r="3.2" class="pulse pulse-charge pulse-day-only"><animateMotion dur="1.9s" repeatCount="indefinite" begin="1s"><mpath href="#pathInvBattM" xlink:href="#pathInvBattM"/></animateMotion></circle>
-        <circle r="3.2" class="pulse pulse-charge pulse-day-only"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.15s"><mpath href="#pathInvGridM" xlink:href="#pathInvGridM"/></animateMotion></circle>
-        <!-- night: battery discharges through the inverter (majority), grid trickles in (minority) -->
-        <circle r="3.2" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattM" xlink:href="#pathInvBattM"/></animateMotion></circle>
-        <circle r="3.2" class="pulse pulse-charge pulse-night-only"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0.65s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvBattM" xlink:href="#pathInvBattM"/></animateMotion></circle>
-        <circle r="2.1" class="pulse pulse-gold pulse-night-only"><animateMotion dur="4.5s" repeatCount="indefinite" begin="0s" keyPoints="1;0" keyTimes="0;1"><mpath href="#pathInvGridM" xlink:href="#pathInvGridM"/></animateMotion></circle>
-        <g class="flow-node" data-node="sun">
-          <circle class="flow-sun-glow" cx="150" cy="58" r="48" fill="url(#sunGlowM)"/>
-          <rect class="node-shape" x="120.0" y="28.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g class="flow-sun-rays" stroke="var(--paper)" stroke-width="2.2" stroke-linecap="round">
-                <line x1="165.0" y1="58.0" x2="173.0" y2="58.0"/>
-                <line x1="160.6" y1="68.6" x2="166.3" y2="74.3"/>
-                <line x1="150.0" y1="73.0" x2="150.0" y2="81.0"/>
-                <line x1="139.4" y1="68.6" x2="133.7" y2="74.3"/>
-                <line x1="135.0" y1="58.0" x2="127.0" y2="58.0"/>
-                <line x1="139.4" y1="47.4" x2="133.7" y2="41.7"/>
-                <line x1="150.0" y1="43.0" x2="150.0" y2="35.0"/>
-                <line x1="160.6" y1="47.4" x2="166.3" y2="41.7"/>
-                </g>
-                <circle class="flow-sun-core" cx="150" cy="58" r="11.5" fill="var(--paper)"/>
-          <text x="150" y="106" text-anchor="middle">Sun</text>
-        </g>
-        <g class="flow-node" data-node="panel">
-          <rect class="node-shape" x="120.0" y="156.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(150,186) rotate(-12) scale(1.2)">
-    <rect x="-16" y="-10.5" width="32" height="21" rx="2" fill="#2A5688" stroke="#122238" stroke-width="1.8"/>
-    <g stroke="#5D8FC2" stroke-width="1.1">
-      <line x1="-5.3" y1="-10.5" x2="-5.3" y2="10.5"/>
-      <line x1="5.3" y1="-10.5" x2="5.3" y2="10.5"/>
-      <line x1="-16" y1="0" x2="16" y2="0"/>
-    </g>
-    <rect x="-16" y="-10.5" width="10.5" height="10.5" fill="#3E6FA0" opacity="0.6"/>
-    <rect x="5.3" y="0" width="10.5" height="10.5" fill="#3E6FA0" opacity="0.6"/>
-    <path d="M-13,-8.5 L-7,-8.5 L-13,3 L-15,3 Z" fill="#FFFFFF" opacity="0.22"/>
-  </g>
-          <text x="150" y="234" text-anchor="middle">Panels</text>
-        </g>
-        <g class="flow-node" data-node="inverter">
-          <rect class="node-shape" x="120.0" y="284.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(150,314) scale(1.2)">
-    <rect x="-14" y="-13" width="28" height="26" rx="5" fill="#1E2B2A" stroke="#0E1615" stroke-width="1.6"/>
-    <circle cx="-7" cy="-6.5" r="1.8" fill="#60A98D"/>
-    <path d="M-9,4 L-4,4 L-1,-4 L3,9 L6,4 L10,4" fill="none" stroke="#60A98D" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-          <text x="150" y="362" text-anchor="middle">Inverter</text>
-        </g>
-        <g class="flow-node" data-node="home">
-          <rect class="node-shape" x="42.0" y="432.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(72,462) scale(1.2)">
-    <path d="M-17,2.5 L0,-15 L17,2.5 L17,4.5 L-17,4.5 Z" fill="#D9852A" stroke="#8F5416" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M0,-15 L17,2.5 L17,4.5 L0,-11 Z" fill="#B5741E"/>
-    <rect x="-13" y="4.5" width="26" height="12.5" fill="#F1E9D8" stroke="#8F5416" stroke-width="1.4"/>
-    <rect x="1.5" y="7.5" width="7" height="9.5" fill="#1E2B2A"/>
-    <circle cx="7" cy="12.2" r="0.7" fill="#F0A93E"/>
-    <rect x="-9.5" y="7.5" width="7" height="7" fill="#7FB6D9" stroke="#1E2B2A" stroke-width="1"/>
-    <line x1="-6" y1="7.5" x2="-6" y2="14.5" stroke="#1E2B2A" stroke-width="0.8"/>
-    <line x1="-9.5" y1="11" x2="-2.5" y2="11" stroke="#1E2B2A" stroke-width="0.8"/>
-  </g>
-          <text x="72" y="510" text-anchor="middle">Home</text>
-        </g>
-        <g class="flow-node" data-node="battery">
-          <rect class="node-shape" x="120.0" y="432.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(150,462) scale(1.2)">
-    <rect x="-15" y="-9" width="30" height="18" rx="4" fill="#1E2B2A" stroke="#0E1615" stroke-width="1.6"/>
-    <rect x="15" y="-4" width="3.5" height="8" rx="1" fill="#0E1615"/>
-    <rect x="-12.5" y="-6.5" width="16" height="13" fill="#60A98D"/>
-    <path d="M-6.5,-4 L-2,-4 L-4.5,1.5 L-1,1.5 L-6,6.5 L-4.5,1.8 L-7.5,1.8 Z" fill="#0E1615"/>
-  </g>
-          <text x="150" y="510" text-anchor="middle">Battery</text>
-        </g>
-        <g class="flow-node" data-node="grid">
-          <rect class="node-shape" x="198.0" y="432.0" width="60" height="60" rx="15" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-          <g transform="translate(228,462) scale(1.1)">
-    <g stroke="#152621" stroke-width="1.9" stroke-linecap="round" fill="none">
-      <line x1="-10" y1="16" x2="0" y2="-15"/>
-      <line x1="10" y1="16" x2="0" y2="-15"/>
-      <line x1="-11.5" y1="16" x2="11.5" y2="16"/>
-      <line x1="-5.5" y1="-8" x2="5.5" y2="-8"/>
-      <line x1="-7" y1="2" x2="7" y2="2"/>
-      <line x1="-13.5" y1="-12" x2="13.5" y2="-12"/>
-      <line x1="-13.5" y1="-12" x2="-19" y2="-6.5"/>
-      <line x1="13.5" y1="-12" x2="19" y2="-6.5"/>
-    </g>
-    <circle cx="-13.5" cy="-12" r="1.5" fill="#F0A93E"/>
-    <circle cx="13.5" cy="-12" r="1.5" fill="#F0A93E"/>
-  </g>
-          <text x="228" y="510" text-anchor="middle">Grid</text>
-        </g>
-        <text class="night-flow-label batt-label" id="battLabelM" x="150" y="524" text-anchor="middle">90%</text>
-      </svg>
-
-      <div class="flow-detail" id="flowDetail">
-        <span class="fd-index">01 / SUN</span>
-        <h4>Sunlight</h4>
-        <p>Photons hit the panel surface. More direct sun means more energy, but panels still generate on cloudy days, just at a reduced rate. Sydney gets enough usable sun year-round to make solar worthwhile in almost every case.</p>
-      </div>
     </div>
+    <div class="caption" id="cap">The roof runs the house and fills the battery.</div>
   </div>
+
+  <div class="chartcard">
+    <div class="legend">
+      <span><i style="background:#D9852A"></i>Solar generated</span>
+      <span><i style="background:#17253F"></i>Household demand</span>
+      <span><i style="background:#60A98D;opacity:.6"></i>Used straight from the roof</span>
+      <span><i style="background:#6FA8DC;opacity:.35"></i>Held in the battery</span>
+    </div>
+    <svg viewBox="0 0 900 262" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Inter" role="img" aria-label="Generation, demand and battery across one day">
+<defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F4A259" stop-opacity=".40"/><stop offset="100%" stop-color="#F4A259" stop-opacity=".04"/></linearGradient></defs>
+<line x1="44" y1="226.0" x2="884" y2="226.0" stroke="#E4EBF3"/><text x="36" y="229.5" text-anchor="end" font-size="10" fill="#6B7C93">0</text><line x1="44" y1="153.6" x2="884" y2="153.6" stroke="#E4EBF3"/><text x="36" y="157.1" text-anchor="end" font-size="10" fill="#6B7C93">2</text><line x1="44" y1="81.2" x2="884" y2="81.2" stroke="#E4EBF3"/><text x="36" y="84.7" text-anchor="end" font-size="10" fill="#6B7C93">4</text><path d="M44.0,226.0 L52.8,226.0 L61.5,226.0 L70.2,226.0 L79.0,226.0 L87.8,226.0 L96.5,226.0 L105.2,226.0 L114.0,226.0 L122.8,226.0 L131.5,226.0 L140.2,226.0 L149.0,226.0 L157.8,226.0 L166.5,226.0 L175.2,226.0 L184.0,226.0 L192.8,226.0 L201.5,226.0 L210.2,226.0 L219.0,226.0 L227.8,226.0 L236.5,226.0 L245.2,226.0 L254.0,226.0 L262.8,226.0 L271.5,226.0 L280.2,226.0 L289.0,226.0 L297.8,226.0 L306.5,226.0 L315.2,226.0 L324.0,226.0 L332.8,225.7 L341.5,225.0 L350.2,223.7 L359.0,221.9 L367.8,219.7 L376.5,217.1 L385.2,214.1 L394.0,210.8 L402.8,207.1 L411.5,203.1 L420.2,198.8 L429.0,194.3 L437.8,189.6 L446.5,184.7 L455.2,179.7 L464.0,174.5 L472.8,169.2 L481.5,163.9 L490.2,158.6 L499.0,156.7 L507.8,156.7 L516.5,156.7 L525.2,156.7 L534.0,156.7 L542.8,156.7 L551.5,156.7 L560.2,156.7 L569.0,156.7 L577.8,156.7 L586.5,156.7 L595.2,156.7 L604.0,156.7 L612.8,156.7 L621.5,156.7 L630.2,156.7 L639.0,156.7 L647.8,156.8 L656.5,157.5 L665.2,158.7 L674.0,160.5 L682.8,162.6 L691.5,165.1 L700.2,167.8 L709.0,170.6 L717.8,173.3 L726.5,175.9 L735.2,178.2 L744.0,180.2 L752.8,182.0 L761.5,183.5 L770.2,184.7 L779.0,185.7 L787.8,186.5 L796.5,187.2 L805.2,187.7 L814.0,188.2 L822.8,188.7 L831.5,189.1 L840.2,189.5 L849.0,189.9 L857.8,190.3 L866.5,190.7 L875.2,191.1 L875.2,226.0 L44.0,226.0 Z" fill="#6FA8DC" fill-opacity=".20"/>
+<path d="M44.0,226.0 L52.8,226.0 L61.5,226.0 L70.2,226.0 L79.0,226.0 L87.8,226.0 L96.5,226.0 L105.2,226.0 L114.0,226.0 L122.8,226.0 L131.5,226.0 L140.2,226.0 L149.0,226.0 L157.8,226.0 L166.5,226.0 L175.2,226.0 L184.0,226.0 L192.8,226.0 L201.5,226.0 L210.2,226.0 L219.0,226.0 L227.8,226.0 L236.5,226.0 L245.2,226.0 L254.0,226.0 L262.8,226.0 L271.5,224.7 L280.2,222.0 L289.0,217.8 L297.8,212.4 L306.5,205.8 L315.2,198.1 L324.0,189.5 L332.8,180.2 L341.5,170.1 L350.2,159.6 L359.0,148.6 L367.8,137.5 L376.5,126.3 L385.2,115.2 L394.0,104.4 L402.8,93.9 L411.5,84.0 L420.2,74.8 L429.0,66.4 L437.8,58.9 L446.5,52.4 L455.2,47.0 L464.0,42.8 L472.8,39.8 L481.5,38.1 L490.2,37.8 L499.0,38.7 L507.8,40.9 L516.5,44.3 L525.2,49.0 L534.0,54.8 L542.8,61.8 L551.5,69.6 L560.2,78.4 L569.0,87.9 L577.8,98.0 L586.5,108.7 L595.2,119.6 L604.0,130.8 L612.8,142.0 L621.5,153.0 L630.2,163.8 L639.0,174.2 L647.8,184.0 L656.5,193.1 L665.2,201.3 L674.0,208.6 L682.8,214.7 L691.5,219.6 L700.2,223.2 L709.0,225.4 L717.8,226.0 L726.5,226.0 L735.2,226.0 L744.0,226.0 L752.8,226.0 L761.5,226.0 L770.2,226.0 L779.0,226.0 L787.8,226.0 L796.5,226.0 L805.2,226.0 L814.0,226.0 L822.8,226.0 L831.5,226.0 L840.2,226.0 L849.0,226.0 L857.8,226.0 L866.5,226.0 L875.2,226.0 L875.2,226.0 L44.0,226.0 Z" fill="url(#gf)"/><path d="M44.0,226.0 L52.8,226.0 L61.5,226.0 L70.2,226.0 L79.0,226.0 L87.8,226.0 L96.5,226.0 L105.2,226.0 L114.0,226.0 L122.8,226.0 L131.5,226.0 L140.2,226.0 L149.0,226.0 L157.8,226.0 L166.5,226.0 L175.2,226.0 L184.0,226.0 L192.8,226.0 L201.5,226.0 L210.2,226.0 L219.0,226.0 L227.8,226.0 L236.5,226.0 L245.2,226.0 L254.0,226.0 L262.8,226.0 L271.5,224.7 L280.2,222.0 L289.0,217.8 L297.8,212.4 L306.5,205.8 L315.2,198.1 L324.0,189.5 L332.8,188.5 L341.5,194.3 L350.2,199.5 L359.0,203.6 L367.8,206.5 L376.5,208.3 L385.2,209.2 L394.0,209.5 L402.8,209.3 L411.5,208.8 L420.2,208.2 L429.0,207.5 L437.8,206.8 L446.5,206.2 L455.2,205.5 L464.0,205.0 L472.8,204.5 L481.5,204.2 L490.2,204.0 L499.0,203.9 L507.8,204.0 L516.5,204.2 L525.2,204.5 L534.0,204.9 L542.8,205.4 L551.5,206.0 L560.2,206.5 L569.0,206.9 L577.8,207.1 L586.5,206.9 L595.2,206.3 L604.0,204.8 L612.8,202.4 L621.5,198.9 L630.2,194.0 L639.0,187.7 L647.8,184.0 L656.5,193.1 L665.2,201.3 L674.0,208.6 L682.8,214.7 L691.5,219.6 L700.2,223.2 L709.0,225.4 L717.8,226.0 L726.5,226.0 L735.2,226.0 L744.0,226.0 L752.8,226.0 L761.5,226.0 L770.2,226.0 L779.0,226.0 L787.8,226.0 L796.5,226.0 L805.2,226.0 L814.0,226.0 L822.8,226.0 L831.5,226.0 L840.2,226.0 L849.0,226.0 L857.8,226.0 L866.5,226.0 L875.2,226.0 L875.2,226.0 L44.0,226.0 Z" fill="#60A98D" fill-opacity=".5"/>
+<path d="M44.0,226.0 L52.8,226.0 L61.5,226.0 L70.2,226.0 L79.0,226.0 L87.8,226.0 L96.5,226.0 L105.2,226.0 L114.0,226.0 L122.8,226.0 L131.5,226.0 L140.2,226.0 L149.0,226.0 L157.8,226.0 L166.5,226.0 L175.2,226.0 L184.0,226.0 L192.8,226.0 L201.5,226.0 L210.2,226.0 L219.0,226.0 L227.8,226.0 L236.5,226.0 L245.2,226.0 L254.0,226.0 L262.8,226.0 L271.5,224.7 L280.2,222.0 L289.0,217.8 L297.8,212.4 L306.5,205.8 L315.2,198.1 L324.0,189.5 L332.8,180.2 L341.5,170.1 L350.2,159.6 L359.0,148.6 L367.8,137.5 L376.5,126.3 L385.2,115.2 L394.0,104.4 L402.8,93.9 L411.5,84.0 L420.2,74.8 L429.0,66.4 L437.8,58.9 L446.5,52.4 L455.2,47.0 L464.0,42.8 L472.8,39.8 L481.5,38.1 L490.2,37.8 L499.0,38.7 L507.8,40.9 L516.5,44.3 L525.2,49.0 L534.0,54.8 L542.8,61.8 L551.5,69.6 L560.2,78.4 L569.0,87.9 L577.8,98.0 L586.5,108.7 L595.2,119.6 L604.0,130.8 L612.8,142.0 L621.5,153.0 L630.2,163.8 L639.0,174.2 L647.8,184.0 L656.5,193.1 L665.2,201.3 L674.0,208.6 L682.8,214.7 L691.5,219.6 L700.2,223.2 L709.0,225.4 L717.8,226.0 L726.5,226.0 L735.2,226.0 L744.0,226.0 L752.8,226.0 L761.5,226.0 L770.2,226.0 L779.0,226.0 L787.8,226.0 L796.5,226.0 L805.2,226.0 L814.0,226.0 L822.8,226.0 L831.5,226.0 L840.2,226.0 L849.0,226.0 L857.8,226.0 L866.5,226.0 L875.2,226.0" fill="none" stroke="#D9852A" stroke-width="2.1"/>
+<path d="M44.0,214.1 L52.8,214.1 L61.5,214.1 L70.2,214.1 L79.0,214.1 L87.8,214.1 L96.5,214.1 L105.2,214.1 L114.0,214.1 L122.8,214.1 L131.5,214.1 L140.2,214.1 L149.0,214.0 L157.8,214.0 L166.5,214.0 L175.2,214.0 L184.0,213.9 L192.8,213.8 L201.5,213.4 L210.2,212.7 L219.0,211.6 L227.8,209.7 L236.5,206.8 L245.2,202.8 L254.0,197.6 L262.8,191.7 L271.5,185.5 L280.2,180.0 L289.0,175.9 L297.8,174.0 L306.5,174.7 L315.2,177.8 L324.0,182.6 L332.8,188.5 L341.5,194.3 L350.2,199.5 L359.0,203.6 L367.8,206.5 L376.5,208.3 L385.2,209.2 L394.0,209.5 L402.8,209.3 L411.5,208.8 L420.2,208.2 L429.0,207.5 L437.8,206.8 L446.5,206.2 L455.2,205.5 L464.0,205.0 L472.8,204.5 L481.5,204.2 L490.2,204.0 L499.0,203.9 L507.8,204.0 L516.5,204.2 L525.2,204.5 L534.0,204.9 L542.8,205.4 L551.5,206.0 L560.2,206.5 L569.0,206.9 L577.8,207.1 L586.5,206.9 L595.2,206.3 L604.0,204.8 L612.8,202.4 L621.5,198.9 L630.2,194.0 L639.0,187.7 L647.8,180.2 L656.5,171.8 L665.2,162.9 L674.0,154.4 L682.8,146.9 L691.5,141.4 L700.2,138.3 L709.0,138.1 L717.8,140.7 L726.5,146.0 L735.2,153.3 L744.0,161.9 L752.8,171.0 L761.5,179.9 L770.2,187.9 L779.0,194.9 L787.8,200.5 L796.5,204.9 L805.2,208.0 L814.0,210.3 L822.8,211.8 L831.5,212.7 L840.2,213.3 L849.0,213.7 L857.8,213.8 L866.5,213.9 L875.2,214.0" fill="none" stroke="#17253F" stroke-width="2.1" stroke-dasharray="5 4"/>
+<line x1="44" y1="226" x2="884" y2="226" stroke="#17253F" stroke-width="1.3"/>
+<text x="44.0" y="243" text-anchor="middle" font-size="10" fill="#6B7C93">0:00</text><text x="184.0" y="243" text-anchor="middle" font-size="10" fill="#6B7C93">4:00</text><text x="324.0" y="243" text-anchor="middle" font-size="10" fill="#6B7C93">8:00</text><text x="464.0" y="243" text-anchor="middle" font-size="10" fill="#6B7C93">12:00</text><text x="604.0" y="243" text-anchor="middle" font-size="10" fill="#6B7C93">16:00</text><text x="744.0" y="243" text-anchor="middle" font-size="10" fill="#6B7C93">20:00</text><text x="36" y="12" text-anchor="end" font-size="10" fill="#6B7C93">kW</text></svg>
+    <div class="reads">
+      <div class="r"><div class="v">34.5<s>kWh</s></div><div class="l">Generated</div></div>
+      <div class="r"><div class="v">7.2<s>kWh</s></div><div class="l">Used directly</div></div>
+      <div class="r"><div class="v">7.4<s>kWh</s></div><div class="l">Shifted by battery</div></div>
+      <div class="r"><div class="v">4.1<s>kWh</s></div><div class="l">Still bought from grid</div></div>
+    </div>
+    <p class="kicker">Of 18.8 kWh used that day, <span>14.6 came off the roof</span> — 78% self-sufficient.</p>
+    <p class="sunnote">Modelled for an 8 kW array and a 15 kWh battery on a Sydney roof, at 15-minute resolution across a typical day rather than a best one. The grid still covers the early hours before sunrise once the battery has run down. Your pitch, orientation, shading and tariff all move these figures, which is what the free site assessment is for.</p>
+  </div>
+  
+</div>
 </section>
 
-<section id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">The solution</div>
-        <h2>Three ways we solve it</h2>
-      </div>
-      <p class="sub">Every install starts with your usage data, not a standard package. These are the building blocks we combine to fit it.</p>
-    </div>
+<script>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <path d="M14,34 L30,20 L46,34 L46,46 L14,46 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6" stroke-linejoin="round"/>
-        <g transform="translate(30,26) rotate(-2)">
-          <rect x="-9" y="-5" width="18" height="11" rx="1" fill="var(--gold)" stroke="var(--navy)" stroke-width="1.2"/>
-          <line x1="-3" y1="-5" x2="-3" y2="6" stroke="var(--navy)" stroke-width="0.9"/>
-          <line x1="3" y1="-5" x2="3" y2="6" stroke="var(--navy)" stroke-width="0.9"/>
-          <line x1="-9" y1="0.5" x2="9" y2="0.5" stroke="var(--navy)" stroke-width="0.9"/>
-        </g>
-        <rect x="24" y="38" width="8" height="8" fill="var(--navy)"/>
-      </svg></div>
-        <span class="num">01</span>
-        <h3>Residential solar</h3>
-        <p>Rooftop systems sized to your household's actual draw, not a generic package.</p>
-        <ul>
-          <li>Free site assessment</li>
-          <li>Tier-1 panels, 25-yr warranty</li>
-          <li>Real-time monitoring app</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <rect x="17" y="14" width="26" height="32" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
-        <line x1="17" y1="22" x2="43" y2="22" stroke="var(--navy)" stroke-width="1.1"/>
-        <line x1="17" y1="30" x2="43" y2="30" stroke="var(--navy)" stroke-width="1.1"/>
-        <line x1="17" y1="38" x2="43" y2="38" stroke="var(--navy)" stroke-width="1.1"/>
-        <line x1="25" y1="14" x2="25" y2="46" stroke="var(--navy)" stroke-width="1.1"/>
-        <line x1="35" y1="14" x2="35" y2="46" stroke="var(--navy)" stroke-width="1.1"/>
-        <rect x="19.5" y="17" width="3.5" height="3" fill="var(--gold)"/>
-        <rect x="27.5" y="17" width="3.5" height="3" fill="var(--gold)"/>
-        <rect x="37" y="17" width="3.5" height="3" fill="var(--gold)"/>
-        <rect x="19.5" y="25" width="3.5" height="3" fill="var(--charge)"/>
-        <rect x="37" y="25" width="3.5" height="3" fill="var(--gold)"/>
-        <rect x="27.5" y="33" width="3.5" height="3" fill="var(--gold)"/>
-      </svg></div>
-        <span class="num">02</span>
-        <h3>Commercial &amp; industrial</h3>
-        <p>Larger arrays and load analysis for businesses that run on tighter margins.</p>
-        <ul>
-          <li>Load-profile modelling</li>
-          <li>Minimal-disruption install</li>
-          <li>ROI &amp; depreciation reporting</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <rect x="16" y="22" width="26" height="17" rx="3" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
-        <rect x="42" y="27" width="4" height="7" rx="1" fill="var(--navy)"/>
-        <rect x="19" y="25" width="14" height="11" fill="var(--charge)"/>
-        <path d="M27,25 L21,32 L25,32 L23,37 L30,30 L26,30 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="0.8" stroke-linejoin="round"/>
-      </svg></div>
-        <span class="num">03</span>
-        <h3>Battery &amp; storage</h3>
-        <p>Store what you generate during the day so you're not buying it back at night.</p>
-        <ul>
-          <li>Blackout backup circuits</li>
-          <li>Time-of-use optimisation</li>
-          <li>EV charger integration</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+(function(){
+  var p=document.getElementById('panel'), cap=document.getElementById('cap');
+  var steps=[['is-day','The roof runs the house and fills the battery.'],
+             ['is-set','Generation falls away as demand climbs.'],
+             ['is-night','The battery runs the house; the grid covers the rest.']];
+  var i=0;
+  setInterval(function(){ i=(i+1)%3; p.className='flowpanel '+steps[i][0]; cap.textContent=steps[i][1]; },5200);
+})();
 
-<section id="process">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">The method</div>
-        <h2>From first call to<br>first kilowatt</h2>
-      </div>
-      <p class="sub">This is a genuine sequence, and each step depends on the one before it. Most customers go from enquiry to a switched-on system in four to six weeks.</p>
-    </div>
+</script>
 
-    <div class="process-list">
-      <div class="process-item">
-        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <path d="M16,36 L30,24 L44,36" fill="none" stroke="var(--navy)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-        <circle cx="36" cy="38" r="7" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
-        <line x1="41" y1="43" x2="46" y2="48" stroke="var(--navy)" stroke-width="1.8" stroke-linecap="round"/>
-      </svg></div>
-        <div class="p-num">01</div>
-        <h4>Assessment</h4>
-        <p class="p-desc">We analyse your bills, roof orientation and shading using satellite data and a site visit.</p>
-      </div>
-      <div class="process-item">
-        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <path d="M18,14 L32,14 L38,20 L38,46 L18,46 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M32,14 L32,20 L38,20 Z" fill="none" stroke="var(--navy)" stroke-width="1.3" stroke-linejoin="round"/>
-        <line x1="22" y1="26" x2="32" y2="26" stroke="var(--navy)" stroke-width="1.2"/>
-        <line x1="22" y1="31" x2="32" y2="31" stroke="var(--navy)" stroke-width="1.2"/>
-        <path d="M28,42 L40,30 L44,34 L32,46 L27,47 Z" fill="var(--charge)" stroke="var(--navy)" stroke-width="1.3" stroke-linejoin="round"/>
-      </svg></div>
-        <div class="p-num">02</div>
-        <h4>Design &amp; quote</h4>
-        <p class="p-desc">A system sized to your usage, with a fixed price, not a vague "from" figure.</p>
-      </div>
-      <div class="process-item">
-        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <path d="M16,15 L34,15 L34,45 L16,45 Z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.5" stroke-linejoin="round"/>
-        <line x1="20" y1="22" x2="30" y2="22" stroke="var(--navy)" stroke-width="1.2"/>
-        <line x1="20" y1="27" x2="30" y2="27" stroke="var(--navy)" stroke-width="1.2"/>
-        <line x1="20" y1="32" x2="26" y2="32" stroke="var(--navy)" stroke-width="1.2"/>
-        <circle cx="38" cy="38" r="10" fill="var(--charge)" stroke="var(--navy)" stroke-width="1.5"/>
-        <path d="M33.5,38 L37,41.5 L43,34.5" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg></div>
-        <div class="p-num">03</div>
-        <h4>Approvals</h4>
-        <p class="p-desc">We handle council, grid-connection and rebate paperwork on your behalf.</p>
-      </div>
-      <div class="process-item">
-        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <g transform="translate(13,13) scale(1.42)">
-          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
-        </g>
-      </svg></div>
-        <div class="p-num">04</div>
-        <h4>Installation</h4>
-        <p class="p-desc">Licensed electricians install and test the system, typically within one day.</p>
-      </div>
-      <div class="process-item">
-        <div class="process-icon"><svg viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="58" height="58" rx="14" fill="var(--paper-2)" stroke="var(--gold-deep)" stroke-width="1.5"/>
-        <rect x="21" y="13" width="18" height="34" rx="4" fill="var(--paper)" stroke="var(--navy)" stroke-width="1.6"/>
-        <line x1="27" y1="41" x2="33" y2="41" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round"/>
-        <path d="M24,30 L28,30 L30,25 L33,35 L35,30 L36,30" fill="none" stroke="var(--charge-deep)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M42,18 a10,10 0 0 1 0,10" fill="none" stroke="var(--gold-deep)" stroke-width="1.3" stroke-linecap="round"/>
-        <path d="M45,15 a15,15 0 0 1 0,16" fill="none" stroke="var(--gold-deep)" stroke-width="1.3" stroke-linecap="round" opacity="0.6"/>
-      </svg></div>
-        <div class="p-num">05</div>
-        <h4>Activation &amp; monitoring</h4>
-        <p class="p-desc">System goes live, and you get app access to watch generation and savings in real time.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="proof">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">The proof</div>
-        <h2>Numbers, not slogans</h2>
-      </div>
-      <p class="sub">We'd rather show our working than make claims we can't back up on your next bill.</p>
-    </div>
-
-    <div class="stats-row">
-      <div class="stat"><div class="stat-val">4–6<span>wk</span></div><div class="stat-label">Enquiry to activation</div></div>
-      <div class="stat"><div class="stat-val">25<span>yr</span></div><div class="stat-label">Panel performance warranty</div></div>
-      <div class="stat"><div class="stat-val">98<span>%</span></div><div class="stat-label">Installs completed in a single day</div></div>
-      <div class="stat"><div class="stat-val">0<span>$</span></div><div class="stat-label">Cost for the initial assessment</div></div>
-    </div>
-
-    <div class="quote-block">
-      <p>"They sized the system to what we actually use, not what fit their van that week. Bill dropped by 80% the first month."</p>
-      <div class="who">G. Whitfield, homeowner, Northern Beaches</div>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Common variables</div>
-        <h2>Questions people<br>actually ask</h2>
-      </div>
-      <p class="sub">If yours isn't here, the quote form below reaches a person, not a queue.</p>
-    </div>
-
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary>Do I need battery storage, or just panels?</summary>
-        <div class="faq-a">Not necessarily. If you're mostly home and using power during the day, panels alone can offset most of your bill. Battery storage matters more if you're out during daylight hours and using power at night. We'll model your specific usage before recommending one.</div>
-      </details>
-      <details class="faq-item">
-        <summary>What happens on a cloudy day, or at night?</summary>
-        <div class="faq-a">Panels still generate on overcast days, just at reduced output. At night, or when you use more than the panels produce, you draw from the grid as normal, or from a battery if you have one installed.</div>
-      </details>
-      <details class="faq-item">
-        <summary>How much does an install actually cost?</summary>
-        <div class="faq-a">It depends on system size, roof complexity and your existing switchboard. We give a fixed, itemised quote after the site assessment, not a "starting from" number designed to get you on the phone.</div>
-      </details>
-      <details class="faq-item">
-        <summary>What if I generate more than I use?</summary>
-        <div class="faq-a">Excess power is exported to the grid, and most retailers credit you for it under a feed-in tariff. We'll walk you through which tariff applies to your address during the assessment.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Do you handle rebates and paperwork?</summary>
-        <div class="faq-a">Yes. Council approval, grid-connection applications and any relevant government rebate paperwork are handled as part of the install, not as an add-on.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="cta" id="quote" style="border-bottom:none;">
-  <div class="wrap cta-grid">
+<section class="bubble reveal" id="sizing">
+<div class="wrap sizing">
+  <div class="shead">
     <div>
-      <div class="eyebrow">Get a quote</div>
-      <h2>Let's solve your<br>specific number.</h2>
-      <p>Tell us where you are and roughly what you're paying now. We'll come back with a real, fixed quote, usually within two business days.</p>
+      <h2>How we size a system</h2>
     </div>
-    <form class="quote-form" id="quoteForm" action="https://formspree.io/f/YOUR_INFO_FORM_ID" method="POST">
-      <input type="text" name="name" placeholder="Full name" required>
-      <input type="email" name="email" placeholder="Email address" required>
-      <input type="tel" name="phone" placeholder="Phone number">
-      <div class="select-wrap" id="propertyTypeWrap">
-        <button type="button" class="select-trigger" id="propertyTypeTrigger" aria-haspopup="listbox" aria-expanded="false">
-          <span class="select-value placeholder" id="propertyTypeValue">Property type</span>
-          <svg class="select-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <ul class="select-options" id="propertyTypeOptions" role="listbox" tabindex="-1" aria-label="Property type">
-          <li role="option" data-value="Residential">Residential</li>
-          <li role="option" data-value="Commercial">Commercial</li>
-          <li role="option" data-value="Industrial">Industrial</li>
-        </ul>
-        <input type="hidden" name="property_type" id="propertyTypeHidden">
-      </div>
-      <input type="text" name="suburb" placeholder="Suburb / postcode">
-      <button type="submit" class="submit-btn">Request my quote →</button>
-      <span class="form-note">No obligation. We don't sell your details on.</span>
-    </form>
+    <p>Most quotes start with how many panels fit on the roof. We start with what you use, and work in this order.</p>
   </div>
+  <div class="sgrid">
+    <div class="scard">
+      <div class="snode"><svg class="sglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13,7 L35,7 L35,41 L30.5,37.5 L24,41 L17.5,37.5 L13,41 Z"/><line x1="19" y1="16" x2="29" y2="16"/><line x1="19" y1="23" x2="29" y2="23"/><line x1="19" y1="30" x2="25" y2="30"/></svg></div>
+      <div class="snum">01</div>
+      <h4>Read the bill</h4>
+      <p>Four quarters of real kilowatt-hours, not a postcode estimate.</p>
+    </div>
+    <div class="scard">
+      <div class="snode"><svg class="sglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5,34 C13,34 12,15 21,15 C30,15 29,34 37,34"/><line x1="4" y1="38" x2="44" y2="38"/><rect x="33" y="20" width="11" height="18" rx="2"/></svg></div>
+      <div class="snum">02</div>
+      <h4>Find the pattern</h4>
+      <p>When you use power decides whether storage earns its place.</p>
+    </div>
+    <div class="scard">
+      <div class="snode"><svg class="sglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7,31 L24,14 L41,31"/><line x1="7" y1="38" x2="41" y2="38"/><line x1="7" y1="35.5" x2="7" y2="40.5"/><line x1="41" y1="35.5" x2="41" y2="40.5"/><line x1="44" y1="31" x2="44" y2="14"/><path d="M41.8,16.6 L44,14 L46.2,16.6"/></svg></div>
+      <div class="snum">03</div>
+      <h4>Measure the roof</h4>
+      <p>Usable area, pitch, orientation and shading across seasons.</p>
+    </div>
+    <div class="scard">
+      <div class="snode"><svg class="sglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10,34 a15,15 0 0 1 28,0"/><line x1="24" y1="32" x2="31.5" y2="22"/><circle cx="24" cy="33.5" r="2.4"/><line x1="6" y1="38" x2="42" y2="38"/><line x1="33" y1="11" x2="42" y2="11" stroke-dasharray="3 2.5"/></svg></div>
+      <div class="snum">04</div>
+      <h4>Check the limits</h4>
+      <p>Export caps, switchboard capacity and phase, before design.</p>
+    </div>
+    <div class="scard">
+      <div class="snode"><svg class="sglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="7" y="12" width="34" height="26" rx="3"/><path d="M11,34 C17,34 16,18 24,18 C32,18 31,34 37,34"/><line x1="11" y1="34" x2="37" y2="34"/></svg></div>
+      <div class="snum">05</div>
+      <h4>Size to usage</h4>
+      <p>Matched to your consumption, with the reasoning shown.</p>
+    </div>
+  </div>
+</div>
 </section>
 
-<footer>
-  <div class="wrap foot-grid">
-    <div class="foot-col">
+
+<section class="bubble reveal" id="services">
+<div class="wrap ways">
+  <div class="shead">
+    <div><h2>Three ways we solve it</h2></div>
+    <p>Every system starts from your usage data. These are the three parts we combine to fit it.</p>
+  </div>
+  <div class="waygrid">
+    <article class="waycard">
+      <div class="wtop">
+        <div class="idx">01</div>
+        <h3>Residential solar</h3>
+        <div class="when">For the hours you're generating</div>
+        <svg class="spark" viewBox="0 0 220 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M58.0,48.0 L58.0,48.0 L60.2,48.0 L62.3,47.7 L64.5,47.2 L66.7,46.3 L68.8,45.3 L71.0,43.9 L73.2,42.4 L75.3,40.6 L77.5,38.7 L79.7,36.7 L81.8,34.6 L84.0,32.4 L86.2,30.1 L88.3,27.9 L90.5,25.6 L92.7,23.5 L94.8,21.3 L97.0,19.3 L99.2,17.5 L101.3,15.8 L103.5,14.3 L105.7,13.0 L107.8,11.9 L110.0,11.0 L112.2,10.4 L114.3,10.1 L116.5,10.0 L118.7,10.2 L120.8,10.6 L123.0,11.3 L125.2,12.3 L127.3,13.5 L129.5,14.8 L131.7,16.4 L133.8,18.2 L136.0,20.1 L138.2,22.2 L140.3,24.3 L142.5,26.5 L144.7,28.8 L146.8,31.0 L149.0,33.3 L151.2,35.5 L153.3,37.5 L155.5,39.5 L157.7,41.4 L159.8,43.0 L162.0,44.5 L164.2,45.7 L166.3,46.7 L168.5,47.4 L170.7,47.9 L170.7,48.0 Z" fill="#F4A259" fill-opacity=".34"/><path d="M6.0,48.0 L8.2,48.0 L10.3,48.0 L12.5,48.0 L14.7,48.0 L16.8,48.0 L19.0,48.0 L21.2,48.0 L23.3,48.0 L25.5,48.0 L27.7,48.0 L29.8,48.0 L32.0,48.0 L34.2,48.0 L36.3,48.0 L38.5,48.0 L40.7,48.0 L42.8,48.0 L45.0,48.0 L47.2,48.0 L49.3,48.0 L51.5,48.0 L53.7,48.0 L55.8,48.0 L58.0,48.0 L60.2,48.0 L62.3,47.7 L64.5,47.2 L66.7,46.3 L68.8,45.3 L71.0,43.9 L73.2,42.4 L75.3,40.6 L77.5,38.7 L79.7,36.7 L81.8,34.6 L84.0,32.4 L86.2,30.1 L88.3,27.9 L90.5,25.6 L92.7,23.5 L94.8,21.3 L97.0,19.3 L99.2,17.5 L101.3,15.8 L103.5,14.3 L105.7,13.0 L107.8,11.9 L110.0,11.0 L112.2,10.4 L114.3,10.1 L116.5,10.0 L118.7,10.2 L120.8,10.6 L123.0,11.3 L125.2,12.3 L127.3,13.5 L129.5,14.8 L131.7,16.4 L133.8,18.2 L136.0,20.1 L138.2,22.2 L140.3,24.3 L142.5,26.5 L144.7,28.8 L146.8,31.0 L149.0,33.3 L151.2,35.5 L153.3,37.5 L155.5,39.5 L157.7,41.4 L159.8,43.0 L162.0,44.5 L164.2,45.7 L166.3,46.7 L168.5,47.4 L170.7,47.9 L172.8,48.0 L175.0,48.0 L177.2,48.0 L179.3,48.0 L181.5,48.0 L183.7,48.0 L185.8,48.0 L188.0,48.0 L190.2,48.0 L192.3,48.0 L194.5,48.0 L196.7,48.0 L198.8,48.0 L201.0,48.0 L203.2,48.0 L205.3,48.0 L207.5,48.0 L209.7,48.0 L211.8,48.0 L214.0,48.0" fill="none" stroke="#D9852A" stroke-width="1.6"/><line x1="6" y1="48" x2="214" y2="48" stroke="#D5DEE9" stroke-width="1"/></svg>
+        <div class="sparklab">A day's generation — the shaded hours are yours to use</div>
+      </div>
+      <div class="wbody">
+        <p>Rooftop systems sized to what your household actually draws, rather than to how many panels happen to fit.</p>
+        <ul><li>Bill analysis and site assessment, free</li><li>Tier 1 panels, 25-year product warranty</li><li>Panel-level monitoring from day one</li></ul>
+      </div>
+    </article>
+    <article class="waycard">
+      <div class="wtop">
+        <div class="idx">02</div>
+        <h3>Battery storage</h3>
+        <div class="when">For the hours you're not</div>
+        <svg class="spark" viewBox="0 0 220 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="153.3" y="6" width="60.7" height="42" fill="#17253F" fill-opacity=".10" rx="4"/><rect x="6.0" y="6" width="56.3" height="42" fill="#17253F" fill-opacity=".10" rx="4"/><path d="M58.0,48.0 L58.0,48.0 L60.2,48.0 L62.3,47.7 L64.5,47.2 L66.7,46.3 L68.8,45.3 L71.0,43.9 L73.2,42.4 L75.3,40.6 L77.5,38.7 L79.7,36.7 L81.8,34.6 L84.0,32.4 L86.2,30.1 L88.3,27.9 L90.5,25.6 L92.7,23.5 L94.8,21.3 L97.0,19.3 L99.2,17.5 L101.3,15.8 L103.5,14.3 L105.7,13.0 L107.8,11.9 L110.0,11.0 L112.2,10.4 L114.3,10.1 L116.5,10.0 L118.7,10.2 L120.8,10.6 L123.0,11.3 L125.2,12.3 L127.3,13.5 L129.5,14.8 L131.7,16.4 L133.8,18.2 L136.0,20.1 L138.2,22.2 L140.3,24.3 L142.5,26.5 L144.7,28.8 L146.8,31.0 L149.0,33.3 L151.2,35.5 L153.3,37.5 L155.5,39.5 L157.7,41.4 L159.8,43.0 L162.0,44.5 L164.2,45.7 L166.3,46.7 L168.5,47.4 L170.7,47.9 L170.7,48.0 Z" fill="#F4A259" fill-opacity=".14"/><rect x="153.3" y="6" width="60.7" height="42" fill="#60A98D" fill-opacity=".22" rx="4"/><path d="M6.0,48.0 L8.2,48.0 L10.3,48.0 L12.5,48.0 L14.7,48.0 L16.8,48.0 L19.0,48.0 L21.2,48.0 L23.3,48.0 L25.5,48.0 L27.7,48.0 L29.8,48.0 L32.0,48.0 L34.2,48.0 L36.3,48.0 L38.5,48.0 L40.7,48.0 L42.8,48.0 L45.0,48.0 L47.2,48.0 L49.3,48.0 L51.5,48.0 L53.7,48.0 L55.8,48.0 L58.0,48.0 L60.2,48.0 L62.3,47.7 L64.5,47.2 L66.7,46.3 L68.8,45.3 L71.0,43.9 L73.2,42.4 L75.3,40.6 L77.5,38.7 L79.7,36.7 L81.8,34.6 L84.0,32.4 L86.2,30.1 L88.3,27.9 L90.5,25.6 L92.7,23.5 L94.8,21.3 L97.0,19.3 L99.2,17.5 L101.3,15.8 L103.5,14.3 L105.7,13.0 L107.8,11.9 L110.0,11.0 L112.2,10.4 L114.3,10.1 L116.5,10.0 L118.7,10.2 L120.8,10.6 L123.0,11.3 L125.2,12.3 L127.3,13.5 L129.5,14.8 L131.7,16.4 L133.8,18.2 L136.0,20.1 L138.2,22.2 L140.3,24.3 L142.5,26.5 L144.7,28.8 L146.8,31.0 L149.0,33.3 L151.2,35.5 L153.3,37.5 L155.5,39.5 L157.7,41.4 L159.8,43.0 L162.0,44.5 L164.2,45.7 L166.3,46.7 L168.5,47.4 L170.7,47.9 L172.8,48.0 L175.0,48.0 L177.2,48.0 L179.3,48.0 L181.5,48.0 L183.7,48.0 L185.8,48.0 L188.0,48.0 L190.2,48.0 L192.3,48.0 L194.5,48.0 L196.7,48.0 L198.8,48.0 L201.0,48.0 L203.2,48.0 L205.3,48.0 L207.5,48.0 L209.7,48.0 L211.8,48.0 L214.0,48.0" fill="none" stroke="#D9852A" stroke-width="1.6"/><line x1="6" y1="48" x2="214" y2="48" stroke="#D5DEE9" stroke-width="1"/></svg>
+        <div class="sparklab">Evening and overnight — where most of a bill is made</div>
+      </div>
+      <div class="wbody">
+        <p>Storage moves your own daytime solar into the hours you're home, instead of exporting it at a low rate.</p>
+        <ul><li>Sized to your evening pattern</li><li>Backup circuit through an outage</li><li>Time-of-use and EV charging aware</li></ul>
+      </div>
+    </article>
+    <article class="waycard">
+      <div class="wtop">
+        <div class="idx">03</div>
+        <h3>Commercial</h3>
+        <div class="when">For load that runs in daylight</div>
+        <svg class="spark" viewBox="0 0 220 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="75.3" y="6" width="86.7" height="42" fill="#6FA8DC" fill-opacity=".22" rx="4"/><path d="M75.3,48.0 L75.3,40.6 L77.5,38.7 L79.7,36.7 L81.8,34.6 L84.0,32.4 L86.2,30.1 L88.3,27.9 L90.5,25.6 L92.7,23.5 L94.8,21.3 L97.0,19.3 L99.2,17.5 L101.3,15.8 L103.5,14.3 L105.7,13.0 L107.8,11.9 L110.0,11.0 L112.2,10.4 L114.3,10.1 L116.5,10.0 L118.7,10.2 L120.8,10.6 L123.0,11.3 L125.2,12.3 L127.3,13.5 L129.5,14.8 L131.7,16.4 L133.8,18.2 L136.0,20.1 L138.2,22.2 L140.3,24.3 L142.5,26.5 L144.7,28.8 L146.8,31.0 L149.0,33.3 L151.2,35.5 L153.3,37.5 L155.5,39.5 L157.7,41.4 L159.8,43.0 L162.0,44.5 L162.0,48.0 Z" fill="#F4A259" fill-opacity=".30"/><path d="M6.0,48.0 L8.2,48.0 L10.3,48.0 L12.5,48.0 L14.7,48.0 L16.8,48.0 L19.0,48.0 L21.2,48.0 L23.3,48.0 L25.5,48.0 L27.7,48.0 L29.8,48.0 L32.0,48.0 L34.2,48.0 L36.3,48.0 L38.5,48.0 L40.7,48.0 L42.8,48.0 L45.0,48.0 L47.2,48.0 L49.3,48.0 L51.5,48.0 L53.7,48.0 L55.8,48.0 L58.0,48.0 L60.2,48.0 L62.3,47.7 L64.5,47.2 L66.7,46.3 L68.8,45.3 L71.0,43.9 L73.2,42.4 L75.3,40.6 L77.5,38.7 L79.7,36.7 L81.8,34.6 L84.0,32.4 L86.2,30.1 L88.3,27.9 L90.5,25.6 L92.7,23.5 L94.8,21.3 L97.0,19.3 L99.2,17.5 L101.3,15.8 L103.5,14.3 L105.7,13.0 L107.8,11.9 L110.0,11.0 L112.2,10.4 L114.3,10.1 L116.5,10.0 L118.7,10.2 L120.8,10.6 L123.0,11.3 L125.2,12.3 L127.3,13.5 L129.5,14.8 L131.7,16.4 L133.8,18.2 L136.0,20.1 L138.2,22.2 L140.3,24.3 L142.5,26.5 L144.7,28.8 L146.8,31.0 L149.0,33.3 L151.2,35.5 L153.3,37.5 L155.5,39.5 L157.7,41.4 L159.8,43.0 L162.0,44.5 L164.2,45.7 L166.3,46.7 L168.5,47.4 L170.7,47.9 L172.8,48.0 L175.0,48.0 L177.2,48.0 L179.3,48.0 L181.5,48.0 L183.7,48.0 L185.8,48.0 L188.0,48.0 L190.2,48.0 L192.3,48.0 L194.5,48.0 L196.7,48.0 L198.8,48.0 L201.0,48.0 L203.2,48.0 L205.3,48.0 L207.5,48.0 L209.7,48.0 L211.8,48.0 L214.0,48.0" fill="none" stroke="#D9852A" stroke-width="1.6"/><line x1="6" y1="48" x2="214" y2="48" stroke="#D5DEE9" stroke-width="1"/></svg>
+        <div class="sparklab">Trading hours sitting directly under the curve</div>
+      </div>
+      <div class="wbody">
+        <p>Where consumption already lines up with generation, more of what you produce is used on site instead of exported.</p>
+        <ul><li>Interval-data load profiling</li><li>Staged install around trading hours</li><li>Payback and depreciation modelling</li></ul>
+      </div>
+    </article>
+  </div>
+  <a class="seelink" href="technical-details.html">See how the whole system works, end to end &rarr;</a>
+</div>
+</section>
+
+<section class="bubble reveal" id="process">
+<div class="wrap proc">
+  <div class="shead">
+    <div><h2>From first call to first kilowatt</h2></div>
+    <p>About four weeks from first call to a switched-on system. Each step depends on the one before it, so none get skipped.</p>
+  </div>
+  <div class="proccard">
+    <div class="track2">
+      <div class="pstep">
+        <div class="pnode"><svg class="pglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="7" y="26" width="7" height="13" rx="1.6"/><rect x="17.7" y="19" width="7" height="20" rx="1.6"/><rect x="28.4" y="29" width="7" height="10" rx="1.6"/><rect x="39.1" y="14" width="7" height="25" rx="1.6"/><line x1="4" y1="39" x2="49" y2="39"/></svg></div>
+        <div class="pnum">01</div>
+        <h4>Assessment</h4>
+        <p>Bills analysed, roof and switchboard checked on site.</p>
+        <div class="wk">WEEK 1</div>
+      </div>
+      <div class="pstep">
+        <div class="pnode"><svg class="pglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6,32 L24,13 L42,32"/><path d="M14,32 L24,21.5 L34,32 Z"/><line x1="19" y1="26.7" x2="29" y2="26.7"/><line x1="24" y1="21.5" x2="24" y2="32"/><line x1="6" y1="39" x2="42" y2="39"/><line x1="6" y1="36.5" x2="6" y2="41.5"/><line x1="42" y1="36.5" x2="42" y2="41.5"/></svg></div>
+        <div class="pnum">02</div>
+        <h4>Design &amp; quote</h4>
+        <p>A sized system and a fixed price, with the reasoning shown.</p>
+        <div class="wk">WEEK 1</div>
+      </div>
+      <div class="pstep">
+        <div class="pnode"><svg class="pglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12,7 L30,7 L37,14 L37,41 L12,41 Z"/><path d="M30,7 L30,14 L37,14"/><path d="M18,26 L22.5,30.5 L31,22"/></svg></div>
+        <div class="pnum">03</div>
+        <h4>Approvals</h4>
+        <p>Grid connection and rebate paperwork, handled by us.</p>
+        <div class="wk">WEEK 2&ndash;3</div>
+      </div>
+      <div class="pstep">
+        <div class="pnode"><svg class="pglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="5" y1="37" x2="43" y2="37"/><path d="M9,37 L13,26 L23,26 L19,37 Z"/><path d="M22.5,37 L26.5,26 L36.5,26 L32.5,37 Z"/><path d="M28,19 L32,11 L42,11 L38,19 Z"/><line x1="26" y1="22.5" x2="29.5" y2="19"/></svg></div>
+        <div class="pnum">04</div>
+        <h4>Installation</h4>
+        <p>Accredited installers on the roof, usually a single day.</p>
+        <div class="wk">WEEK 4</div>
+      </div>
+      <div class="pstep">
+        <div class="pnode"><svg class="pglyph" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="7" width="20" height="34" rx="3.8"/><path d="M18,30 C21,30 21.5,19 24,19 C26.5,19 27,30 30,30"/><line x1="18" y1="34.5" x2="30" y2="34.5"/><line x1="21" y1="11.5" x2="27" y2="11.5"/></svg></div>
+        <div class="pnum">05</div>
+        <h4>Commissioning</h4>
+        <p>Tested, monitoring set up on your phone, and explained.</p>
+        <div class="wk">SAME DAY</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="bubble reveal" id="faq">
+<div class="wrap faq">
+  <div class="shead">
+    <div><h2>What people actually ask</h2></div>
+    <p>If yours isn't here, the form below reaches a person rather than a queue.</p>
+  </div>
+  <div class="qs" id="qs">
+    <div class="q"><button type="button"><span>Do I need a battery, or just panels?</span><svg class="chev" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ans"><p>It depends entirely on when you use power. If you're home through the day, panels alone offset most of the bill. If the house is empty until six, a larger array mostly exports at a low feed-in rate &mdash; that's the case where storage starts paying for itself. We model your actual pattern before recommending either way.</p></div></div>
+    <div class="q"><button type="button"><span>What happens on a cloudy day, or at night?</span><svg class="chev" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ans"><p>Panels still generate under cloud, at a reduced rate. Overnight you draw from the battery if you have one, and from the grid once it's empty. Nothing switches off &mdash; the grid connection stays as a backstop, which is why the modelled day still shows some electricity bought.</p></div></div>
+    <div class="q"><button type="button"><span>How much does an install actually cost?</span><svg class="chev" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ans"><p>It depends on array size, roof access, switchboard condition and whether storage is included, which is why we won't publish a &ldquo;from&rdquo; figure. After the site assessment you get one fixed number, itemised, and it doesn't move afterwards.</p></div></div>
+    <div class="q"><button type="button"><span>What if I generate more than I use?</span><svg class="chev" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ans"><p>Surplus goes to the grid and you're credited at your retailer's feed-in rate, which is well below what you pay to buy it back. That gap is the whole argument for using your own generation on site, and the reason we size to consumption rather than to roof space.</p></div></div>
+    <div class="q"><button type="button"><span>Do you handle rebates and paperwork?</span><svg class="chev" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ans"><p>Yes. The grid-connection application with your distributor, and any rebate or certificate paperwork you're eligible for, are handled as part of the job rather than billed as an extra or left with you.</p></div></div>
+    <div class="q"><button type="button"><span>How long does the equipment last?</span><svg class="chev" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ans"><p>Panels carry a 25-year product warranty and a 30-year performance warranty, losing roughly 0.4% of output a year. Inverters and batteries carry ten years. Those are the manufacturer's terms, and we put all three in writing before installation.</p></div></div>
+  </div>
+</div>
+</section>
+
+<section class="bubble reveal" id="assessment">
+<div class="wrap assess">
+  <div class="acard">
+    <div class="pitch">
+      <h2>Book a free assessment</h2>
+      <p>No cost, no obligation, and no one turning up to sell you a package that was decided before they arrived.</p>
+      <ul>
+        <li>We analyse your actual bills</li>
+        <li>We assess the roof, shading and switchboard</li>
+        <li>You get a fixed quote with the reasoning shown</li>
+        <li>Nothing is ordered until you say so</li>
+      </ul>
+    </div>
+    <div class="form">
+      <form id="assessForm" action="https://formsubmit.co/ajax/info@solveenergy.com.au" method="POST">
+        <input type="hidden" name="_subject" value="New assessment request — solveenergy.com.au">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="frow">
+          <div class="fld"><label for="aName">Your name</label><input type="text" id="aName" name="name" required></div>
+          <div class="fld"><label for="aEmail">Email</label><input type="email" id="aEmail" name="email" required></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="aPhone">Phone</label><input type="tel" id="aPhone" name="phone" placeholder="Optional"></div>
+          <div class="fld"><label for="aSub">Suburb</label><input type="text" id="aSub" name="suburb" required></div>
+        </div>
+        <div class="fld"><label for="aBill">Roughly what you pay a month</label><input type="text" id="aBill" name="current_bill" placeholder="e.g. $210 — optional"></div>
+        <div class="fld"><label for="aMsg">Anything we should know</label><textarea id="aMsg" name="message" placeholder="Roof type, storey, shading, whether you're considering a battery — anything helps."></textarea></div>
+        <button type="submit" class="asubmit" id="aBtn">Request my assessment</button>
+        <p class="anote">We reply to every enquiry, usually within one business day.</p>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+(function(){
+  var form=document.getElementById('assessForm');
+  if(!form) return;
+  var btn=document.getElementById('aBtn');
+  var label='Request my assessment';
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    btn.disabled=true; btn.textContent='Sending…';
+    var d={};new FormData(form).forEach(function(v,k){d[k]=v;});
+    fetch(form.action,{method:'POST',body:JSON.stringify(d),headers:{'Content-Type':'application/json','Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){
+          btn.textContent='Request sent ✓';
+          form.reset();
+          setTimeout(function(){btn.disabled=false;btn.textContent=label;},4500);
+        } else {
+          btn.textContent="That didn't go through. Try again"; btn.disabled=false;
+        }
+      })
+      .catch(function(){ btn.textContent="That didn't go through. Try again"; btn.disabled=false; });
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  var qs=document.getElementById('qs');
+  if(!qs) return;
+  qs.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    var q=b.parentNode, open=q.classList.contains('open');
+    var all=qs.querySelectorAll('.q');
+    for(var i=0;i<all.length;i++) all[i].classList.remove('open');
+    if(!open) q.classList.add('open');
+  });
+})();
+</script>
+
+
+<footer class="v2">
+  <div class="fgrid">
+    <div class="fbrand">
       <div class="se-logo-wrap">
-        <svg class="se-logo-icon" width="26" height="26" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="seBadgeGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="var(--gold)"/>
-              <stop offset="100%" stop-color="var(--charge)"/>
-            </linearGradient>
+        <svg class="se-logo-icon" width="34" height="34" viewBox="-12 -12 126 126" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="seBadgeGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--charge)"/></linearGradient>
             <mask id="seBiteMaskFoot" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
-              <rect x="0" y="0" width="100" height="100" fill="white"/>
-              <circle class="se-bite" cx="71" cy="36" r="9" fill="black"/>
-            </mask>
-          </defs>
+              <rect x="0" y="0" width="100" height="100" fill="white"/><circle cx="71" cy="36" r="9" fill="black"/></mask></defs>
           <rect x="0" y="0" width="100" height="100" rx="22" fill="url(#seBadgeGradFoot)"/>
           <rect x="30" y="36" width="42" height="30" rx="6" fill="none" stroke="var(--paper)" stroke-width="4.5" mask="url(#seBiteMaskFoot)"/>
           <rect x="72" y="44" width="6" height="14" rx="2" fill="var(--paper)"/>
           <polygon points="55,40 42,55 50,55 46,64 61,48 52,48 55,40" fill="var(--paper)"/>
-          <g class="se-sun-group">
-            <g class="se-sun-rays">
           <path d="M76.00,-6.40 L67.02,-12.98 L73.60,-4.00 Z" fill="var(--gold)"/>
           <path d="M91.70,-11.50 L90.00,-22.50 L88.30,-11.50 Z" fill="var(--gold)"/>
           <path d="M106.40,-4.00 L112.98,-12.98 L104.00,-6.40 Z" fill="var(--gold)"/>
           <path d="M111.50,11.70 L122.50,10.00 L111.50,8.30 Z" fill="var(--gold)"/>
           <path d="M104.00,26.40 L112.98,32.98 L106.40,24.00 Z" fill="var(--gold)"/>
-          </g>
-            <circle class="se-sun-circle" cx="90" cy="10" r="17.5" fill="var(--gold)" stroke="none"/>
-          </g>
-        </svg>
-        <div class="se-logo-text">
-          <div class="se-logo-word" style="font-size:15px;"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
-          <div class="se-tagline" style="font-size:8px;">SOLAR . BATTERY . SOLVED</div>
-        </div>
+          <circle cx="90" cy="10" r="17.5" fill="var(--gold)"/></svg>
+        <div class="se-logo-text"><div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
+        <div class="se-tagline">SOLAR . BATTERY . SOLVED</div></div>
       </div>
-      <p class="foot-brand-blurb">Residential and commercial solar, sized to your usage, not a standard package.</p>
+      <p class="blurb">Residential and commercial solar across Sydney, sized to your usage rather than to a standard package.</p>
     </div>
-
-    <div class="foot-col">
-      <h4>Company</h4>
-      <div class="foot-links">
-        <a href="#how">How it works</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-      </div>
+    <div class="fcol">
+      <h5>Explore</h5>
+      <a href="#sizing">How we size a system</a>
+      <a href="#services">What we do</a>
+      <a href="#process">The process</a>
+      <a href="#faq">Questions</a>
     </div>
-
-    <div class="foot-col">
-      <h4>Get started</h4>
-      <div class="foot-links">
-        <a href="#quote">Get a quote</a>
-        <a href="#solver">Estimate your savings</a>
-      </div>
+    <div class="fcol">
+      <h5>Get started</h5>
+      <a href="#assessment">Book a free assessment</a>
+      <a href="#calc">Estimate your saving</a>
+      <a href="technical-details.html">Technical details</a>
     </div>
-
-    <div class="foot-col">
-      <h4>Support</h4>
-      <div class="foot-links">
-        <a href="contact.html">Contact us</a>
-        <a href="support-ticket.html">Submit a Ticket</a>
-        <a href="refunds-policy.html">Refunds Policy</a>
-        <a href="complaints-handling.html">Complaints Handling Policy</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener">New Energy Tech Consumer Code</a>
-      </div>
+    <div class="fcol">
+      <h5>Support</h5>
+      <a href="contact.html">Contact us</a>
+      <a href="support-ticket.html">Submit a ticket</a>
+      <a href="refunds-policy.html">Refunds policy</a>
+      <a href="complaints-handling.html">Complaints handling</a>
+      <a href="privacy-policy.html">Privacy policy</a>
     </div>
   </div>
-
-  <div class="wrap">
-    <div class="foot-bottom">
-      <div class="foot-flags">
-        <svg viewBox="0 0 80 40" width="48" height="24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Australian Aboriginal Flag">
-  <clipPath id="flagClipA"><rect x="0" y="0" width="80" height="40" rx="5"/></clipPath>
-  <g clip-path="url(#flagClipA)">
-    <rect x="0" y="0" width="80" height="20" fill="#000000"/>
-    <rect x="0" y="20" width="80" height="20" fill="#FF0000"/>
-    <circle cx="40" cy="20" r="12.2" fill="#FFFF00"/>
-  </g>
-  <rect x="0.75" y="0.75" width="78.5" height="38.5" rx="4.5" fill="none" stroke="var(--line)" stroke-width="1.5"/>
-</svg>
-        <svg viewBox="0 0 80 40" width="48" height="24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Torres Strait Islander Flag">
-  <clipPath id="flagClipT"><rect x="0" y="0" width="80" height="40" rx="5"/></clipPath>
-  <g clip-path="url(#flagClipT)">
-    <rect x="0" y="0" width="80" height="40" fill="#008364"/>
-    <rect x="0" y="6.7" width="80" height="26.6" fill="#000000"/>
-    <rect x="0" y="9" width="80" height="22" fill="#004A87"/>
-    <path d="M38.77,9.53 C38,10.3 37.3,11 36.8,11.7 C33,12.8 30.5,14.6 30.0,16.46 C30.0,18 30.15,19.3 30.33,20.5 L35.26,20.5 C35.1,18.5 35.5,16.5 36.7,14.8 C37.6,13.5 39,12.3 40,10.9 C41,12.3 42.4,13.5 43.3,14.8 C44.5,16.5 44.9,18.5 44.74,20.5 L49.67,20.5 C49.85,19.3 50.0,18 50.0,16.46 C49.5,14.6 47.0,12.8 43.2,11.7 C42.7,11 42.0,10.3 41.23,9.53 C40.9,10.0 40.4,10.4 40,10.4 C39.6,10.4 39.1,10.0 38.77,9.53 Z" fill="#FFFFFF"/>
-    <path d="M30.00,16.47 L29.67,18.07 L29.67,19.67 L29.87,21.27 L30.27,22.87 L30.80,24.47 L31.53,26.07 L31.93,26.87 L30.67,27.93 L29.35,28.95 L28.35,29.35 L26.2,31.1 L28.75,29.85 L29.6,29.55 C29.0,30.3 30.4,29.3 31.9,27.8 C33.7,26 35.0,23 35.26,20.5 C35.3,19 35.3,17.6 35.26,17.0 C33.6,17.3 31.8,17.3 30.00,16.47 Z" fill="#FFFFFF"/>
-    <path d="M50.00,16.47 L50.33,18.07 L50.33,19.67 L50.13,21.27 L49.73,22.87 L49.20,24.47 L48.47,26.07 L48.07,26.87 L49.33,27.93 L50.65,28.95 L51.65,29.35 L53.8,31.1 L51.25,29.85 L50.4,29.55 C51.0,30.3 49.6,29.3 48.1,27.8 C46.3,26 45.0,23 44.74,20.5 C44.7,19 44.7,17.6 44.74,17.0 C46.4,17.3 48.2,17.3 50.00,16.47 Z" fill="#FFFFFF"/>
-    <path d="M40.00,16.46 L40.88,18.99 L43.56,19.04 L41.43,20.66 L42.20,23.23 L40.00,21.70 L37.80,23.23 L38.57,20.66 L36.44,19.04 L39.12,18.99 Z" fill="#FFFFFF"/>
-  </g>
-
-  <rect x="0.75" y="0.75" width="78.5" height="38.5" rx="4.5" fill="none" stroke="var(--line)" stroke-width="1.5"/>
-</svg>
-      </div>
-      <span>Solve Energy acknowledges the Traditional Owners of the land on which we work, live, and connect, and pays respect to Elders past and present.</span>
-    </div>
+  <div class="fack">
+    <span class="flags"><svg viewBox="0 0 80 40" width="38" height="19" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Australian Aboriginal Flag"><clipPath id="fa"><rect x="0" y="0" width="80" height="40" rx="3"/></clipPath><g clip-path="url(#fa)"><rect width="80" height="20" fill="#000"/><rect y="20" width="80" height="20" fill="#FF0000"/><circle cx="40" cy="20" r="12.2" fill="#FFFF00"/></g></svg><svg viewBox="0 0 80 40" width="38" height="19" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Torres Strait Islander Flag"><clipPath id="ft"><rect x="0" y="0" width="80" height="40" rx="3"/></clipPath><g clip-path="url(#ft)"><rect width="80" height="40" fill="#008364"/><rect y="6.7" width="80" height="26.6" fill="#000"/><rect y="9" width="80" height="22" fill="#004A87"/><path d="M38.77,9.53 C38,10.3 37.3,11 36.8,11.7 C33,12.8 30.5,14.6 30.0,16.46 C30.0,18 30.15,19.3 30.33,20.5 L35.26,20.5 C35.1,18.5 35.5,16.5 36.7,14.8 C37.6,13.5 39,12.3 40,10.9 C41,12.3 42.4,13.5 43.3,14.8 C44.5,16.5 44.9,18.5 44.74,20.5 L49.67,20.5 C49.85,19.3 50.0,18 50.0,16.46 C49.5,14.6 47.0,12.8 43.2,11.7 C42.7,11 42.0,10.3 41.23,9.53 C40.9,10.0 40.4,10.4 40,10.4 C39.6,10.4 39.1,10.0 38.77,9.53 Z" fill="#fff"/><path d="M30.33,17.0 L29.67,18.07 L29.67,19.67 L29.87,21.27 L30.27,22.87 L30.80,24.47 L31.53,26.07 L31.93,26.87 L30.67,27.93 L29.35,28.95 L28.35,29.35 L26.2,31.1 L28.75,29.85 L29.6,29.55 C29.0,30.3 30.4,29.3 31.9,27.8 C33.7,26 35.0,23 35.26,20.5 C35.3,19 35.3,17.6 35.26,17.0 C33.6,17.3 31.8,17.3 30.33,17.0 Z" fill="#fff"/><path d="M49.67,17.0 L50.33,18.07 L50.33,19.67 L50.13,21.27 L49.73,22.87 L49.20,24.47 L48.47,26.07 L48.07,26.87 L49.33,27.93 L50.65,28.95 L51.65,29.35 L53.8,31.1 L51.25,29.85 L50.4,29.55 C51.0,30.3 49.6,29.3 48.1,27.8 C46.3,26 45.0,23 44.74,20.5 C44.7,19 44.7,17.6 44.74,17.0 C46.4,17.3 48.2,17.3 49.67,17.0 Z" fill="#fff"/><path d="M40,16.46 L41.03,19.34 L44.09,19.43 L41.66,21.30 L42.53,24.24 L40,22.51 L37.47,24.24 L38.34,21.30 L35.91,19.43 L38.97,19.34 Z" fill="#fff"/></g></svg></span>
+    <span>Solve Energy acknowledges the Traditional Owners of the land on which we work, live, and connect, and pays respect to Elders past and present.</span>
   </div>
-
-  <div class="wrap" style="padding:0 32px; margin-bottom:6px;">
-    <span style="font-size:12.5px; color:var(--slate);">Solve Energy aligns its practices with the <a href="https://assets.newenergytech.org.au/uploads/New-Energy-Tech-Consumer-Code.pdf" target="_blank" rel="noopener" style="color:var(--slate); text-decoration:underline;">New Energy Tech Consumer Code</a>.</span>
-  </div>
-
-  <div class="wrap foot-copyright">© 2026 Solve Energy. Licensed solar retailer &amp; installer. ABN 82 248 386 385.</div>
+  <div class="fbase">© 2026 Solve Energy. ABN 82 248 386 385.</div>
 </footer>
 
 
 <script>
-  // ---- Bill solver calculator ----
-  const slider = document.getElementById('billSlider');
-  const billOut = document.getElementById('billOut');
-  const sysSize = document.getElementById('sysSize');
-  const panelCount = document.getElementById('panelCount');
-  const savings = document.getElementById('savings');
-  const payback = document.getElementById('payback');
-
-  function updateSolver(){
-    const bill = parseInt(slider.value, 10);
-    billOut.textContent = bill;
-
-    const rawKw = Math.max(1.5, bill / 27);          // rough sizing heuristic
-    const panels = Math.ceil((rawKw * 1000) / 500);  // 500W panels, rounded up to a whole panel
-    const kw = panels * 500 / 1000;                  // system size now derived FROM the panel count, so the two always agree
-    const monthlySavings = Math.round(bill * 0.82);  // ~82% offset
-    const installCost = kw * 1150 + 900;             // per-kW cost + fixed soft costs (permits, admin, switchboard)
-    const annualSavings = monthlySavings * 12;
-    const paybackYrs = (installCost / annualSavings);
-
-    sysSize.innerHTML = kw.toFixed(1) + '<span>kW</span>';
-    panelCount.innerHTML = panels + '<span>panels</span>';
-    savings.innerHTML = '$' + monthlySavings + '<span>/mo</span>';
-    payback.innerHTML = paybackYrs.toFixed(1) + '<span>yrs</span>';
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!els.length) return;
+  var D=460, ticking=false;
+  function frame(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    for(var i=0;i<els.length;i++){
+      var top=els[i].getBoundingClientRect().top;
+      var raw=(vh-top)/D; if(raw<0)raw=0; if(raw>1)raw=1;
+      els[i].style.setProperty('--rv', (1-Math.pow(1-raw,2)).toFixed(3));
+    }
+    ticking=false;
   }
-  slider.addEventListener('input', updateSolver);
-  updateSolver();
-
-  // ---- Energy flow diagram ----
-  const flowData = {
-    sun: {
-      title:'Sunlight',
-      idx:'01 / SUN',
-      body:"Photons hit the panel surface. More direct sun means more energy, but panels still generate on cloudy days, just at a reduced rate. Sydney gets enough usable sun year-round to make solar worthwhile in almost every case."
-    },
-    panel: {
-      title:'Solar panels',
-      idx:'02 / PANELS',
-      body:"Panels convert sunlight into direct current (DC) electricity. Panel count and placement are set during your design phase based on roof size, tilt, and shading, not a fixed catalogue size."
-    },
-    inverter: {
-      title:'Inverter',
-      idx:'03 / INVERTER',
-      body:"DC electricity from the panels isn't usable in your home. The inverter converts it to alternating current (AC), the same form of power your appliances and the grid run on."
-    },
-    home: {
-      title:'Your home or business',
-      idx:'04 / HOME',
-      body:"AC power is used immediately by whatever's running: lights, appliances, machinery. This is the cheapest power you'll ever use, because it never touches the grid."
-    },
-    battery: {
-      title:'Battery',
-      idx:'04 / BATTERY',
-      body:"Power you generate but don't use immediately can be stored in a battery, ready for the evening or a blackout, instead of being sold back at a lower rate than you'd pay to buy it."
-    },
-    grid: {
-      title:'The grid',
-      idx:'04 / GRID',
-      body:"Any surplus beyond your use and battery capacity is exported to the grid, usually earning a feed-in credit on your bill. At night, you draw back from the grid as needed."
-    }
-  };
-
-  const nodes = document.querySelectorAll('.flow-node');
-  const detail = document.getElementById('flowDetail');
-
-  function setNode(key){
-    nodes.forEach(n => n.classList.toggle('active', n.dataset.node === key));
-    const d = flowData[key];
-    detail.innerHTML = '<span class="fd-index">'+d.idx+'</span><h4>'+d.title+'</h4><p>'+d.body+'</p>';
-  }
-  nodes.forEach(n => {
-    n.addEventListener('mouseenter', () => setNode(n.dataset.node));
-    n.addEventListener('click', () => setNode(n.dataset.node));
-    n.setAttribute('tabindex','0');
-    n.addEventListener('focus', () => setNode(n.dataset.node));
-    n.addEventListener('keypress', (e) => { if(e.key === 'Enter') setNode(n.dataset.node); });
-  });
-  setNode('sun');
-
-  // ---- Mobile hamburger menu ----
-  (function(){
-    const toggle = document.getElementById('mobileMenuToggle');
-    const menu = document.getElementById('mobileMenu');
-    if(!toggle || !menu) return;
-
-    function closeMenu(){
-      menu.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-    function toggleMenu(){
-      const isOpen = menu.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    }
-    toggle.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    document.addEventListener('click', (e) => {
-      if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
-    });
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
-    window.addEventListener('resize', () => { if(window.innerWidth > 840) closeMenu(); });
-  })();
-
-  // ---- Header "Support" dropdown ----
-  (function(){
-    const wrap = document.getElementById('navSupportDropdown');
-    const trigger = document.getElementById('navSupportTrigger');
-    if(!wrap || !trigger) return;
-
-    function close(){
-      wrap.classList.remove('open');
-      trigger.setAttribute('aria-expanded', 'false');
-    }
-    function toggle(){
-      const isOpen = wrap.classList.toggle('open');
-      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    }
-    trigger.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
-    document.addEventListener('click', (e) => { if(!wrap.contains(e.target)) close(); });
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') close(); });
-  })();
-
-  // ---- Custom "Property type" dropdown ----
-  (function(){
-    const wrap = document.getElementById('propertyTypeWrap');
-    const trigger = document.getElementById('propertyTypeTrigger');
-    const valueEl = document.getElementById('propertyTypeValue');
-    const options = document.getElementById('propertyTypeOptions');
-    const items = Array.from(options.querySelectorAll('li'));
-    let activeIndex = -1;
-
-    function openList(){
-      wrap.classList.add('open');
-      wrap.classList.remove('error');
-      trigger.setAttribute('aria-expanded', 'true');
-      const selectedIdx = items.findIndex(li => li.getAttribute('aria-selected') === 'true');
-      activeIndex = selectedIdx >= 0 ? selectedIdx : 0;
-      highlight();
-    }
-    function closeList(){
-      wrap.classList.remove('open');
-      trigger.setAttribute('aria-expanded', 'false');
-      items.forEach(li => li.classList.remove('is-active'));
-    }
-    function highlight(){
-      items.forEach((li, i) => li.classList.toggle('is-active', i === activeIndex));
-    }
-    function choose(li){
-      items.forEach(l => l.removeAttribute('aria-selected'));
-      li.setAttribute('aria-selected', 'true');
-      valueEl.textContent = li.dataset.value;
-      valueEl.classList.remove('placeholder');
-      wrap.dataset.value = li.dataset.value;
-      const hidden = document.getElementById('propertyTypeHidden');
-      if(hidden) hidden.value = li.dataset.value;
-      closeList();
-      trigger.focus();
-    }
-
-    trigger.addEventListener('click', () => {
-      wrap.classList.contains('open') ? closeList() : openList();
-    });
-    items.forEach(li => li.addEventListener('click', () => choose(li)));
-
-    trigger.addEventListener('keydown', (e) => {
-      if(['Enter',' ','ArrowDown','ArrowUp'].includes(e.key)){
-        e.preventDefault();
-        if(!wrap.classList.contains('open')) openList();
-        else if(e.key === 'Enter') choose(items[activeIndex]);
-      } else if(e.key === 'Escape'){
-        closeList();
-      }
-    });
-    options.addEventListener('keydown', (e) => {
-      if(e.key === 'ArrowDown'){ e.preventDefault(); activeIndex = Math.min(activeIndex+1, items.length-1); highlight(); }
-      else if(e.key === 'ArrowUp'){ e.preventDefault(); activeIndex = Math.max(activeIndex-1, 0); highlight(); }
-      else if(e.key === 'Enter'){ e.preventDefault(); choose(items[activeIndex]); }
-      else if(e.key === 'Escape'){ closeList(); trigger.focus(); }
-    });
-    document.addEventListener('click', (e) => {
-      if(!wrap.contains(e.target)) closeList();
-    });
-
-    wrap.markInvalid = function(){
-      wrap.classList.add('error');
-      trigger.focus();
-    };
-  })();
-
-  // ---- Quote form: submits to Formspree, resets fully (including custom dropdown) on success ----
-  document.getElementById('quoteForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const form = this;
-    const wrap = document.getElementById('propertyTypeWrap');
-    if(!wrap.dataset.value){
-      wrap.markInvalid();
-      return;
-    }
-    const btn = form.querySelector('.submit-btn');
-    const originalLabel = 'Request my quote →';
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if(response.ok){
-        btn.textContent = 'Request sent ✓';
-        form.reset();
-        // custom dropdown doesn't respond to form.reset() — clear it manually
-        const valueEl = document.getElementById('propertyTypeValue');
-        valueEl.textContent = 'Property type';
-        valueEl.classList.add('placeholder');
-        wrap.dataset.value = '';
-        document.getElementById('propertyTypeHidden').value = '';
-        document.querySelectorAll('#propertyTypeOptions li').forEach(li => li.removeAttribute('aria-selected'));
-        setTimeout(() => { btn.disabled = false; btn.textContent = originalLabel; }, 4000);
-      } else {
-        btn.textContent = 'That didn\'t go through. Try again';
-        btn.disabled = false;
-      }
-    }).catch(() => {
-      btn.textContent = 'That didn\'t go through. Try again';
-      btn.disabled = false;
-    });
-  });
-
-  // ---- Scroll reveal: each page bubbles into view as it naturally scrolls up into the viewport ----
-  (function(){
-    const ids = ['how','services','process','proof','faq','quote'];
-    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-    if(!sections.length) return;
-
-    const REVEAL_DIST = 420; // px of scroll over which a page settles into place as it arrives
-    let active = window.innerWidth >= 900;
-    let ticking = false;
-
-    function update(){
-      ticking = false;
-      if(!active) return;
-      const vh = window.innerHeight;
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        const raw = (vh - rect.top) / REVEAL_DIST;
-        const linear = Math.max(0, Math.min(1, raw));
-        const progress = 1 - Math.pow(1 - linear, 2); // ease-out: fast start, gentle settle
-        sec.style.setProperty('--reveal', progress.toFixed(4));
-      });
-    }
-    function onScroll(){
-      if(!ticking){
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', () => {
-      active = window.innerWidth >= 900;
-      if(active) update();
-      else sections.forEach(sec => sec.style.removeProperty('--reveal'));
-    });
-    update();
-  })();
-
-  // ---- Battery percentage + day/night cycle: one synchronized clock, stepping in multiples of 10 ----
-  // Day: 10% → 100% over the sun's 10s crossing (one +10 step per second).
-  // Night: 100% → 10% over the moon's 10s crossing, until it meets the sun again.
-  (function(){
-    const battEls = document.querySelectorAll('.batt-label');
-    const wrap = document.getElementById('flowWrap');
-    if(!battEls.length || !wrap) return;
-
-    let isNight = false;
-    let step = 0; // 0–9 across the current 10s phase
-
-    function render(){
-      const pct = isNight ? (100 - step * 10) : (step + 1) * 10;
-      battEls.forEach(el => el.textContent = pct + '%');
-      battEls.forEach(el => {
-        el.classList.remove('tick');
-        void el.offsetWidth; // restart flash animation
-        el.classList.add('tick');
-      });
-    }
-
-    wrap.classList.remove('is-night');
-    render();
-
-    setInterval(() => {
-      step++;
-      if(step >= 10){
-        step = 0;
-        isNight = !isNight;
-        wrap.classList.toggle('is-night', isNight);
-      }
-      render();
-    }, 1000);
-  })();
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  frame();
+})();
 </script>
 
+
+<script>
+(function(){
+  var dd=document.getElementById('navdrop');
+  if(dd){
+    dd.querySelector('.navdrop-btn').addEventListener('click',function(e){
+      e.stopPropagation(); dd.classList.toggle('open');
+    });
+    document.addEventListener('click',function(e){ if(!dd.contains(e.target)) dd.classList.remove('open'); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') dd.classList.remove('open'); });
+  }
+  var b=document.querySelector('.burger'), m=document.getElementById('mobMenu');
+  if(b&&m){
+    b.addEventListener('click',function(e){ e.stopPropagation(); m.classList.toggle('open'); });
+    m.addEventListener('click',function(e){ if(e.target.tagName==='A') m.classList.remove('open'); });
+    window.addEventListener('resize',function(){ if(window.innerWidth>900) m.classList.remove('open'); });
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  var KEY='se-theme', root=document.documentElement;
+  function set(t){ root.setAttribute('data-theme',t); try{localStorage.setItem(KEY,t);}catch(e){} }
+  var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
+  if(!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) saved='dark';
+  if(saved) root.setAttribute('data-theme',saved);
+  var b=document.getElementById('themeBtn');
+  if(b) b.addEventListener('click',function(){
+    set(root.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+})();
+</script>
 
 </body>
 </html>
