@@ -861,6 +861,32 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
   .logolink:hover{opacity:.82;}
   .logolink:focus-visible{outline:2px solid var(--dawn);outline-offset:4px;}
 
+  /* footer on phones: brand full width, link columns two across */
+  @media(max-width:760px){
+    footer.v2 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px;padding:36px 20px 26px;}
+    footer.v2 .fbrand{grid-column:1 / -1;}
+    footer.v2 .fcol{min-width:0;}
+    footer.v2 .fcol:last-of-type{grid-column:1 / -1;column-count:2;column-gap:22px;}
+    footer.v2 .fcol:last-of-type h5{column-span:all;margin-bottom:8px;}
+    footer.v2 .fcol:last-of-type a{break-inside:avoid;}
+    footer.v2 .fcol h5{margin-bottom:10px;}
+    footer.v2 .fcol a{padding:6px 0;font-size:13.5px;}
+    footer.v2 .blurb{max-width:none;margin-top:14px;}
+  }
+  /* back to top */
+  .totop{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:300;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--edge);background:var(--surface);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+    box-shadow:0 14px 30px -18px rgba(23,37,63,.75);
+    opacity:0;visibility:hidden;transform:translateY(10px);
+    transition:opacity .2s,transform .2s,visibility .2s,background .16s,border-color .16s;}
+  .totop.on{opacity:1;visibility:visible;transform:none;}
+  .totop svg{width:19px;height:19px;stroke:var(--ink);stroke-width:2;fill:none;}
+  .totop:hover{background:var(--dawn);border-color:var(--dawn);}
+  .totop:hover svg{stroke:#17253F;}
+  .totop:focus-visible{outline:2px solid var(--dawn);outline-offset:3px;}
+  @media(max-width:760px){ .totop{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:44px;height:44px;} }
+
 </style>
 </head>
 <body>
@@ -1009,7 +1035,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
         <div class="se-logo-text"><div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
         <div class="se-tagline">SOLAR . BATTERY . SOLVED</div></div>
       </div></a>
-      <p class="blurb">Residential and commercial solar across Sydney, sized to your usage rather than to a standard package.</p>
+      <p class="blurb">Residential and commercial solar across Sydney, NSW.</p>
     </div>
     <div class="fcol">
       <h5>Explore</h5>
@@ -1106,6 +1132,20 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
   });
 })();
 
+</script>
+<button class="totop" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="m5.5 12.5 6.5-6.5 6.5 6.5"/></svg>
+</button>
+<script>
+(function(){
+  var btn=document.getElementById('toTop'); if(!btn) return;
+  function check(){ btn.classList.toggle('on', window.scrollY>520); }
+  window.addEventListener('scroll',check,{passive:true}); check();
+  btn.addEventListener('click',function(){
+    var soft=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:soft?'smooth':'auto'});
+  });
+})();
 </script>
 </body>
 </html>

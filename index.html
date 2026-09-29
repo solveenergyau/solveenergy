@@ -908,6 +908,66 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
     .pstep .wk{margin-top:8px;}
   }
 
+  /* footer on phones: brand full width, link columns two across */
+  @media(max-width:760px){
+    footer.v2 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px;padding:36px 20px 26px;}
+    footer.v2 .fbrand{grid-column:1 / -1;}
+    footer.v2 .fcol{min-width:0;}
+    footer.v2 .fcol:last-of-type{grid-column:1 / -1;column-count:2;column-gap:22px;}
+    footer.v2 .fcol:last-of-type h5{column-span:all;margin-bottom:8px;}
+    footer.v2 .fcol:last-of-type a{break-inside:avoid;}
+    footer.v2 .fcol h5{margin-bottom:10px;}
+    footer.v2 .fcol a{padding:6px 0;font-size:13.5px;}
+    footer.v2 .blurb{max-width:none;margin-top:14px;}
+  }
+  /* back to top */
+  .totop{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:300;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--edge);background:var(--surface);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+    box-shadow:0 14px 30px -18px rgba(23,37,63,.75);
+    opacity:0;visibility:hidden;transform:translateY(10px);
+    transition:opacity .2s,transform .2s,visibility .2s,background .16s,border-color .16s;}
+  .totop.on{opacity:1;visibility:visible;transform:none;}
+  .totop svg{width:19px;height:19px;stroke:var(--ink);stroke-width:2;fill:none;}
+  .totop:hover{background:var(--dawn);border-color:var(--dawn);}
+  .totop:hover svg{stroke:#17253F;}
+  .totop:focus-visible{outline:2px solid var(--dawn);outline-offset:3px;}
+  @media(max-width:760px){ .totop{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:44px;height:44px;} }
+
+  /* sun/flow panel on phones: bigger diagram, caption locked to one line */
+  .caption{display:flex;align-items:center;justify-content:center;min-height:46px;}
+  /* wide diagram on desktop, portrait diagram on phones */
+  svg.flow.vertical{display:none;}
+  @media(max-width:760px){
+    svg.flow.wide{display:none;}
+    svg.flow.vertical{display:block;width:100%;max-width:none;}
+    .flowinner{padding:12px 8px 4px;}
+    .scrim{background:linear-gradient(rgba(10,17,14,.38),rgba(10,17,14,.22));}
+    .stages{padding:14px 14px 0;font-size:10.5px;letter-spacing:.12em;}
+    .caption{font-size:14px;padding:6px 12px 16px;min-height:44px;line-height:1.3;}
+    .sunsec .sub{font-size:15px;}
+  }
+  @media(max-width:380px){
+    .caption{font-size:13.2px;}
+  }
+
+  /* swipe affordance for the widened diagram */
+  .flowpanel .edgefade{position:absolute;top:0;bottom:0;width:54px;pointer-events:none;z-index:3;
+    opacity:0;transition:opacity .25s;}
+  .flowpanel .edgefade.right{right:0;background:linear-gradient(90deg,rgba(12,22,40,0),rgba(12,22,40,.45));}
+  .flowpanel .edgefade.left{left:0;background:linear-gradient(270deg,rgba(12,22,40,0),rgba(12,22,40,.45));}
+  .flowpanel .swipehint{position:absolute;right:12px;bottom:56px;z-index:4;pointer-events:none;
+    font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(255,255,255,.82);background:rgba(12,22,40,.5);border:1px solid rgba(255,255,255,.22);
+    border-radius:100px;padding:5px 11px;opacity:0;transition:opacity .3s;}
+  @media(max-width:760px){
+    .flowpanel.scrollable .edgefade.right{opacity:1;}
+    .flowpanel.scrollable.atend .edgefade.right{opacity:0;}
+    .flowpanel.scrollable.scrolled .edgefade.left{opacity:1;}
+    .flowpanel.scrollable .swipehint{opacity:1;}
+    .flowpanel.scrollable.scrolled .swipehint{opacity:0;}
+  }
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","@id":"https://www.solveenergy.com.au/#org",
@@ -1014,7 +1074,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
       <a class="btn solid" href="#assessment">Book a free assessment</a>
       <a class="btn quiet" href="#sizing">See how we size a system</a>
     </div>
-    <p class="whatwedo">Solar panels, home batteries and monitoring, designed and installed across Sydney.</p>
+    <p class="whatwedo">Solar panels, home batteries and monitoring, designed and installed across Sydney, NSW.</p>
   </div>
 </section>
 
@@ -1102,7 +1162,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
     <div class="scrim"></div>
     <div class="stages"><span class="s1">MIDDAY</span><span class="s2">SUNSET</span><span class="s3">NIGHT</span></div>
     <div class="flowinner">
-      <svg class="flow" viewBox="0 0 900 290" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Energy flow across the day">
+      <svg class="flow wide" viewBox="0 0 900 290" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Energy flow across the day">
         <defs><path id="w1" d="M178,160 L258,160"/><path id="w2" d="M302,160 L398,160"/><path id="w3" d="M442,160 L526,160"/><path id="w4" d="M530,160 C586,160 586,72 688,72"/><path id="w5" d="M534,160 L688,160"/><path id="w6" d="M530,160 C586,160 586,248 688,248"/><path id="w7" d="M710,136 L710,96"/><path id="w8" d="M734,248 C782,248 782,72 734,72"/>
           <radialGradient id="sg"><stop offset="0%" stop-color="#FFE9C4" stop-opacity=".95"/>
             <stop offset="52%" stop-color="#F4A259" stop-opacity=".34"/>
@@ -1129,7 +1189,11 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
         <g class="pulse day"><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite"><mpath href="#w1" xlink:href="#w1"/></animateMotion></circle><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#w1" xlink:href="#w1"/></animateMotion></circle><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.3s" begin="0s" repeatCount="indefinite"><mpath href="#w2" xlink:href="#w2"/></animateMotion></circle><circle class="p" r="3.2" fill="#FFDCA8"><animateMotion dur="1.2s" begin="0s" repeatCount="indefinite"><mpath href="#w3" xlink:href="#w3"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="2.3s" begin="0s" repeatCount="indefinite"><mpath href="#w4" xlink:href="#w4"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="2.1s" begin="0s" repeatCount="indefinite"><mpath href="#w5" xlink:href="#w5"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="2.1s" begin="1.05s" repeatCount="indefinite"><mpath href="#w5" xlink:href="#w5"/></animateMotion></circle><circle class="p" r="3.2" fill="#AFCDE8"><animateMotion dur="2.7s" begin="0s" repeatCount="indefinite"><mpath href="#w6" xlink:href="#w6"/></animateMotion></circle></g>
         <g class="pulse night"><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="1.4s" begin="0s" repeatCount="indefinite"><mpath href="#w7" xlink:href="#w7"/></animateMotion></circle><circle class="p" r="3.2" fill="#BFE3D2"><animateMotion dur="1.4s" begin="0.7s" repeatCount="indefinite"><mpath href="#w7" xlink:href="#w7"/></animateMotion></circle><circle class="p" r="3.2" fill="#AFCDE8"><animateMotion dur="2.6s" begin="0s" repeatCount="indefinite"><mpath href="#w8" xlink:href="#w8"/></animateMotion></circle></g>
       </svg>
+<svg class="flow vertical" viewBox="0 0 360 620" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Energy flow across the day"><defs><path id="v1" d="M180,86 L180,140"/><path id="v2" d="M180,196 L180,244"/><path id="v3" d="M180,300 C180,352 88,352 88,394"/><path id="v4" d="M180,300 C180,352 272,352 272,394"/><path id="v5" d="M180,300 L180,519"/><path id="v6" d="M88,446 C88,498 180,498 180,519"/><path id="v7" d="M272,446 C272,498 180,498 180,519"/><radialGradient id="sgv"><stop offset="0%" stop-color="#FFE9C4" stop-opacity=".95"/><stop offset="52%" stop-color="#F4A259" stop-opacity=".34"/><stop offset="100%" stop-color="#F4A259" stop-opacity="0"/></radialGradient></defs><path d="M180,86 L180,140" class="wire solar"/><path d="M180,196 L180,244" class="wire solar"/><path d="M180,300 C180,352 88,352 88,394" class="wire solar"/><path d="M180,300 C180,352 272,352 272,394" class="wire solar"/><path d="M180,300 L180,519" class="wire solar"/><path d="M88,446 C88,498 180,498 180,519" class="wire "/><path d="M272,446 C272,498 180,498 180,519" class="wire "/><g class="node solarpath"><circle cx="180" cy="52" r="46" fill="url(#sgv)" class="sundisc"/><circle cx="180" cy="52" r="19" fill="#F4A259" class="sundisc"/><text class="nlabel" x="180" y="94" text-anchor="middle">Sun</text></g><g class="node solarpath"><g class="ico" transform="translate(180,168) scale(1.62) translate(-12,-12)"><path d="M4.28 14h15.44a1 1 0 0 0 .97 -1.243l-1.5 -6a1 1 0 0 0 -.97 -.757h-12.44a1 1 0 0 0 -.97 .757l-1.5 6a1 1 0 0 0 .97 1.243"/><path d="M4 10h16"/><path d="M10 6l-1 8"/><path d="M14 6l1 8"/><path d="M12 14v4"/><path d="M7 18h10"/></g><text class="nlabel" x="180" y="210" text-anchor="middle">Panels</text></g><g class="node solarpath"><g class="ico" transform="translate(180,272) scale(1.62) translate(-12,-12)"><path d="M21 12h-2c-.894 0 -1.662 -.857 -1.761 -2c-.296 -3.45 -.749 -6 -2.749 -6s-2.5 3.582 -2.5 8s-.5 8 -2.5 8s-2.452 -2.547 -2.749 -6c-.1 -1.147 -.867 -2 -1.763 -2h-2"/></g><text class="nlabel" x="180" y="314" text-anchor="middle">Inverter</text></g><g class="node "><g class="ico" transform="translate(88,420) scale(1.62) translate(-12,-12)"><path d="M6 7h11a2 2 0 0 1 2 2v.5a.5 .5 0 0 0 .5 .5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5a.5 .5 0 0 0 -.5 .5v.5a2 2 0 0 1 -2 2h-11a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2"/><path d="M7 10l0 4"/><path d="M10 10l0 4"/><path d="M13 10l0 4"/></g><text class="nlabel" x="88" y="462" text-anchor="middle">Battery</text></g><g class="node "><g class="ico" transform="translate(272,420) scale(1.62) translate(-12,-12)"><path d="M7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1 -5 -5l1.5 -1.5"/><path d="M17 12l-5 -5l1.5 -1.5a3.536 3.536 0 1 1 5 5l-1.5 1.5"/><path d="M3 21l2.5 -2.5"/><path d="M18.5 5.5l2.5 -2.5"/><path d="M10 11l-2 2"/><path d="M13 14l-2 2"/></g><text class="nlabel" x="272" y="462" text-anchor="middle">Grid</text></g><g class="node "><g class="ico" transform="translate(180,545) scale(1.62) translate(-12,-12)"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></g><text class="nlabel" x="180" y="587" text-anchor="middle">Home</text></g><g class="pulse day"><circle class="p day" r="3.4" fill="#FFD9A0"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite"><mpath href="#v1" xlink:href="#v1"/></animateMotion></circle><circle class="p day" r="3.4" fill="#FFD9A0"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#v1" xlink:href="#v1"/></animateMotion></circle><circle class="p day" r="3.4" fill="#FFD9A0"><animateMotion dur="1.3s" begin="0s" repeatCount="indefinite"><mpath href="#v2" xlink:href="#v2"/></animateMotion></circle><circle class="p day" r="3.4" fill="#9FE0BE"><animateMotion dur="2.2s" begin="0s" repeatCount="indefinite"><mpath href="#v3" xlink:href="#v3"/></animateMotion></circle><circle class="p day" r="3.4" fill="#AFCDE8"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite"><mpath href="#v4" xlink:href="#v4"/></animateMotion></circle><circle class="p day" r="3.4" fill="#FFD9A0"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite"><mpath href="#v5" xlink:href="#v5"/></animateMotion></circle><circle class="p day" r="3.4" fill="#FFD9A0"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite"><mpath href="#v5" xlink:href="#v5"/></animateMotion></circle></g><g class="pulse night"><circle class="p night" r="3.4" fill="#9FE0BE"><animateMotion dur="2.0s" begin="0s" repeatCount="indefinite"><mpath href="#v6" xlink:href="#v6"/></animateMotion></circle><circle class="p night" r="3.4" fill="#9FE0BE"><animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite"><mpath href="#v6" xlink:href="#v6"/></animateMotion></circle><circle class="p night" r="3.4" fill="#AFCDE8"><animateMotion dur="2.6s" begin="0s" repeatCount="indefinite"><mpath href="#v7" xlink:href="#v7"/></animateMotion></circle></g></svg>
     </div>
+    <div class="edgefade left" aria-hidden="true"></div>
+    <div class="edgefade right" aria-hidden="true"></div>
+    <div class="swipehint" aria-hidden="true">Swipe &rarr;</div>
     <div class="caption" id="cap">The roof runs the house and fills the battery.</div>
   </div>
 
@@ -1167,7 +1231,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
   var p=document.getElementById('panel'), cap=document.getElementById('cap');
   var steps=[['is-day','The roof runs the house and fills the battery.'],
              ['is-set','Generation falls away as demand climbs.'],
-             ['is-night','The battery runs the house; the grid covers the rest.']];
+             ['is-night','Battery runs the house, grid covers the rest.']];
   var i=0;
   setInterval(function(){ i=(i+1)%3; p.className='flowpanel '+steps[i][0]; cap.textContent=steps[i][1]; },5200);
 })();
@@ -1452,7 +1516,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
         <div class="se-logo-text"><div class="se-logo-word"><span class="se-solve">Solve</span> <span class="se-energy">Energy</span></div>
         <div class="se-tagline">SOLAR . BATTERY . SOLVED</div></div>
       </div></a>
-      <p class="blurb">Residential and commercial solar across Sydney, sized to your usage rather than to a standard package.</p>
+      <p class="blurb">Residential and commercial solar across Sydney, NSW.</p>
     </div>
     <div class="fcol">
       <h5>Explore</h5>
@@ -1540,5 +1604,36 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
 })();
 </script>
 
+<button class="totop" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="m5.5 12.5 6.5-6.5 6.5 6.5"/></svg>
+</button>
+<script>
+(function(){
+  var btn=document.getElementById('toTop'); if(!btn) return;
+  function check(){ btn.classList.toggle('on', window.scrollY>520); }
+  window.addEventListener('scroll',check,{passive:true}); check();
+  btn.addEventListener('click',function(){
+    var soft=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:soft?'smooth':'auto'});
+  });
+})();
+</script>
+<script>
+(function(){
+  var panel=document.getElementById('panel');
+  if(!panel) return;
+  var sc=panel.querySelector('.flowinner');
+  if(!sc) return;
+  function check(){
+    var can=sc.scrollWidth-sc.clientWidth>8;
+    panel.classList.toggle('scrollable',can);
+    panel.classList.toggle('scrolled',sc.scrollLeft>12);
+    panel.classList.toggle('atend',sc.scrollLeft>=sc.scrollWidth-sc.clientWidth-12);
+  }
+  sc.addEventListener('scroll',check,{passive:true});
+  window.addEventListener('resize',check);
+  check(); setTimeout(check,400);
+})();
+</script>
 </body>
 </html>
