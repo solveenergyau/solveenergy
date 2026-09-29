@@ -1083,7 +1083,7 @@ svg.flow{display:block;width:100%;height:auto;font-family:'Inter',sans-serif;}
   var KEY='se-theme', root=document.documentElement;
   function set(t){ root.setAttribute('data-theme',t); try{localStorage.setItem(KEY,t);}catch(e){} }
   var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
-  if(!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) saved='dark';
+  /* light is the default; dark only when the visitor clicks the toggle */
   if(saved) root.setAttribute('data-theme',saved);
   var b=document.getElementById('themeBtn');
   if(b) b.addEventListener('click',function(){
